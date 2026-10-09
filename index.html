@@ -37,7 +37,6 @@ body{background:transparent;color:var(--fg);font-family:var(--font-body);font-si
 #descent .sky,#descent .earth{position:absolute;inset:0}
 #descent .sky{background:linear-gradient(180deg,#3d8fe3 0%,#9fcdf4 45%,#e6f2fc 100%)}
 #descent .earth{background:linear-gradient(180deg,#bfe0f5 0%,#cfe6c4 45%,#7fb86a 100%);opacity:0}
-.altitude{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;white-space:nowrap;margin-left:.5rem}
 a{color:var(--ocean);text-decoration:none;border-bottom:1px solid transparent}
 a:hover,a:focus-visible{border-bottom-color:currentColor}
 a:focus-visible,button:focus-visible{outline:2px solid var(--ocean);outline-offset:3px}
@@ -126,10 +125,22 @@ section .wrap{padding-block:3rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--ocean),var(--sky));color:#ffffff;padding:.65rem 1.1rem;border-radius:999px;font-weight:600;font-size:.9rem;border:0;box-shadow:0 0 24px var(--glow)}
 .btn:hover{filter:brightness(1.08);border-bottom-color:transparent}
 
-#contact{border-top:0;min-height:520px;background:transparent;overflow:hidden;isolation:isolate}
+#contact{border-top:0;min-height:900px;background:transparent;overflow:hidden;isolation:isolate}
 #land{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
-#contact .wrap{padding-block:4.5rem 5rem}
-#contact .card{background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border-radius:14px;padding:1.6rem 1.8rem;max-width:720px;box-shadow:0 10px 40px rgba(20,60,30,.25)}
+#contact .wrap{padding-block:4.5rem 14rem}
+#contact .card{background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:14px;padding:1.6rem 1.8rem;max-width:760px;box-shadow:0 10px 40px rgba(20,60,30,.25)}
+#contact .card+.card{margin-top:1.4rem}
+.form{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.form label{display:grid;gap:.3rem;font-size:.8rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--land)}
+.form label.full{grid-column:1 / -1}
+.form input,.form textarea{font:inherit;font-family:var(--font-body);font-size:.95rem;color:var(--fg);background:#fff;border:1px solid var(--line);border-radius:8px;padding:.6rem .75rem;width:100%;letter-spacing:0;text-transform:none}
+.form input:focus,.form textarea:focus{outline:2px solid var(--sky);outline-offset:1px;border-color:var(--sky)}
+.form textarea{min-height:140px;resize:vertical}
+.form .actions{grid-column:1 / -1;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.form .note{font-size:.82rem;color:var(--muted);margin:0}
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#form-status{font-size:.9rem;margin:.2rem 0 0;color:var(--land);grid-column:1 / -1}
+@media (max-width:620px){.form{grid-template-columns:1fr}}
 #contact h2{margin-bottom:.9rem}
 .contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem 2rem}
 .contact dt{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin-bottom:.2rem}
@@ -166,7 +177,6 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
       <li><a href="#outreach">Outreach</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <span class="altitude" id="altitude" aria-live="off">alt 10.0 km</span>
   </div>
 </nav>
 
@@ -195,8 +205,8 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
     <h2>Welcome</h2>
     <p class="lead">I am an environmental geochemist working at the boundary between aqueous chemistry and atmospheric science. My research asks how acidic an aerosol particle really is, how much water it holds, and what that means for the reactions that happen inside it, with a particular interest in the oxidation of iron(II).</p>
     <p>Since July 2026 I have been a postdoctoral researcher at the Environmental Science Research Center of Chiang Mai University, where I study the chemistry of transboundary biomass-burning haze in Northern Thailand. I estimate size-resolved aerosol pH and aerosol liquid water content (ALWC) with thermodynamic models such as E-AIM, ISORROPIA and AIOMFAC, with the aim of improving how these models represent haze-period aerosol.</p>
-    <p>I completed my PhD in Environmental Geochemistry at Imperial College London in 2026, where I quantified how pH, temperature and speciation jointly control Fe(II) oxidation kinetics in oxygenated solutions. Along the way I developed a temperature-dependent nonlinear calibration for glass pH electrodes that extends reliable measurement to negative pH. I remain a visiting researcher at Imperial, collaborating on negative-pH chemistry and advising PhD students on computational atmospheric modelling.</p>
-    <p>I am always happy to hear from potential collaborators, students, or anyone curious about aerosol acidity. Please <a href="#contact">get in touch</a>.</p>
+    <p>I completed my PhD in Environmental Geochemistry at Imperial College London in 2026, where I quantified how pH, temperature and speciation jointly control Fe(II) oxidation kinetics in oxygenated solutions. Along the way I developed a temperature-dependent nonlinear calibration for glass pH electrodes that extends reliable measurement to negative pH. I am also a visiting researcher at Imperial, where I continue to collaborate on negative-pH chemistry and advise PhD students on computational atmospheric modelling.</p>
+    <p>I am always happy to hear from potential collaborators, students, or anyone curious about aerosol acidity, so please <a href="#contact">get in touch</a>.</p>
     <h3 class="sub">Education</h3>
     <div class="roles">
       <div class="role">
@@ -209,7 +219,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
         <h3>MSci Geology</h3>
         <span class="when">Sep 2017 – Jun 2021</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London, UK</span>
-        <p>Thesis: <em>Biogeochemical Modelling of Arsenic Species in Oceans</em>. Awarded the highest MSci thesis mark in the department.</p>
+        <p>Thesis: <em>Biogeochemical Modelling of Arsenic Species in Oceans</em>. Achieved the highest MSci thesis mark in the department and received the Earth Science and Engineering Centenary Prize.</p>
       </div>
     </div>
   </div>
@@ -219,12 +229,13 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
   <div class="wrap">
     <h2>News</h2>
     <ul class="news">
-      <li><time>1 Oct 2026</time><span>Appointed Visiting Researcher in the Department of Earth Science and Engineering, Imperial College London.</span></li>
+      <li><time>1 Oct 2026</time><span>Appointed Visiting Researcher in the Department of Earth Science and Engineering, Imperial College London, to continue ongoing research and begin new collaborative work on negative pH, atmospheric pollution and aerosol thermodynamic modelling.</span></li>
       <li><time>20 Aug 2026</time><span>New paper in <em>Talanta</em>: <a href="https://doi.org/10.1016/j.talanta.2026.130486">optimising nonlinear calibration of glass pH electrodes over pH −4.5 to 15.5 with improved statistical treatment of acid and alkaline errors</a>.</span></li>
       <li><time>2 Jul 2026</time><span>New paper in <em>ACS Omega</em>: <a href="https://doi.org/10.1021/acsomega.6c01903">temperature-dependent nonlinear calibration of glass pH electrodes for negative pH applications</a>.</span></li>
-      <li><time>1 Jul 2026</time><span>Started as a Postdoctoral Researcher at the Environmental Science Research Center, Chiang Mai University, working on biomass-burning haze aerosol chemistry.</span></li>
-      <li><time>1 Apr 2026</time><span>PhD awarded by Imperial College London. Thesis: <em>Quantifying the Co-dependencies of pH, Temperature, and Speciation on Iron(II) Oxidation Kinetics in Oxygenated Aqueous Solutions</em>.</span></li>
-      <li><time>5 Mar 2026</time><span>New collaboration on <a href="research/aerosol-acidity-haze.html">aerosol pH and liquid water content during biomass-burning haze</a> begins with Assoc. Prof. Somporn Chantara at the Environmental Science Research Center, Chiang Mai University.</span></li>
+      <li><time>1 Jul 2026</time><span>Joined the Environmental Science Research Center, Chiang Mai University, as a Postdoctoral Researcher working on the aerosol chemistry of biomass-burning haze.</span></li>
+      <li><time>1 Apr 2026</time><span>PhD awarded by Imperial College London.</span></li>
+      <li><time>5 Mar 2026</time><span>Started a new collaboration with Assoc. Prof. Somporn Chantara at the Environmental Science Research Center, Chiang Mai University, on <a href="research/aerosol-acidity-haze.html">aerosol pH and liquid water content during biomass-burning haze</a>.</span></li>
+      <li><time>9 Dec 2025</time><span>I passed my PhD viva yeahhh</span></li>
     </ul>
   </div>
 </section>
@@ -232,7 +243,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
 <section id="research">
   <div class="wrap">
     <h2>Research</h2>
-    <p class="lead">My work combines laboratory experiments, thermodynamic and kinetic modelling, and field aerosol measurements. Four threads run through it.</p>
+    <p class="lead">My work combines laboratory experiments, thermodynamic and kinetic modelling, and field measurements of aerosol. It falls into four main threads.</p>
     <div class="themes">
       <article class="theme">
         <div>
@@ -245,7 +256,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
       <article class="theme">
         <div>
           <h3><a href="research/fe2-oxidation-kinetics.html">Fe(II) oxidation kinetics across pH and temperature</a></h3>
-          <p>The oxidation of ferrous iron by dissolved oxygen is one of the most pH-sensitive reactions in environmental chemistry, yet rate laws for very acidic, sulphate-rich conditions have been poorly constrained. My PhD produced a coupled pH–temperature logistic rate law for Fe(II) oxidation in sulphuric acid media spanning pH −1.5 to 8.0 and 5 to 65 °C, and an experimental–computational framework for how ligands and acid systems alter the kinetics. The results feed into models of iron bioavailability in atmospheric aerosol and of sulphate-rich waters such as acid mine drainage.</p>
+          <p>The oxidation of ferrous iron by dissolved oxygen is one of the most pH-sensitive reactions in environmental chemistry, yet rate laws for very acidic, sulphate-rich conditions have been poorly constrained. My PhD produced a coupled pH–temperature logistic rate law for Fe(II) oxidation in sulphuric acid media spanning pH −1.5 to 8.0 and 5 to 65 °C, together with an experimental and computational framework for understanding how ligands and different acid systems alter the kinetics. The results feed into models of iron bioavailability in atmospheric aerosol and of sulphate-rich waters such as acid mine drainage.</p>
           <p class="tools">UV–Vis colorimetry · PHREEQC · MINTEQ · HySS · DFT (Gaussian)</p>
         <p class="more-link"><a href="research/fe2-oxidation-kinetics.html">Read more about this project →</a></p>
         </div>
@@ -279,25 +290,25 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
         <h3>Postdoctoral Researcher</h3>
         <span class="when">Jul 2026 – present</span>
         <span class="where">Environmental Science Research Center (ESRC), Chiang Mai University, Thailand</span>
-        <p>Atmospheric aerosol chemistry of transboundary biomass-burning haze in Northern Thailand; aerosol pH and ALWC estimation using E-AIM, ISORROPIA and AIOMFAC.</p>
+        <p>I study the atmospheric chemistry of transboundary biomass-burning haze in Northern Thailand, estimating aerosol pH and liquid water content with E-AIM, ISORROPIA and AIOMFAC.</p>
       </div>
       <div class="role">
         <h3>Visiting Researcher</h3>
         <span class="when">Oct 2026 – present</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London, UK</span>
-        <p>Collaborative research on negative pH, atmospheric pollution and thermodynamic modelling.</p>
+        <p>I continue to collaborate with the Environmental Geochemistry group on negative-pH chemistry, air pollution and thermodynamic modelling.</p>
       </div>
       <div class="role">
         <h3>Transition to Zero Pollution PhD student (Cohort 3)</h3>
         <span class="when">Sep 2021 – Oct 2025</span>
         <span class="where">NERC Science and Solutions for a Changing Planet DTP, Grantham Institute, Imperial College London, UK</span>
-        <p>Selected as one of 10 PhD students across the College to join the Transition to Zero Pollution initiative.</p>
+        <p>I was one of 10 PhD students selected from across the College to join the Transition to Zero Pollution initiative.</p>
       </div>
       <div class="role">
         <h3>UROP Research Assistant</h3>
         <span class="when">2019 – 2020</span>
         <span class="where">Imperial College London, UK</span>
-        <p>Co-authored a revised pseudo-second-order adsorption kinetic model (Langmuir, 2021) and a meta-analysis of arsenic adsorption rate constants.</p>
+        <p>I co-authored a revised pseudo-second-order model for adsorption kinetics (Langmuir, 2021) and carried out a meta-analysis of arsenic adsorption rate constants.</p>
       </div>
     </div>
     <h2 class="h2-spaced">Awards &amp; scholarships</h2>
@@ -306,19 +317,19 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
         <h3>Earth Science and Engineering Centenary Prize</h3>
         <span class="when">Jun 2021</span>
         <span class="where">Imperial College London, UK</span>
-        <p>Departmental prize for the highest-scoring MSci thesis of the year.</p>
+        <p>The department's prize for the highest-scoring MSci thesis of the year.</p>
       </div>
       <div class="role">
         <h3>TZP UROP Scholarship Scheme</h3>
         <span class="when">Jun – Sep 2021</span>
         <span class="where">Imperial College London, UK</span>
-        <p>Competitive undergraduate research scholarship for independent research on marine arsenic biogeochemistry.</p>
+        <p>A competitive undergraduate scholarship that funded ten weeks of independent research on marine arsenic biogeochemistry.</p>
       </div>
       <div class="role">
         <h3>Development and Promotion of Science and Technology Talents Project (DPST) scholarship</h3>
         <span class="when">May 2012 – Oct 2025</span>
         <span class="where">Royal Thai Government, Thailand</span>
-        <p>National scholarship fully funding education from high school through PhD, including sponsorship for overseas study.</p>
+        <p>A national scholarship that fully funded my education from high school through to my PhD, including sponsorship to study overseas.</p>
       </div>
     </div>
   </div>
@@ -359,25 +370,25 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
         <h3>Research project co-supervisor</h3>
         <span class="when">2021 – 2026</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>Co-supervised six students (three UROP, two MSci and one MSc) on Fe(II) oxidation and analytical Fe(II) measurement; two achieved First-Class marks and one a high 2:1. Most recently guided an MSc project on post-rainfall PM<sub>2.5</sub> declines in Singapore from idea development through thesis feedback.</p>
+        <p>I co-supervised six students (three UROP, two MSci and one MSc) on Fe(II) oxidation and analytical Fe(II) measurement; two of them achieved First-Class marks and one a high 2:1. Most recently I guided an MSc project on post-rainfall PM<sub>2.5</sub> declines in Singapore, from developing the research idea through to feedback on the thesis.</p>
       </div>
       <div class="role">
         <h3>Graduate teaching assistant</h3>
         <span class="when">2021 – 2023</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>Supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
+        <p>I supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led the Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
       </div>
       <div class="role">
         <h3>Laboratory manager</h3>
         <span class="when">Jul – Dec 2023</span>
         <span class="where">Environmental Geochemistry Laboratory, Imperial College London</span>
-        <p>Managed laboratory operations and inventory and trained new researchers in safety, experimental procedures and analytical instruments (UV–Vis spectrometers, Metrohm Titrando).</p>
+        <p>I managed the laboratory's day-to-day operations and inventory, and trained new researchers in safety procedures, experimental methods and the analytical instruments (UV–Vis spectrometers and a Metrohm Titrando).</p>
       </div>
       <div class="role">
         <h3>Seminar coordinator</h3>
         <span class="when">Jan – Jun 2022</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>Organised the departmental Environmental Science seminar series.</p>
+        <p>I organised the department's Environmental Science seminar series, scheduling speakers and inviting researchers to present their work.</p>
       </div>
     </div>
   </div>
@@ -391,19 +402,19 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
         <h3>Environmental Geochemistry Teaching Corner</h3>
         <span class="when">Mar 2026 – present</span>
         <span class="where"><a href="https://www.youtube.com/@EnvGeoChemTeachingCorner">youtube.com/@EnvGeoChemTeachingCorner</a></span>
-        <p>Short explainers on current environmental geochemistry research, aimed at students and the curious public.</p>
+        <p>Short videos explaining current research in environmental geochemistry, aimed at students and anyone curious about the subject.</p>
       </div>
       <div class="role">
         <h3>Science content developer</h3>
         <span class="when">Jan – Jun 2026</span>
         <span class="where">Nexrise Partners Co., Ltd., Bangkok (remote)</span>
-        <p>Developed science curriculum materials across more than 180 modules in Earth science, physics and technology.</p>
+        <p>I developed science curriculum materials for more than 180 modules in Earth science, physics and technology.</p>
       </div>
       <div class="role">
         <h3>Climate science and AI evaluation</h3>
         <span class="when">May – Dec 2025</span>
-        <span class="where">Remote research assistant</span>
-        <p>Evaluated and refined AI-generated climate science responses across eight projects, contributing annotated data to the CLINB climate benchmark study (<a href="https://doi.org/10.48550/arXiv.2511.11597">arXiv:2511.11597</a>).</p>
+        <span class="where">Prolific / Scale AI (remote)</span>
+        <p>I evaluated and refined AI-generated climate science responses across eight projects, contributing annotated data to the CLINB climate benchmark study (<a href="https://doi.org/10.48550/arXiv.2511.11597">arXiv:2511.11597</a>).</p>
       </div>
     </div>
   </div>
@@ -417,7 +428,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
     <dl class="contact">
       <div>
         <dt>Email</dt>
-        <dd><span id="email">sarawudsaleesongsom@hotmail.com</span><button class="copy" type="button" data-copy="email" id="copy-email">copy</button></dd>
+        <dd><span id="email">sarawudsaleesongsom@hotmail.com</span><button class="copy" type="button" data-copy="email" id="copy-email">copy</button><br><span id="email2">sarawud.saleesongsom17@imperial.ac.uk</span><button class="copy" type="button" data-copy="email2" id="copy-email2">copy</button></dd>
       </div>
       <div>
         <dt>Office</dt>
@@ -433,6 +444,21 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
       </div>
     </dl>
     </div>
+  <div class="card">
+    <h3 style="margin-bottom:.9rem">Send me a message</h3>
+    <form class="form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label>Name<input type="text" name="name" id="f-name" required autocomplete="name"></label>
+      <label>Email<input type="email" name="email" id="f-email" required autocomplete="email"></label>
+      <label class="full">Subject<input type="text" name="_subject" id="f-subject" placeholder="e.g. Collaboration on aerosol pH"></label>
+      <label class="full">Message<textarea name="message" id="f-message" required></textarea></label>
+      <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      <div class="actions">
+        <button class="btn" type="submit" id="f-send">Send message</button>
+        <p class="note">I will try to reply within 3–5 working days.</p>
+      </div>
+      <p id="form-status" role="status"></p>
+    </form>
+  </div>
   </div>
 </section>
 
@@ -440,11 +466,13 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" defer></script>
 <script>
-document.getElementById('copy-email').addEventListener('click',function(){
-  var btn=this,txt=document.getElementById('email').textContent;
-  function done(){btn.textContent='copied';setTimeout(function(){btn.textContent='copy'},1500)}
-  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=window.getSelection();s.removeAllRanges();s.addRange(r)}
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
+Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.getAttribute('data-copy')),txt=el.textContent;
+    function done(){btn.textContent='copied';setTimeout(function(){btn.textContent='copy'},1500)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
+  });
 });
 
 (function(){
@@ -509,51 +537,66 @@ document.getElementById('copy-email').addEventListener('click',function(){
   size();frame();window.addEventListener('resize',function(){size();if(reduce)frame();});
 })();
 (function(){
-  var earth=document.querySelector('#descent .earth'),alt=document.getElementById('altitude');
+  var earth=document.querySelector('#descent .earth');
   function upd(){var max=document.documentElement.scrollHeight-window.innerHeight;var p=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
     var e=p*p*(3-2*p);earth.style.opacity=e;
-    var km=10*(1-p);alt.textContent=p>=0.985?'ground level':'alt '+km.toFixed(1)+' km';}
+  }
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 })();
 (function(){
   var c=document.getElementById('land');if(!c)return;var ctx=c.getContext('2d');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W,H,t=0,vis=true;
+  var W,H;
+  // deterministic pseudo-random so the scene is identical on every load
+  function rng(seed){return function(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;};}
   function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
-  function hill(x,seed,amp,freq){return Math.sin(x*freq+seed)*amp+Math.sin(x*freq*2.3+seed*1.7)*amp*.35+Math.sin(x*freq*5.1+seed*.6)*amp*.12;}
-  var layers=[
-    {base:.34,amp:.09,freq:.0035,seed:1.2,speed:4, top:'#8db3d6',bot:'#6f9cc2'},
-    {base:.44,amp:.07,freq:.005,seed:4.1,speed:9, top:'#7fae90',bot:'#5f9476'},
-    {base:.54,amp:.065,freq:.007,seed:2.6,speed:16,top:'#6fae62',bot:'#4f8f48'},
-    {base:.66,amp:.06,freq:.009,seed:7.3,speed:26,top:'#86c45e',bot:'#5aa042'}
-  ];
-  function path(L,off){ctx.beginPath();ctx.moveTo(0,H);for(var x=0;x<=W;x+=6){var y=H*(L.base+hill(x+off,L.seed,L.amp,L.freq));ctx.lineTo(x,y);}ctx.lineTo(W,H);ctx.closePath();}
+  function ridge(x,seed,amp,freq){return Math.sin(x*freq+seed)*amp+Math.sin(x*freq*2.7+seed*1.9)*amp*.4+Math.abs(Math.sin(x*freq*6.3+seed))*amp*.15;}
+  function cloud(cx,cy,r,R){var k=0;for(var i=0;i<7;i++){var a=i/7*6.283;var rr=r*(0.55+0.45*R());ctx.beginPath();ctx.arc(cx+Math.cos(a)*r*.75,cy+Math.sin(a)*r*.28,rr,0,6.283);ctx.fill();}
+    ctx.beginPath();ctx.arc(cx,cy-r*.15,r*.9,0,6.283);ctx.fill();}
   function draw(){
-    ctx.clearRect(0,0,W,H);
-    var sky=ctx.createLinearGradient(0,0,0,H*.6);sky.addColorStop(0,'#bfe0f5');sky.addColorStop(1,'#eef6fb');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
-    // distant haze band
-    var hz=ctx.createLinearGradient(0,H*.25,0,H*.5);hz.addColorStop(0,'rgba(255,255,255,0)');hz.addColorStop(1,'rgba(255,255,255,.38)');
-    for(var i=0;i<layers.length;i++){var L=layers[i],off=t*L.speed;
-      path(L,off);var g=ctx.createLinearGradient(0,H*(L.base-L.amp),0,H);g.addColorStop(0,L.top);g.addColorStop(1,L.bot);ctx.fillStyle=g;ctx.fill();
-      if(i<2){ctx.fillStyle=hz;ctx.fill();}
-      if(i>=2){ // terraces: contour lines following the hill
-        ctx.save();ctx.clip();ctx.lineWidth=1;
-        for(var k=1;k<28;k++){var yo=k*H*.018;ctx.beginPath();for(var x=0;x<=W;x+=8){var y=H*(L.base+hill(x+off,L.seed,L.amp,L.freq))+yo+Math.sin(x*.02+k)*1.5;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
-          ctx.strokeStyle=(k%2?'rgba(255,255,255,.35)':'rgba(20,70,30,.18)');ctx.stroke();}
-        // paddy water glints
-        var gl=ctx.createLinearGradient(0,H*.6,0,H);gl.addColorStop(0,'rgba(255,255,230,0)');gl.addColorStop(.6,'rgba(255,255,220,.22)');gl.addColorStop(1,'rgba(255,255,240,.05)');ctx.fillStyle=gl;ctx.fillRect(0,0,W,H);
-        ctx.restore();}
+    var R=rng(20260409);
+    var sky=ctx.createLinearGradient(0,0,0,H*.5);sky.addColorStop(0,'#4a94e0');sky.addColorStop(.6,'#a3cdf2');sky.addColorStop(1,'#e3f1fb');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+    for(var i=0;i<7;i++){var cx=R()*W,cy=H*(0.05+R()*0.16),r=W*(0.012+R()*0.02);ctx.fillStyle='rgba(255,255,255,.5)';cloud(cx,cy+r*.25,r*1.05,R);ctx.fillStyle='rgba(255,255,255,.95)';cloud(cx,cy,r,R);}
+    // far mountains
+    var mb=H*.42;ctx.beginPath();ctx.moveTo(0,H);ctx.lineTo(0,mb);
+    for(var x=0;x<=W;x+=4){ctx.lineTo(x,mb-Math.abs(ridge(x,2.1,H*.16,.0035)));}
+    ctx.lineTo(W,H);ctx.closePath();var mg=ctx.createLinearGradient(0,H*.22,0,mb+H*.05);mg.addColorStop(0,'#c9dcef');mg.addColorStop(1,'#7f9fc0');ctx.fillStyle=mg;ctx.fill();
+    // forested hills
+    var hills=[{b:.50,amp:.06,f:.005,seed:1.3,c1:'#6fa86a',c2:'#3f7a44'},{b:.57,amp:.05,f:.008,seed:4.8,c1:'#5f9e52',c2:'#356b36'}];
+    hills.forEach(function(L){ctx.beginPath();ctx.moveTo(0,H);for(var x=0;x<=W;x+=5){ctx.lineTo(x,H*(L.b+ridge(x,L.seed,L.amp,L.f)*.6));}ctx.lineTo(W,H);ctx.closePath();var g=ctx.createLinearGradient(0,H*(L.b-L.amp),0,H);g.addColorStop(0,L.c1);g.addColorStop(1,L.c2);ctx.fillStyle=g;ctx.fill();
+      for(var i=0;i<W/14;i++){var tx=R()*W,ty=H*(L.b+ridge(tx,L.seed,L.amp,L.f)*.6)+R()*H*.05+4,tr=2+R()*4;ctx.fillStyle='rgba(30,80,40,'+(0.15+R()*.25)+')';ctx.beginPath();ctx.arc(tx,ty,tr,0,6.283);ctx.fill();}});
+    var hz=ctx.createLinearGradient(0,H*.5,0,H*.66);hz.addColorStop(0,'rgba(230,242,250,0)');hz.addColorStop(1,'rgba(230,242,250,.55)');ctx.fillStyle=hz;ctx.fillRect(0,H*.45,W,H*.25);
+    // rice terraces: stepped paddies, water reflecting the sky
+    var top=H*.60,step=H*.034,n=Math.ceil((H-top)/step)+2;
+    function edge(x,k){return top+k*step+ridge(x+k*37,3.3+k*.4,step*1.6,.0035)+Math.sin(x*.009+k)*step*.5-k*step*.08*Math.cos(x*.0015);}
+    for(var k=0;k<=n;k++){
+      ctx.beginPath();ctx.moveTo(0,H+20);for(var x=0;x<=W;x+=5)ctx.lineTo(x,edge(x,k));ctx.lineTo(W,H+20);ctx.closePath();
+      var depth=k/n;
+      var wg=ctx.createLinearGradient(0,top+k*step,0,top+(k+1)*step);
+      var c1=[175+50*depth,215+30*depth,205+30*depth],c2=[120+40*depth,185+35*depth,95+30*depth],c3=[85+30*depth,150+30*depth,70+25*depth];
+      wg.addColorStop(0,'rgb('+c1.map(Math.round).join(',')+')');wg.addColorStop(.45,'rgb('+c2.map(Math.round).join(',')+')');wg.addColorStop(1,'rgb('+c3.map(Math.round).join(',')+')');ctx.fillStyle=wg;ctx.fill();
+      ctx.beginPath();for(var x=0;x<=W;x+=5){var y=edge(x,k);if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(50,80,35,.75)';ctx.lineWidth=2.2+depth*2;ctx.stroke();
+      ctx.beginPath();for(var x=0;x<=W;x+=5){var y=edge(x,k)+2.5;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,255,235,.6)';ctx.lineWidth=1.2;ctx.stroke();
+      ctx.strokeStyle='rgba(40,110,50,'+(0.18+0.22*depth)+')';ctx.lineWidth=1;
+      for(var r2=0.3;r2<1;r2+=0.35){ctx.beginPath();for(var x=0;x<=W;x+=5){var y=edge(x,k)+step*r2+Math.sin(x*.3+r2*9)*0.6;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();}
     }
-    // drifting cloud shadows over the fields
-    ctx.save();path(layers[2],t*layers[2].speed);ctx.clip();
-    for(var j=0;j<3;j++){var cx=((t*18+j*W*.45)%(W*1.4))-W*.2,cy=H*(.62+j*.1);var sh=ctx.createRadialGradient(cx,cy,0,cx,cy,W*.18);sh.addColorStop(0,'rgba(10,40,20,.16)');sh.addColorStop(1,'rgba(10,40,20,0)');ctx.fillStyle=sh;ctx.fillRect(0,0,W,H);}
-    ctx.restore();
-    // valley mist
-    for(var m=0;m<3;m++){var mx=((t*6+m*W*.4)%(W*1.3))-W*.15,my=H*(.5+m*.06);var mg=ctx.createRadialGradient(mx,my,0,mx,my,W*.22);mg.addColorStop(0,'rgba(255,255,255,.35)');mg.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=mg;ctx.fillRect(0,0,W,H);}
-    t+=.016;if(!reduce&&vis)requestAnimationFrame(draw);
+    var gx=W*.62,gy=H*.86,gl=ctx.createRadialGradient(gx,gy,0,gx,gy,W*.22);gl.addColorStop(0,'rgba(255,252,220,.55)');gl.addColorStop(.5,'rgba(255,252,220,.18)');gl.addColorStop(1,'rgba(255,252,220,0)');ctx.fillStyle=gl;ctx.fillRect(0,top,W,H-top);
+    var hx=W*.74,hy=H*.70;ctx.fillStyle='#6b4a2b';ctx.fillRect(hx-9,hy-6,18,10);ctx.fillStyle='#8a6a3a';ctx.beginPath();ctx.moveTo(hx-14,hy-6);ctx.lineTo(hx,hy-16);ctx.lineTo(hx+14,hy-6);ctx.closePath();ctx.fill();
+    ctx.strokeStyle='#5a3d22';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(hx-7,hy+4);ctx.lineTo(hx-7,hy+9);ctx.moveTo(hx+7,hy+4);ctx.lineTo(hx+7,hy+9);ctx.stroke();
+    var vg=ctx.createLinearGradient(0,0,0,H);vg.addColorStop(0,'rgba(255,255,255,0)');vg.addColorStop(1,'rgba(20,50,30,.14)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
   }
-  size();draw();window.addEventListener('resize',function(){size();if(reduce||!vis)draw();});
-  if('IntersectionObserver' in window){new IntersectionObserver(function(e){var was=vis;vis=e[0].isIntersecting;if(vis&&!was&&!reduce)draw();},{threshold:0}).observe(c);}
+  size();draw();window.addEventListener('resize',function(){size();draw();});
+})();
+(function(){
+  var f=document.getElementById('contact-form');if(!f)return;var st=document.getElementById('form-status'),btn=document.getElementById('f-send');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(f.action.indexOf('YOUR_FORM_ID')>-1){st.textContent='The contact form is not connected yet. Please email me directly.';st.style.color='#b7791f';return;}
+    btn.disabled=true;st.style.color='';st.textContent='Sending…';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){
+      if(r.ok){f.reset();st.textContent='Thank you! Your message has been sent.';}
+      else{st.textContent='Sorry, something went wrong. Please email me directly instead.';st.style.color='#b7791f';}
+    }).catch(function(){st.textContent='Sorry, the message could not be sent. Please email me directly instead.';st.style.color='#b7791f';}).finally(function(){btn.disabled=false;});
+  });
 })();
 </script>
 </body>
