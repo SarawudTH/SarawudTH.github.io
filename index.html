@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Sarawud (Juy) Saleesongsom — environmental geochemist and atmospheric chemist. Aerosol acidity, Fe(II) oxidation kinetics and pH measurement at negative pH. Postdoctoral researcher, Chiang Mai University.">
+<title>Sarawud Saleesongsom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b5fb8'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style>
+/* Layout: single committed light blue-and-white Earth-system look — animated atmosphere/ocean/land hero, glass panels, cyan glow for links, lichen-green for land-side labels. */
+:root{
+  --bg:#ffffff;          /* white */
+  --bg2:#f1f7fd;         /* alternating pale-sky section */
+  --surface:#ffffff;
+  --fg:#0f2440;          /* deep navy text */
+  --muted:#4f6886;
+  --line:#d3e2f2;
+  --sky:#5aa9f0;         /* atmosphere blue */
+  --ocean:#0b5fb8;       /* ocean blue — primary accent */
+  --land:#2f8f6b;        /* land green — secondary accent */
+  --glow:rgba(11,95,184,.22);
+  --font-display:"Sora","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.65;margin:0}
+a{color:var(--ocean);text-decoration:none;border-bottom:1px solid transparent}
+a:hover,a:focus-visible{border-bottom-color:currentColor}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ocean);outline-offset:3px}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:1.8rem;margin-bottom:1rem;background:linear-gradient(90deg,var(--sky),var(--ocean) 60%,var(--land));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+h2::after{content:"";display:block;height:1px;margin-top:.6rem;background:linear-gradient(90deg,var(--ocean),transparent)}
+h3{font-size:1.2rem;margin-bottom:.4rem}
+.sub{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin:1.6rem 0 .8rem}
+.h2-spaced{margin-top:2.6rem}
+p{margin:0 0 1rem}
+.wrap{max-width:780px;margin:0 auto;padding-inline:20px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:.65rem}
+nav .brand{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--fg);margin-right:auto;letter-spacing:.02em}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.2rem .85rem;flex-wrap:wrap;font-size:.74rem}
+nav ul a{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:500;font-family:var(--font-mono)}
+nav ul a:hover{color:var(--ocean)}
+
+/* hero */
+header{position:relative;overflow:hidden;color:#ffffff;isolation:isolate}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,52,110,.55),rgba(8,52,110,.25) 55%,rgba(8,52,110,0));pointer-events:none}
+header .hero{padding-block:4rem 5.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem 2.5rem;align-items:center}
+.eyebrow{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:#ffffff;opacity:.85;margin-bottom:.8rem}
+h1{font-size:clamp(2.2rem,6vw,3.3rem);margin-bottom:.6rem;text-shadow:0 2px 24px rgba(0,40,90,.45)}
+h1 .nick{font-weight:400;color:#dff0ff}
+.tagline{font-size:1.15rem;color:#f2f8ff;margin-bottom:1rem;max-width:34rem;text-shadow:0 1px 16px rgba(0,40,90,.5)}
+.affil{color:#e4f0fb;font-size:.93rem;margin-bottom:0;max-width:36rem;text-shadow:0 1px 16px rgba(0,40,90,.5)}
+.portrait{width:170px;height:170px;border-radius:50%;background:#ffffff;color:var(--ocean);display:grid;place-items:center;font-family:var(--font-display);font-size:3rem;font-weight:600;border:4px solid rgba(255,255,255,.7);box-shadow:0 10px 40px rgba(0,40,90,.35);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.links a{font-size:.8rem;font-weight:500;padding:.35rem .8rem;border:1px solid rgba(255,255,255,.6);border-radius:999px;background:rgba(255,255,255,.9);color:var(--ocean)}
+.links a:hover{background:#ffffff;color:#063a73;border-color:#ffffff;box-shadow:0 4px 18px rgba(0,40,90,.3)}
+.spheres{position:absolute;right:20px;bottom:14px;display:flex;gap:1.2rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(231,238,245,.7)}
+.spheres span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.45rem;vertical-align:1px;background:var(--sky)}
+.spheres span:nth-child(2)::before{background:var(--ocean)}
+.spheres span:nth-child(3)::before{background:var(--land)}
+
+/* sections */
+section{border-top:1px solid var(--line);position:relative;scroll-margin-top:4rem}
+section:nth-of-type(even){background:var(--bg2)}
+section .wrap{padding-block:3rem}
+.lead{font-size:1.08rem;color:#1c355a}
+.news{list-style:none;padding:0;margin:0;display:grid;gap:.9rem}
+.news li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;align-items:baseline}
+.news time{font-family:var(--font-mono);font-size:.78rem;color:var(--land);white-space:nowrap}
+.news em{font-style:italic}
+
+.themes{display:grid;gap:1.2rem}
+.theme{display:grid;grid-template-columns:1fr;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 12px rgba(11,95,184,.05);padding:1.4rem 1.5rem;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.theme::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--sky),var(--ocean),var(--land))}
+.theme:hover{border-color:var(--sky);box-shadow:0 8px 30px rgba(11,95,184,.10)}
+.theme h3{color:var(--ocean)}
+.theme p:last-child{margin-bottom:0}
+.tools{font-family:var(--font-mono);font-size:.76rem;color:var(--muted)}
+
+.pubs h3{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin:1.8rem 0 .7rem}
+.pubs h3:first-of-type{margin-top:0}
+.pub{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
+.pub li{padding:.9rem 1.1rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:.94rem}
+.pub .me{font-weight:600;color:var(--ocean)}
+.pub .doi{font-family:var(--font-mono);font-size:.76rem}
+.pub .status{display:inline-block;font-size:.7rem;font-family:var(--font-mono);color:var(--land);border:1px solid currentColor;border-radius:4px;padding:0 .4rem;margin-left:.3rem;vertical-align:1px}
+
+.roles{display:grid;gap:1.1rem}
+.role{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.3rem}
+.role .where{color:var(--muted);font-size:.9rem;grid-column:1}
+.role .when{font-family:var(--font-mono);font-size:.74rem;color:var(--ocean);background:#e6f1fc;border:1px solid #bcd6f1;padding:.15rem .55rem;border-radius:999px;white-space:nowrap;grid-row:1;grid-column:2;align-self:start}
+.role p{grid-column:1 / -1;margin:.4rem 0 0;font-size:.94rem}
+.role h3{margin:0;color:var(--fg)}
+
+.cv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem 2rem;margin-top:.4rem}
+.cv-grid h3{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin-bottom:.6rem}
+.cv-grid ul{margin:0;padding:0;list-style:none;display:grid;gap:.6rem;font-size:.93rem}
+.cv-grid li span{display:block;color:var(--muted);font-size:.83rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--ocean),var(--sky));color:#ffffff;padding:.65rem 1.1rem;border-radius:999px;font-weight:600;font-size:.9rem;border:0;box-shadow:0 0 24px var(--glow)}
+.btn:hover{filter:brightness(1.08);border-bottom-color:transparent}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem}
+.contact dt{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin-bottom:.2rem}
+.contact dd{margin:0;font-size:.95rem;overflow-wrap:anywhere}
+.copy{font:inherit;font-size:.74rem;font-family:var(--font-mono);background:none;border:1px solid var(--line);border-radius:4px;color:var(--muted);padding:.1rem .45rem;margin-left:.4rem;cursor:pointer}
+.copy:hover{color:var(--ocean);border-color:var(--ocean)}
+footer{background:#0f2440;color:#b9cde6;border-top:0}
+footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-mono)}
+
+@media (max-width:620px){
+  header .hero{grid-template-columns:1fr;padding-block:3rem 4.5rem}
+  .portrait{order:-1;width:120px;height:120px;font-size:2.2rem}
+  .spheres{right:auto;left:20px}
+  .news li{grid-template-columns:1fr;gap:.1rem}
+  .role{grid-template-columns:1fr}
+  .role .when{grid-row:auto;grid-column:1;justify-self:start}
+  .contact{grid-template-columns:1fr}
+  h2{font-size:1.55rem}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#home">S. Saleesongsom</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#positions">Positions</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#outreach">Outreach</a></li>
+      <li><a href="#cv">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="home">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap hero">
+    <div>
+      <h1>Sarawud <span class="nick">(Juy)</span> Saleesongsom</h1>
+      <p class="tagline">Aerosol acidity, iron redox kinetics and pH measurement at the extremes of the scale.</p>
+      <p class="affil">Postdoctoral Researcher, Environmental Science Research Center (ESRC), Faculty of Science, Chiang Mai University, Thailand</p>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=_fHVgooAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-0243-238X">ORCID</a>
+        <a href="https://www.researchgate.net/profile/Sarawud-Saleesongsom">ResearchGate</a>
+        <a href="https://github.com/SarawudTH">GitHub</a>
+        <a href="https://www.linkedin.com/in/sarawud-saleesongsom/">LinkedIn</a>
+        <a href="https://www.youtube.com/@EnvGeoChemTeachingCorner">YouTube</a>
+      </div>
+    </div>
+    <div class="portrait" aria-label="Portrait placeholder">SS</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Welcome</h2>
+    <p class="lead">I am an environmental geochemist working at the boundary between aqueous chemistry and atmospheric science. My research asks how acidic an aerosol particle really is, how much water it holds, and what that means for the reactions that happen inside it, with a particular interest in the oxidation of iron(II).</p>
+    <p>Since July 2026 I have been a postdoctoral researcher at the Environmental Science Research Center of Chiang Mai University, where I study the chemistry of transboundary biomass-burning haze in Northern Thailand. I estimate size-resolved aerosol pH and aerosol liquid water content (ALWC) with thermodynamic models such as E-AIM, ISORROPIA and AIOMFAC, with the aim of improving how these models represent haze-period aerosol.</p>
+    <p>I completed my PhD in Environmental Geochemistry at Imperial College London in 2026, where I quantified how pH, temperature and speciation jointly control Fe(II) oxidation kinetics in oxygenated solutions. Along the way I developed a temperature-dependent nonlinear calibration for glass pH electrodes that extends reliable measurement to negative pH. I remain a visiting researcher at Imperial, collaborating on negative-pH chemistry and advising PhD students on computational atmospheric modelling.</p>
+    <p>I am always happy to hear from potential collaborators, students, or anyone curious about aerosol acidity. Please <a href="#contact">get in touch</a>.</p>
+    <h3 class="sub">Education</h3>
+    <div class="roles">
+      <div class="role">
+        <h3>PhD in Environmental Geochemistry</h3>
+        <span class="when">Oct 2021 – Mar 2026</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London, UK</span>
+        <p>Thesis: <em>Quantifying the Co-dependencies of pH, Temperature, and Speciation on Iron(II) Oxidation Kinetics in Oxygenated Aqueous Solutions: Analytical Advances and Environmental Implications</em> (<a href="https://doi.org/10.25560/128417">DOI</a>).</p>
+      </div>
+      <div class="role">
+        <h3>MSci Geology</h3>
+        <span class="when">Sep 2017 – Jun 2021</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London, UK</span>
+        <p>Thesis: <em>Biogeochemical Modelling of Arsenic Species in Oceans</em>. Awarded the highest MSci thesis mark in the department.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>News</h2>
+    <ul class="news">
+      <li><time>Oct 2026</time><span>Appointed Visiting Researcher in the Department of Earth Science and Engineering, Imperial College London.</span></li>
+      <li><time>Sep 2026</time><span>New paper in <em>Talanta</em>: optimising nonlinear calibration of glass pH electrodes over pH −4.5 to 15.5 with improved statistical treatment of acid and alkaline errors.</span></li>
+      <li><time>Jul 2026</time><span>Started as a Postdoctoral Researcher at the Environmental Science Research Center, Chiang Mai University, working on biomass-burning haze aerosol chemistry.</span></li>
+      <li><time>Jul 2026</time><span>New paper in <em>ACS Omega</em>: temperature-dependent nonlinear calibration of glass pH electrodes for negative pH applications.</span></li>
+      <li><time>Mar 2026</time><span>PhD awarded by Imperial College London. Thesis: <em>Quantifying the Co-dependencies of pH, Temperature, and Speciation on Iron(II) Oxidation Kinetics in Oxygenated Aqueous Solutions</em> (<a href="https://doi.org/10.25560/128417">DOI</a>).</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research</h2>
+    <p class="lead">My work combines laboratory experiments, thermodynamic and kinetic modelling, and field aerosol measurements. Four threads run through it.</p>
+    <div class="themes">
+      <article class="theme">
+        <div>
+          <h3>Aerosol acidity and liquid water during biomass-burning haze</h3>
+          <p>Every dry season, agricultural and forest fires blanket Northern Thailand in haze. I measure size-resolved aerosol composition in Chiang Mai during haze and non-haze periods and use thermodynamic models to estimate particle pH and aerosol liquid water content. Because pH controls which reactions can proceed inside a particle, these estimates matter for secondary aerosol formation, metal solubility and health-relevant chemistry. A central goal is to test and improve how current thermodynamic models handle haze-period aerosol.</p>
+          <p class="tools">E-AIM · ISORROPIA · AIOMFAC · size-resolved sampling</p>
+        </div>
+      </article>
+      <article class="theme">
+        <div>
+          <h3>Fe(II) oxidation kinetics across pH and temperature</h3>
+          <p>The oxidation of ferrous iron by dissolved oxygen is one of the most pH-sensitive reactions in environmental chemistry, yet rate laws for very acidic, sulphate-rich conditions have been poorly constrained. My PhD produced a coupled pH–temperature logistic rate law for Fe(II) oxidation in sulphuric acid media spanning pH −1.5 to 8.0 and 5 to 65 °C, and an experimental–computational framework for how ligands and acid systems alter the kinetics. The results feed into models of iron bioavailability in atmospheric aerosol and of sulphate-rich waters such as acid mine drainage.</p>
+          <p class="tools">UV–Vis colorimetry · PHREEQC · MINTEQ · HySS · DFT (Gaussian)</p>
+        </div>
+      </article>
+      <article class="theme">
+        <div>
+          <h3>Measuring pH where the scale breaks down</h3>
+          <p>Glass pH electrodes become nonlinear in concentrated acids and alkalis, which has limited quantitative work at negative pH. I developed a temperature-dependent nonlinear calibration, improved the statistical treatment of acid and alkaline errors over pH −4.5 to 15.5, and derived transferable correction factors so that other laboratories can apply the method without re-deriving it. This work includes open calibration software presented at Goldschmidt 2025.</p>
+          <p class="tools">ion-selective electrodes · Metrohm Titrando · Python · MATLAB</p>
+        </div>
+      </article>
+      <article class="theme">
+        <div>
+          <h3>Adsorption kinetics of arsenic on metal oxides</h3>
+          <p>As an undergraduate researcher (UROP) at Imperial College London I co-authored a study that revised the widely used pseudo-second-order (PSO) kinetic model for adsorption so that it explicitly accounts for changes in both adsorbate and adsorbent concentrations, rather than assuming a fixed excess of one over the other. To test the model, I extracted and meta-analysed 36 rate constants from 14 independent studies of arsenic adsorption onto Fe<sub>2</sub>O<sub>3</sub> and TiO<sub>2</sub>, giving a quantitative picture of kinetic variability across systems. The work was published in <em>Langmuir</em> (ACS, 2021) and the dataset is openly available on Zenodo.</p>
+          <p class="tools">kinetic modelling · meta-analysis · <a href="https://doi.org/10.1021/acs.langmuir.1c00142">Langmuir 2021</a> · <a href="https://doi.org/10.5281/zenodo.4443103">Zenodo dataset</a></p>
+        </div>
+      </article>
+    </div>
+    <p style="margin-top:1.6rem;font-size:.95rem;color:var(--muted)">Earlier work: a global biogeochemical analysis of arsenic speciation in the oceans drawing on more than 10,000 observations (MSci thesis, Imperial College London; departmental Centenary Prize).</p>
+  </div>
+</section>
+
+<section id="positions">
+  <div class="wrap">
+    <h2>Positions</h2>
+    <div class="roles">
+      <div class="role">
+        <h3>Postdoctoral Researcher</h3>
+        <span class="when">Jul 2026 – present</span>
+        <span class="where">Environmental Science Research Center (ESRC), Chiang Mai University, Thailand</span>
+        <p>Atmospheric aerosol chemistry of transboundary biomass-burning haze in Northern Thailand; aerosol pH and ALWC estimation using E-AIM, ISORROPIA and AIOMFAC.</p>
+      </div>
+      <div class="role">
+        <h3>Visiting Researcher</h3>
+        <span class="when">Oct 2026 – present</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London, UK</span>
+        <p>Collaborative research on negative pH, atmospheric pollution and thermodynamic modelling.</p>
+      </div>
+      <div class="role">
+        <h3>Transition to Zero Pollution PhD student (Cohort 3)</h3>
+        <span class="when">Sep 2021 – Oct 2025</span>
+        <span class="where">NERC Science and Solutions for a Changing Planet DTP, Grantham Institute, Imperial College London, UK</span>
+        <p>Selected as one of 10 PhD students across the College to join the Transition to Zero Pollution initiative.</p>
+      </div>
+      <div class="role">
+        <h3>UROP Research Assistant</h3>
+        <span class="when">2019 – 2020</span>
+        <span class="where">Imperial College London, UK</span>
+        <p>Co-authored a revised pseudo-second-order adsorption kinetic model (Langmuir, 2021) and a meta-analysis of arsenic adsorption rate constants.</p>
+      </div>
+    </div>
+    <h2 class="h2-spaced">Awards &amp; scholarships</h2>
+    <div class="roles">
+      <div class="role">
+        <h3>Earth Science and Engineering Centenary Prize</h3>
+        <span class="when">Jun 2021</span>
+        <span class="where">Imperial College London, UK</span>
+        <p>Departmental prize for the highest-scoring MSci thesis of the year.</p>
+      </div>
+      <div class="role">
+        <h3>TZP UROP Scholarship Scheme</h3>
+        <span class="when">Jun – Sep 2021</span>
+        <span class="where">Imperial College London, UK</span>
+        <p>Competitive undergraduate research scholarship for independent research on marine arsenic biogeochemistry.</p>
+      </div>
+      <div class="role">
+        <h3>Development and Promotion of Science and Technology Talents Project (DPST) scholarship</h3>
+        <span class="when">May 2012 – Oct 2025</span>
+        <span class="where">Royal Thai Government, Thailand</span>
+        <p>National scholarship fully funding education from high school through PhD, including sponsorship for overseas study.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap pubs">
+    <h2>Publications</h2>
+    <h3>Peer-reviewed</h3>
+    <ul class="pub">
+      <li><span class="me">Saleesongsom, S.</span>, Plancherel, Y., &amp; Weiss, D. (2026). Optimising nonlinear calibration of glass pH electrodes over the pH range −4.5 to 15.5 using improved statistical treatment of acid and alkaline errors. <em>Talanta</em>, 130486. <a class="doi" href="https://doi.org/10.1016/j.talanta.2026.130486">10.1016/j.talanta.2026.130486</a></li>
+      <li><span class="me">Saleesongsom, S.</span>, Weiss, D., &amp; Plancherel, Y. (2026). Temperature-dependent nonlinear calibration of glass pH electrodes for negative pH applications. <em>ACS Omega</em>, 11(27), 40120–40133. <a class="doi" href="https://doi.org/10.1021/acsomega.6c01903">10.1021/acsomega.6c01903</a></li>
+      <li>Bullen, J. C., <span class="me">Saleesongsom, S.</span>, Gallagher, K., &amp; Weiss, D. J. (2021). A revised pseudo-second-order kinetic model for adsorption, sensitive to changes in adsorbate and adsorbent concentrations. <em>Langmuir</em>, 37(10), 3189–3201. <a class="doi" href="https://doi.org/10.1021/acs.langmuir.1c00142">10.1021/acs.langmuir.1c00142</a></li>
+    </ul>
+    <h3>Under review</h3>
+    <ul class="pub">
+      <li><span class="me">Saleesongsom, S.</span>, Plancherel, Y., &amp; Weiss, D. Transferable correction factors for nonlinear calibration of glass pH electrodes in negative pH applications. <em>Analytical Chemistry</em>.<span class="status">under review</span></li>
+    </ul>
+    <h3>Thesis</h3>
+    <ul class="pub">
+      <li><span class="me">Saleesongsom, S.</span> (2026). Quantifying the co-dependencies of pH, temperature, and speciation on iron(II) oxidation kinetics in oxygenated aqueous solutions: analytical advances and environmental implications. PhD thesis, Imperial College London. <a class="doi" href="https://doi.org/10.25560/128417">10.25560/128417</a></li>
+    </ul>
+    <h3>Conference presentations</h3>
+    <ul class="pub">
+      <li><span class="me">Saleesongsom, S.</span>, Weiss, D., &amp; Plancherel, Y. (2025). Temperature-compensated pH calibration software for glass electrodes in very low and negative pH conditions. Goldschmidt Conference, Prague, Czech Republic. <a class="doi" href="https://doi.org/10.7185/gold2025.31808">10.7185/gold2025.31808</a></li>
+      <li><span class="me">Saleesongsom, S.</span>, Bullen, J. C., Kafizas, A., Weiss, D. J., &amp; Plancherel, Y. (2024). Determination of pH-dependent iron(II) oxidation rate equation in diluted sulphuric acid. Geochemistry Group Research in Progress (GGRiP), Durham University, UK.</li>
+      <li><span class="me">Saleesongsom, S.</span>, Plancherel, Y., &amp; Weiss, D. (2023). A revised kinetic rate law and rate constants for the pH dependence/independence of ferrous ion, Fe(II), oxidation used in atmospheric aerosol-iron modelling. Annual Aerosol Science Conference, London, UK.</li>
+      <li><span class="me">Saleesongsom, S.</span>, Wong Mae-Ern, A., Plancherel, Y., &amp; Weiss, D. (2022). The oxidation kinetics of ferrous iron (Fe<sup>2+</sup>) in atmospheric aerosols and implications for bioavailable iron into the oceans and terrestrial environments. Annual Aerosol Science Conference, York, UK.</li>
+    </ul>
+    <h3>Data</h3>
+    <ul class="pub">
+      <li>Meta-analysis dataset of 36 rate constants from 14 studies on arsenic adsorption onto Fe<sub>2</sub>O<sub>3</sub> and TiO<sub>2</sub>. Zenodo. <a class="doi" href="https://doi.org/10.5281/zenodo.4443103">10.5281/zenodo.4443103</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <h2>Teaching &amp; supervision</h2>
+    <div class="roles">
+      <div class="role">
+        <h3>Research project co-supervisor</h3>
+        <span class="when">2021 – 2026</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
+        <p>Co-supervised six students (three UROP, two MSci and one MSc) on Fe(II) oxidation and analytical Fe(II) measurement; two achieved First-Class marks and one a high 2:1. Most recently guided an MSc project on post-rainfall PM<sub>2.5</sub> declines in Singapore from idea development through thesis feedback.</p>
+      </div>
+      <div class="role">
+        <h3>Graduate teaching assistant</h3>
+        <span class="when">2021 – 2023</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
+        <p>Supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
+      </div>
+      <div class="role">
+        <h3>Laboratory manager</h3>
+        <span class="when">Jul – Dec 2023</span>
+        <span class="where">Environmental Geochemistry Laboratory, Imperial College London</span>
+        <p>Managed laboratory operations and inventory and trained new researchers in safety, experimental procedures and analytical instruments (UV–Vis spectrometers, Metrohm Titrando).</p>
+      </div>
+      <div class="role">
+        <h3>Seminar coordinator</h3>
+        <span class="when">Jan – Jun 2022</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
+        <p>Organised the departmental Environmental Science seminar series.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="outreach">
+  <div class="wrap">
+    <h2>Science communication</h2>
+    <div class="roles">
+      <div class="role">
+        <h3>Environmental Geochemistry Teaching Corner</h3>
+        <span class="when">Mar 2026 – present</span>
+        <span class="where"><a href="https://www.youtube.com/@EnvGeoChemTeachingCorner">youtube.com/@EnvGeoChemTeachingCorner</a></span>
+        <p>Short explainers on current environmental geochemistry research, aimed at students and the curious public.</p>
+      </div>
+      <div class="role">
+        <h3>Science content developer</h3>
+        <span class="when">Jan – Jun 2026</span>
+        <span class="where">Nexrise Partners Co., Ltd., Bangkok (remote)</span>
+        <p>Developed science curriculum materials across more than 180 modules in Earth science, physics and technology.</p>
+      </div>
+      <div class="role">
+        <h3>Climate science and AI evaluation</h3>
+        <span class="when">May – Dec 2025</span>
+        <span class="where">Remote research assistant</span>
+        <p>Evaluated and refined AI-generated climate science responses across eight projects, contributing annotated data to the CLINB climate benchmark study (<a href="https://doi.org/10.48550/arXiv.2511.11597">arXiv:2511.11597</a>).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="cv-grid">
+      <div>
+        <h3>Modelling</h3>
+        <ul>
+          <li>Thermodynamic &amp; geochemical modelling<span>E-AIM, ISORROPIA, AIOMFAC, PHREEQC, MINTEQ, HySS, DFT (Gaussian)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Programming &amp; data</h3>
+        <ul>
+          <li>Python, MATLAB, HPC<span>Data analysis, kinetic fitting, calibration software</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Analytical</h3>
+        <ul>
+          <li>UV–Vis colorimetry (Fe, As)<span>Ion-selective and dissolved O<sub>2</sub> electrodes; automated titration (Metrohm Titrando)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <dl class="contact">
+      <div>
+        <dt>Email</dt>
+        <dd><span id="email">sarawudsaleesongsom@hotmail.com</span><button class="copy" type="button" data-copy="email" id="copy-email">copy</button></dd>
+      </div>
+      <div>
+        <dt>Office</dt>
+        <dd>Environmental Science Research Center, 7th floor, 30 Years Building, Faculty of Science, Chiang Mai University, Chiang Mai 50200, Thailand</dd>
+      </div>
+      <div>
+        <dt>Profiles</dt>
+        <dd><a href="https://scholar.google.com/citations?user=_fHVgooAAAAJ&amp;hl=en">Google Scholar</a> · <a href="https://orcid.org/0000-0002-0243-238X">ORCID 0000-0002-0243-238X</a> · <a href="https://www.researchgate.net/profile/Sarawud-Saleesongsom">ResearchGate</a></dd>
+      </div>
+      <div>
+        <dt>Elsewhere</dt>
+        <dd><a href="https://github.com/SarawudTH">GitHub</a> · <a href="https://www.linkedin.com/in/sarawud-saleesongsom/">LinkedIn</a> · <a href="https://www.youtube.com/@EnvGeoChemTeachingCorner">YouTube</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 Sarawud Saleesongsom · Last updated October 2026</div></footer>
+
+<script>
+document.getElementById('copy-email').addEventListener('click',function(){
+  var btn=this,txt=document.getElementById('email').textContent;
+  function done(){btn.textContent='copied';setTimeout(function(){btn.textContent='copy'},1500)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=window.getSelection();s.removeAllRanges();s.addRange(r)}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
+});
+
+(function(){
+  var c=document.getElementById('sky');if(!c)return;var ctx=c.getContext('2d');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W,H,P=[],t=0;
+  function size(){W=c.width=c.offsetWidth*devicePixelRatio;H=c.height=c.offsetHeight*devicePixelRatio;}
+  function seed(){P=[];for(var i=0;i<90;i++)P.push({x:Math.random(),y:Math.random()*.62,r:Math.random()*1.6+.4,v:Math.random()*.0004+.0001,a:Math.random()*.5+.2});}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var oceanY=H*.60,landY=H*.86;
+    // atmosphere
+    var g=ctx.createLinearGradient(0,0,0,oceanY);g.addColorStop(0,'#1a63c4');g.addColorStop(.6,'#3d8fe3');g.addColorStop(1,'#8cc4f2');ctx.fillStyle=g;ctx.fillRect(0,0,W,oceanY);
+    // aurora/haze glow
+    var r=ctx.createRadialGradient(W*.72,oceanY*.55,0,W*.72,oceanY*.55,W*.5);r.addColorStop(0,'rgba(255,255,255,.55)');r.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=r;ctx.fillRect(0,0,W,oceanY);
+    // particles
+    for(var i=0;i<P.length;i++){var p=P[i];ctx.beginPath();ctx.arc(p.x*W,p.y*H,p.r*devicePixelRatio,0,6.283);ctx.fillStyle='rgba(255,255,255,'+p.a+')';ctx.fill();if(!reduce){p.x+=p.v;p.y+=Math.sin(t*.5+i)*.00008;if(p.x>1.02)p.x=-.02;}}
+    // ocean
+    var og=ctx.createLinearGradient(0,oceanY,0,landY);og.addColorStop(0,'#2b8fe0');og.addColorStop(1,'#0b5fb8');ctx.fillStyle=og;ctx.fillRect(0,oceanY,W,landY-oceanY);
+    ctx.lineWidth=devicePixelRatio;
+    for(var k=0;k<6;k++){ctx.beginPath();for(var x=0;x<=W;x+=8*devicePixelRatio){var y=oceanY+k*((landY-oceanY)/6)+Math.sin(x/(60*devicePixelRatio)+t*(1+k*.15)+k)*3*devicePixelRatio;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,255,255,'+(0.45-k*.06)+')';ctx.stroke();}
+    // land
+    ctx.beginPath();ctx.moveTo(0,H);ctx.lineTo(0,landY+10*devicePixelRatio);
+    for(var x=0;x<=W;x+=10*devicePixelRatio){var y=landY+Math.sin(x/(140*devicePixelRatio))*9*devicePixelRatio+Math.sin(x/(37*devicePixelRatio))*3*devicePixelRatio;ctx.lineTo(x,y);}
+    ctx.lineTo(W,H);ctx.closePath();var lg=ctx.createLinearGradient(0,landY,0,H);lg.addColorStop(0,'#5fbf8a');lg.addColorStop(1,'#2f8f6b');ctx.fillStyle=lg;ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,.7)';ctx.lineWidth=1.2*devicePixelRatio;ctx.beginPath();for(var x=0;x<=W;x+=10*devicePixelRatio){var y=landY+Math.sin(x/(140*devicePixelRatio))*9*devicePixelRatio+Math.sin(x/(37*devicePixelRatio))*3*devicePixelRatio;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();
+    t+=.012;if(!reduce)requestAnimationFrame(draw);
+  }
+  size();seed();draw();window.addEventListener('resize',function(){size();if(reduce)draw();});
+})();
+</script>
+</body>
+</html>
