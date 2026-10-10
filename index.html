@@ -176,7 +176,7 @@ section .wrap{padding-block:3rem}
 .pub .status{display:inline-block;font-size:.7rem;font-family:var(--font-mono);color:var(--land);border:1px solid currentColor;border-radius:4px;padding:0 .4rem;margin-left:.3rem;vertical-align:1px}
 
 .roles{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
-.role{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.3rem}
+.role{display:grid;align-content:start;grid-template-columns:1fr auto;gap:.2rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.3rem}
 .role .where{color:var(--muted);font-size:.9rem;grid-column:1}
 .role .when{font-family:var(--font-mono);font-size:.74rem;color:var(--ocean);background:#e6f1fc;border:1px solid #bcd6f1;padding:.15rem .55rem;border-radius:999px;white-space:nowrap;grid-row:1;grid-column:2;align-self:start}
 .role p{grid-column:1 / -1;margin:.4rem 0 0;font-size:.94rem}
@@ -184,6 +184,15 @@ section .wrap{padding-block:3rem}
 .role .sup{font-size:.88rem;color:var(--muted)}
 .role h3 a{color:inherit}
 .role h3 a:hover{color:var(--ocean)}
+.subhead{margin:2rem 0 .9rem;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ocean)}
+.role blockquote{grid-column:1 / -1;margin:.6rem 0 0;padding:.5rem .9rem;border-left:3px solid #bcd6f1;font-size:.88rem;font-style:italic;color:var(--muted)}
+.subhead .subnote{display:block;margin-top:.25rem;font-size:.82rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted)}
+section.night .subhead .subnote{color:#b7c6d8}
+.role .fb{margin:.7rem 0 0;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ocean)}
+.role .fb + blockquote{margin-top:.3rem}
+section.night .subhead{color:#9fd0ff}
+section.night .role .fb{color:#9fd0ff}
+section.night .role blockquote{border-left-color:rgba(127,196,255,.45);color:#c9d6e3}
 
 .cv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem 2rem;margin-top:.4rem}
 .cv-grid h3{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin-bottom:.6rem}
@@ -509,28 +518,57 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
     <h2>Teaching &amp; supervision</h2>
     <div class="roles">
       <div class="role">
-        <h3>Research project co-supervisor</h3>
-        <span class="when">2021 – 2026</span>
-        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>I co-supervised six students (three UROP, two MSci and one MSc) on Fe(II) oxidation and analytical Fe(II) measurement; two of them achieved First-Class marks and one a high 2:1. Most recently I guided an MSc project on post-rainfall PM<sub>2.5</sub> declines in Singapore, from developing the research idea through to feedback on the thesis.</p>
-      </div>
-      <div class="role">
-        <h3>Graduate teaching assistant</h3>
-        <span class="when">2021 – 2023</span>
-        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>I supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led the Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
-      </div>
-      <div class="role">
         <h3>Laboratory manager</h3>
         <span class="when">Jul – Dec 2023</span>
         <span class="where">Environmental Geochemistry Laboratory, Imperial College London</span>
         <p>I managed the laboratory's day-to-day operations and inventory, and trained new researchers in safety procedures, experimental methods and the analytical instruments (UV–Vis spectrometers and a Metrohm Titrando).</p>
       </div>
       <div class="role">
+        <h3>Graduate teaching assistant (GTA)</h3>
+        <span class="when">2021 – 2023</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
+        <p>I supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led the Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
+      </div>
+      <div class="role">
         <h3>Seminar coordinator</h3>
         <span class="when">Jan – Jun 2022</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
         <p>I organised the department's Environmental Science seminar series, scheduling speakers and inviting researchers to present their work.</p>
+      </div>
+    </div>
+    <h3 class="subhead">Students I have supervised</h3>
+    <div class="roles students">
+      <div class="role">
+        <h3>Hao Liu (MSc project)</h3>
+        <span class="when">May – Aug 2026</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisors: Yves Plancherel and Fangxin Fang; advisor: Juy</span>
+        <p><em>Separating rainfall-associated PM<sub>2.5</sub> reductions from normal temporal change: a five-year matched-control study in tropical Singapore.</em> I proposed the research question, advised on the matched-control approach and wet-scavenging interpretation, and gave feedback on the thesis. Awarded a First-Class mark.</p>
+      </div>
+      <div class="role">
+        <h3>Esther Zhang (UROP project)</h3>
+        <span class="when">Jun – Oct 2024</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Juy</span>
+        <p>Measurement error analysis in Fe(II) concentration using the UV–Vis method. I taught her the Fe(II)–ferrozine assay, Fe(II) calibration, quantifying analytical error from repeated measurements versus error propagation, and comparing linear and non-linear least-squares fitting for rate-constant estimation using experimental and literature data.</p>
+      </div>
+      <div class="role">
+        <h3>Milly Yuechen Dong (UROP &amp; MSci projects)</h3>
+        <span class="when">Jul 2023 – Jan 2024</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Dominik Weiss; advisor: Juy (MSci) · Supervisor: Juy (UROP)</span>
+        <p>Fe(II) oxidation in rainwater and the effect of rainwater pollutants on oxidation rates. During the UROP I trained her in Fe(II) oxidation experiments, colorimetric Fe measurement and kinetic data analysis; in the MSci project I taught her PHREEQC geochemical modelling and aqueous speciation calculations, and helped refine the research direction. Awarded a high 2:1 mark.</p>
+        <p class="fb">Student feedback</p>
+        <blockquote>"During the UROP, he provided clear guidance and structured mentorship, which helped me quickly get prepared for the professional research. His patience and willingness to answer questions really encouraged me. I still remember the time when I got confused and overwhelmed, he said to me 'Don't worry, I was the same when I first started. We all go through this.' As I transitioned into the MSci project, he continued to be my vice supervisor, offered insightful feedback and helped refine my research direction. His deep understanding of the subject and hands-on approach not only improved my technical skills in chemical kinetics but also strengthened my critical thinking and confidence as a researcher."</blockquote>
+      </div>
+      <div class="role">
+        <h3>Lilian Yueyang Yu (UROP project)</h3>
+        <span class="when">Aug – Sep 2022</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Juy</span>
+        <p>Analytical Fe(II)/Fe(III) measurement by the ferrozine method. I trained her in preparing calibration standards, UV–Vis spectrophotometry, and testing reducing agents for total-Fe determination.</p>
+      </div>
+      <div class="role">
+        <h3>Abigail Wong Mae-Ern (MSci project)</h3>
+        <span class="when">Oct 2021 – Jan 2022</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Dominik Weiss; advisor: Juy</span>
+        <p>Fe(II) oxidation kinetics as a function of pH and ionic strength. I guided the experimental design, UV–Vis Fe(II) measurements and kinetic data analysis; her results fed into our AASC 2022 abstract. Awarded a First-Class mark.</p>
       </div>
     </div>
   </div>
