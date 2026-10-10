@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MSci thesis · Sarawud Saleesongsom</title>
+<meta name="description" content="Summary of my MSci Geology thesis at Imperial College London on the marine biogeochemical cycle of arsenic species, awarded the highest thesis mark in the department and the Earth Science and Engineering Centenary Prize.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b5fb8'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#ffffff;--bg2:#f1f7fd;--surface:#ffffff;--fg:#0f2440;--muted:#4f6886;--line:#d3e2f2;--sky:#5aa9f0;--ocean:#0b5fb8;--land:#2f8f6b;
+--font-display:"Sora","Helvetica Neue",Arial,sans-serif;--font-body:"Manrope","Helvetica Neue",Arial,sans-serif;--font-mono:"JetBrains Mono",Menlo,Consolas,monospace;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.65}
+a{color:var(--ocean);text-decoration:none;border-bottom:1px solid transparent}a:hover{border-bottom-color:currentColor}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1rem}
+.wrap{max-width:900px;margin:0 auto;padding-inline:24px}
+nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:.65rem}
+nav .brand{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--fg);margin-right:auto}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.2rem .85rem;flex-wrap:wrap;font-size:.74rem}
+nav ul a{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:500;font-family:var(--font-mono)}nav ul a:hover{color:var(--ocean)}
+header{background:linear-gradient(180deg,#1a63c4 0%,#3d8fe3 55%,#cfe6fa 100%);color:#fff}
+header .wrap{padding-block:3rem 2.6rem}
+.crumb{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem}
+.crumb a{color:#e4f0fb}.crumb a:hover{color:#fff}
+h1{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:.6rem}
+.short{font-family:var(--font-mono);font-size:.8rem;color:#e4f0fb;margin-bottom:.9rem}
+.lead{font-size:1.12rem;color:#f2f8ff;max-width:44rem;margin:0}
+main .wrap{padding-block:2.4rem 3rem}
+section{margin-bottom:2.2rem}
+h2{font-size:1.35rem;margin-bottom:.7rem;color:var(--ocean)}
+h2::after{content:"";display:block;height:1px;margin-top:.5rem;background:linear-gradient(90deg,var(--ocean),transparent)}
+ul.aims{margin:0;padding-left:1.2rem}ul.aims li{margin-bottom:.5rem}
+.tools{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.7rem 1rem}
+.pub{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.pub li{padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:.93rem}
+.pub .doi{font-family:var(--font-mono);font-size:.76rem}
+.pub .status{display:inline-block;font-size:.7rem;font-family:var(--font-mono);color:var(--land);border:1px solid currentColor;border-radius:4px;padding:0 .4rem;margin-left:.3rem;vertical-align:1px}
+.people{color:var(--muted);font-size:.93rem}
+.more{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
+.more a{font-size:.85rem;padding:.45rem .85rem;border:1px solid var(--line);border-radius:999px;background:var(--bg2)}
+.more a:hover{border-color:var(--ocean)}
+.figs{display:grid;gap:1.2rem}
+.fig{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{font-size:.85rem;color:var(--muted);padding:.6rem .9rem;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--ocean),var(--sky));color:#fff;padding:.6rem 1.1rem;border-radius:999px;font-weight:600;font-size:.9rem;border-bottom:0}
+.btn:hover{filter:brightness(1.08)}
+.btn svg,.btn i{width:1.1em;height:1.1em}
+footer{background:#1f3a24;color:#cfe3c9}footer .wrap{padding-block:1.4rem 2rem;font-size:.8rem;font-family:var(--font-mono)}
+
+.fig{margin:0 0 1.2rem;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{font-size:.85rem;color:var(--muted);padding:.6rem .9rem;border-top:1px solid var(--line)}
+.obj{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.obj li{display:grid;grid-template-columns:2.4rem 1fr;gap:.8rem;align-items:start;border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;background:var(--surface)}
+.obj .n{font-family:var(--font-mono);font-weight:600;color:var(--ocean);background:#e6f1fc;border-radius:6px;text-align:center;padding:.2rem 0;font-size:.85rem}
+.obj strong{display:block;color:var(--fg);margin-bottom:.15rem}
+.obj p{margin:0;font-size:.92rem;color:var(--muted)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem 1.6rem;margin:0}
+.meta dt{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--land)}
+.meta dd{margin:.15rem 0 0;font-size:.95rem}
+.pub{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.pub li{padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:.93rem}
+.pub .doi{font-family:var(--font-mono);font-size:.76rem}
+.pub .status{display:inline-block;font-size:.7rem;font-family:var(--font-mono);color:var(--land);border:1px solid currentColor;border-radius:4px;padding:0 .4rem;margin-left:.3rem;vertical-align:1px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--ocean),var(--sky));color:#fff;padding:.6rem 1.1rem;border-radius:999px;font-weight:600;font-size:.9rem;border-bottom:0;margin-top:.4rem}
+.btn:hover{filter:brightness(1.08)}
+
+.prize{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;background:linear-gradient(135deg,#fff7e0,#fdeec4);border:1px solid #f0d58a;border-radius:12px;padding:1rem 1.2rem;margin:0 0 1.4rem}
+.prize .medal{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a0,#d99a1e 70%);box-shadow:0 4px 14px rgba(180,120,20,.35);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;color:#5a3d06;font-size:1.3rem}
+.prize strong{display:block;color:#5a3d06;font-size:1.05rem;margin-bottom:.15rem}
+.prize p{margin:0;color:#6b4e12;font-size:.92rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:0 0 1.4rem}
+.stat{border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;background:var(--surface)}
+.stat b{display:block;font-family:var(--font-display);font-size:1.5rem;color:var(--ocean);font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="../index.html">S. Saleesongsom</a><ul>
+<li><a href="../index.html#home">Home</a></li><li><a href="../index.html#research">Research</a></li><li><a href="../index.html#positions">Positions</a></li><li><a href="../index.html#publications">Publications</a></li><li><a href="../index.html#teaching">Teaching</a></li><li><a href="../index.html#outreach">Outreach</a></li><li><a href="../index.html#contact">Contact</a></li>
+</ul></div></nav>
+<header><div class="wrap">
+<div class="crumb"><a href="../index.html#home">← Home</a></div>
+<h1>MSci Geology</h1>
+<div class="short">Imperial College London · Sep 2017 – Jun 2021</div>
+<p class="lead">Diagnosing and modelling the biogeochemical cycle of arsenic species in the oceans</p>
+</div></header>
+<main><div class="wrap">
+
+<section>
+<div class="prize"><div class="medal">1st</div><div><strong>Highest MSci thesis mark in the department</strong><p>Awarded the Earth Science and Engineering Centenary Prize, Imperial College London, June 2021, for the highest-scoring MSci thesis of the year.</p></div></div>
+<dl class="meta">
+<div><dt>Department</dt><dd>Earth Science and Engineering, Imperial College London, UK</dd></div>
+<div><dt>Supervisor</dt><dd><a href="https://profiles.imperial.ac.uk/y.plancherel">Assoc. Prof. Yves Plancherel</a></dd></div>
+<div><dt>Project period</dt><dd>July 2020 – January 2021</dd></div>
+<div><dt>Funding</dt><dd>DPST scholarship, Royal Thai Government</dd></div>
+</dl>
+</section>
+
+<section>
+<h2>Thesis overview</h2>
+<p>Inorganic arsenic is toxic to marine life, especially phytoplankton, yet how arsenic moves through the oceans has remained poorly understood because its chemistry is complicated (it exists as several inorganic and methylated species) and because measurements were scattered across many separate studies. For my MSci thesis I set out to change that by gathering everything that had been measured into one place and building the first model of how arsenic species cycle through the global ocean.</p>
+<div class="stats">
+<div class="stat"><b>&gt;10,000</b><span>ocean observations compiled into the first global dataset of arsenic species</span></div>
+<div class="stat"><b>6</b><span>arsenic species mapped: As(III), As(V), MMA, DMA and total inorganic and organic arsenic</span></div>
+<div class="stat"><b>+12%</b><span>estimated rise in global average dissolved arsenic since the Industrial Revolution</span></div>
+</div>
+<figure class="fig">
+<img src="../images/msci-stations.jpg" alt="World map of sampling stations in the compiled arsenic dataset, coloured by ocean basin: North and South Pacific, North and South Atlantic, Indian, Southern and Arctic Oceans, marginal seas, coastal, anoxic and Antarctic shelf sites" width="1600" height="924">
+<figcaption>Sampling stations in the compiled global dataset, coloured by ocean region.</figcaption>
+</figure>
+<figure class="fig">
+<img src="../images/msci-arsenic-maps.jpg" alt="Six world maps showing surface-ocean concentrations of arsenite, arsenate, total dissolved inorganic arsenic, methylarsonic acid, dimethylarsinic acid and total dissolved organic arsenic" width="1600" height="614">
+<figcaption>Global distribution of arsenic species in the surface ocean: (a) arsenite, (b) arsenate, (&#99;) total dissolved inorganic arsenic, (d) methylarsonic acid, (e) dimethylarsinic acid and (f) total dissolved organic arsenic, in nmol L<sup>−1</sup>.</figcaption>
+</figure>
+</section>
+
+<section>
+<h2>Aim</h2>
+<p>To assess the change in dissolved arsenic concentrations in the oceans since the Industrial Revolution.</p>
+</section>
+
+<section>
+<h2>Objectives</h2>
+<ul class="obj">
+<li><span class="n">1</span><div><strong>Build a global dataset</strong><p>Produce the first comprehensive global dataset of arsenic species in the oceans, and use it to describe their distribution and depth profiles.</p></div></li>
+<li><span class="n">2</span><div><strong>Model the marine arsenic cycle</strong><p>Develop a quantitative model of the biogeochemical cycle of arsenic species, built around the key reactions and processes that govern it: methylation and demethylation by microbes, oxidation of arsenite by iron–manganese oxide particles, and scavenging, regeneration and sinking of arsenic on particles.</p></div></li>
+<li><span class="n">3</span><div><strong>Evaluate the human fingerprint</strong><p>Use a global box model to assess how anthropogenic emissions have changed dissolved arsenic in the oceans over time, and where concentrations are heading.</p></div></li>
+</ul>
+</section>
+
+<section>
+<h2>What I found</h2>
+<p>The compiled dataset and model showed that arsenic entering the ocean currently exceeds arsenic leaving it, so the ocean is no longer in steady state with respect to arsenic. The global average dissolved arsenic concentration was estimated at about 21.5 nmol L<sup>−1</sup>, compared with a pre-industrial value of about 19.4 nmol L<sup>−1</sup>, and the model suggested it will continue to rise toward a new steady state of roughly 24.7 nmol L<sup>−1</sup> over tens of thousands of years. The model also provided first estimates of several rate constants that had never been measured, including demethylation by bacteria in the deep ocean and oxidation of arsenite by Fe–Mn oxide particles.</p>
+<p>This project was where my interest in how human activity changes the chemistry of the environment first took shape, and it led directly to my later work on iron and acidity in polluted aerosol.</p>
+</section>
+
+<section>
+<h2>Related</h2>
+<div class="more"><a href="arsenic-pollution.html">Arsenic Pollution research theme</a><a href="arsenic-adsorption-kinetics.html">Arsenic adsorption kinetics (UROP)</a><a href="phd-thesis.html">PhD thesis</a></div>
+</section>
+
+</div></main>
+<footer><div class="wrap">© 2026 Sarawud Saleesongsom · <a href="../index.html" style="color:#dce9f7">sarawudsaleesongsom.com</a></div></footer>
+</body>
+</html>
