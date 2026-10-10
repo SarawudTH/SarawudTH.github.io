@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Adsorption kinetics of arsenic on metal oxides · Sarawud Saleesongsom</title>
-<meta name="description" content="A revised pseudo-second-order kinetic model for adsorption, tested against a meta-analysis of arsenic uptake on iron and titanium oxides.">
+<title>Negative pH · Sarawud Saleesongsom</title>
+<meta name="description" content="Polluted atmospheres produce aerosol droplets far more acidic than anything a standard pH electrode is designed for. This theme is about measuring pH reliably below zero, and using that capability to study chemistry at extreme acidity.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b5fb8'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
@@ -44,6 +44,14 @@ ul.aims{margin:0;padding-left:1.2rem}ul.aims li{margin-bottom:.5rem}
 .more a{font-size:.85rem;padding:.45rem .85rem;border:1px solid var(--line);border-radius:999px;background:var(--bg2)}
 .more a:hover{border-color:var(--ocean)}
 footer{background:#1f3a24;color:#cfe3c9}footer .wrap{padding-block:1.4rem 2rem;font-size:.8rem;font-family:var(--font-mono)}
+
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{display:block;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:1rem 1.1rem;color:var(--fg);border-bottom:1px solid var(--line);transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--sky);box-shadow:0 8px 30px rgba(11,95,184,.10)}
+.card h3{color:var(--ocean);font-size:1.05rem;margin-bottom:.35rem}
+.card p{font-size:.9rem;color:var(--muted);margin:0}
+.card .more{color:var(--ocean);font-weight:600;font-size:.85rem;margin-top:.5rem;display:block}
+.soon{font-size:.88rem;color:var(--muted);margin-top:1rem}
 </style>
 </head>
 <body>
@@ -51,17 +59,15 @@ footer{background:#1f3a24;color:#cfe3c9}footer .wrap{padding-block:1.4rem 2rem;f
 <li><a href="../index.html#home">Home</a></li><li><a href="../index.html#research">Research</a></li><li><a href="../index.html#positions">Positions</a></li><li><a href="../index.html#publications">Publications</a></li><li><a href="../index.html#teaching">Teaching</a></li><li><a href="../index.html#outreach">Outreach</a></li><li><a href="../index.html#contact">Contact</a></li>
 </ul></div></nav>
 <header><div class="wrap">
-<div class="crumb"><a href="../index.html#research">← Research</a> · Part of <a href="arsenic-pollution.html">Arsenic Pollution</a></div>
-<h1>Adsorption kinetics of arsenic on metal oxides</h1>
-<div class="short">Undergraduate research (UROP) · Imperial College London, 2019–2020</div>
-<p class="lead">A revised pseudo-second-order kinetic model for adsorption, tested against a meta-analysis of arsenic uptake on iron and titanium oxides.</p>
+<div class="crumb"><a href="../index.html#research">← Research</a></div>
+<h1>Negative pH</h1>
+<div class="short">Research theme · measuring and modelling extreme acidity</div>
+<p class="lead">Polluted atmospheres produce aerosol droplets far more acidic than anything a standard pH electrode is designed for. This theme is about measuring pH reliably below zero, and using that capability to study chemistry at extreme acidity.</p>
 </div></header>
 <main><div class="wrap">
-<section><h2>Background</h2><p>Adsorption onto iron and titanium oxides is one of the main ways arsenic is removed from contaminated water, both in natural systems and in treatment. The kinetics of that uptake are almost universally fitted with the pseudo-second-order (PSO) model. The classic form of the model, however, assumes that one of the two reacting quantities, the dissolved adsorbate or the available surface sites, stays effectively constant during the experiment. In many real experiments neither does, and the fitted rate constants then depend on the experimental conditions rather than on the chemistry.</p></section><section><h2>What I did</h2><p>As an undergraduate research assistant in the Environmental Geochemistry group I contributed to a study, led by Jay Bullen, that revised the PSO model so that it explicitly accounts for changes in both adsorbate and adsorbent concentrations. To test the revised model I carried out a systematic extraction and meta-analysis of 36 rate constants from 14 independent studies of arsenic adsorption onto Fe<sub>2</sub>O<sub>3</sub> and TiO<sub>2</sub>, which allowed the variability in reported kinetics to be evaluated quantitatively across systems. The compiled dataset is openly available on Zenodo.</p></section><section><h2>Why it matters</h2><p>The revised model gives rate constants that are more comparable between studies, which is what is needed to use laboratory kinetics in reactive-transport models of arsenic in groundwater and in the design of treatment systems. The project was also the start of my interest in getting rate laws right, which later became the centre of my PhD.</p></section>
-<section><h2>Methods and tools</h2><p class="tools">kinetic modelling · literature meta-analysis · Python</p></section>
-<section><h2>Related publications</h2><ul class="pub"><li>Bullen, J. C., Saleesongsom, S., Gallagher, K., &amp; Weiss, D. J. (2021). A revised pseudo-second-order kinetic model for adsorption, sensitive to changes in adsorbate and adsorbent concentrations. <em>Langmuir</em>, 37(10), 3189–3201. <a class="doi" href="https://doi.org/10.1021/acs.langmuir.1c00142">10.1021/acs.langmuir.1c00142</a></li><li>Meta-analysis dataset of arsenic adsorption rate constants onto Fe<sub>2</sub>O<sub>3</sub> and TiO<sub>2</sub>. Zenodo. <a class="doi" href="https://doi.org/10.5281/zenodo.4443103">10.5281/zenodo.4443103</a></li></ul></section>
-<section><h2>People</h2><p class="people">With Jay Bullen, Kevin Gallagher and Dominik Weiss (Imperial College London).</p></section>
-<section><h2>Other research</h2><div class="more"><a href="aerosol-acidity-haze.html">Aerosol acidity and liquid water during biomass-burning haze</a><a href="fe2-oxidation-kinetics.html">Fe(II) oxidation kinetics across pH and temperature</a><a href="negative-ph-electrodes.html">Measuring pH where the scale breaks down</a></div></section>
+<section><h2>Overview</h2><p>Sulphur dioxide from fossil-fuel combustion and other sources ends up as sulphuric acid in aerosol particles, and thermodynamic models routinely predict particle pH below zero in polluted air. Laboratory experiments at those acidities have been held back by a measurement problem: glass pH electrodes become nonlinear in concentrated acid, so reported pH values are often wrong by a unit or more.</p><p>My work in this theme develops calibration methods, statistical treatments and software that extend trustworthy pH measurement to the negative-pH range, and applies them to kinetic and thermodynamic experiments that would otherwise be out of reach.</p></section>
+<section><h2>Projects in this theme</h2><div class="cards"><a class="card" href="negative-ph-electrodes.html"><h3>Measuring pH where the scale breaks down</h3><p>Glass pH electrodes become nonlinear in concentrated acids and alkalis. I developed a calibration that extends reliable measurement to negative pH, and software so that other laboratories can use it.</p><span class="more">Read more →</span></a></div><p class="soon">More projects under this theme will be added as they develop.</p></section>
+<section><h2>Other research themes</h2><div class="more"><a href="fe2-oxidation.html">Fe(II) Oxidation</a><a href="aerosol-chemistry.html">Aerosol Chemistry</a><a href="arsenic-pollution.html">Arsenic Pollution</a></div></section>
 </div></main>
 <footer><div class="wrap">© 2026 Sarawud Saleesongsom · <a href="../index.html" style="color:#dce9f7">sarawudsaleesongsom.com</a></div></footer>
 </body>
