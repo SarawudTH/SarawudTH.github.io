@@ -34,9 +34,11 @@
 html{background:var(--bg)}
 body{background:transparent;color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.65;margin:0}
 #descent{position:fixed;inset:0;z-index:-1;pointer-events:none}
-#descent .sky,#descent .earth{position:absolute;inset:0}
+#descent .sky,#descent .dusk,#descent .earth{position:absolute;inset:0}
 #descent .sky{background:linear-gradient(180deg,#3d8fe3 0%,#9fcdf4 45%,#e6f2fc 100%)}
-#descent .earth{background:linear-gradient(180deg,#bfe0f5 0%,#cfe6c4 45%,#7fb86a 100%);opacity:0}
+#descent .dusk{background:linear-gradient(180deg,#2b4f8a 0%,#7a6aa0 40%,#e8946a 75%,#f6c38a 100%);opacity:0}
+#descent .earth{background:linear-gradient(180deg,#02050d 0%,#071226 50%,#0b1a33 100%);opacity:0}
+#aurora{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:auto}
 a{color:var(--ocean);text-decoration:none;border-bottom:1px solid transparent}
 a:hover,a:focus-visible{border-bottom-color:currentColor}
 a:focus-visible,button:focus-visible{outline:2px solid var(--ocean);outline-offset:3px}
@@ -44,8 +46,9 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;text-w
 h2{font-size:1.8rem;margin-bottom:1rem;background:linear-gradient(90deg,var(--sky),var(--ocean) 60%,var(--land));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
 h2::after{content:"";display:block;height:1px;margin-top:.6rem;background:linear-gradient(90deg,var(--ocean),transparent)}
 h3{font-size:1.2rem;margin-bottom:.4rem}
-.sub{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin:1.6rem 0 .8rem}
+.sub{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--land);font-weight:500;margin:1.2rem 0 .8rem}
 .h2-spaced{margin-top:2.6rem}
+.sub-lg{font-family:var(--font-display);font-size:1.3rem;letter-spacing:0;text-transform:none;color:var(--ocean);font-weight:600;margin:1.4rem 0 1rem}
 p{margin:0 0 1rem}
 .wrap{max-width:1140px;margin:0 auto;padding-inline:24px}
 
@@ -84,8 +87,53 @@ h1 .degree{font-weight:400;font-size:.6em;color:#2a4568;white-space:nowrap}
 /* sections */
 section{border-top:1px solid rgba(255,255,255,.6);position:relative;scroll-margin-top:4rem;background:rgba(255,255,255,.82)}
 section:nth-of-type(even){background:rgba(241,247,253,.78)}
+section.dusk{background:rgba(255,255,255,.6)}
+section.night{background:rgba(6,14,30,.45);color:#e6eef5;border-top-color:rgba(255,255,255,.12)}
+section.night h2{background:linear-gradient(90deg,#9fd0ff,#7fe0d6 60%,#a8e6a0);-webkit-background-clip:text;background-clip:text}
+section.night h2::after{background:linear-gradient(90deg,#7fc4ff,transparent)}
+section.night .role{background:rgba(6,14,30,.55);border-color:rgba(255,255,255,.14)}
+section.night .role h3{color:#ffffff}
+section.night .role .where{color:#b7c6d8}
+section.night .role p{color:#dfe8f2}
+section.night .role .when{color:#cfe6ff;background:rgba(127,196,255,.12);border-color:rgba(127,196,255,.35)}
+section.night a{color:#8fd0ff}
+#outreach{background:linear-gradient(180deg,rgba(6,14,30,.45) 0%,rgba(6,14,30,.5) 50%,rgba(2,5,13,.97) 100%)}
+#contact{border-top:0}
+section.night .pubs h3{color:#a8e6a0}
+section.night .pub li{background:rgba(6,14,30,.55);border-color:rgba(255,255,255,.14);color:#dfe8f2}
+section.night .pub .me{color:#9fd0ff}
+section.night .conf .me{color:#ffffff}
+section.night .conf .venue{color:#9fd0ff}
+section.night .pub .status{color:#a8e6a0}
+section.night .lead{color:#dfe8f2}
+
 section .wrap{padding-block:3rem}
 .lead{font-size:1.08rem;color:#1c355a}
+.highlights{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));margin-bottom:1.6rem}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem 1rem;box-shadow:0 2px 12px rgba(11,95,184,.05);display:flex;flex-direction:column;min-width:0}
+.post-head{display:grid;grid-template-columns:48px 1fr auto;gap:.8rem;align-items:center;margin-bottom:.8rem}
+.post-head img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 30%}
+.post-head strong{display:block;font-size:.95rem}
+.post-head span{display:block;font-size:.78rem;color:var(--muted)}
+.post-li{font-size:1.5rem;color:#0a66c2;border-bottom:0}
+.post-li svg,.post-li i{width:1em;height:1em}
+.post-body{font-size:.93rem;line-height:1.55;max-height:9.3em;overflow:hidden;position:relative;transition:max-height .25s ease}
+.post-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2.5em;background:linear-gradient(rgba(255,255,255,0),var(--surface))}
+.post-body.open{max-height:none}
+.post-body.open::after{display:none}
+.post-body p{margin:0 0 .7rem}
+.post-tags a{display:inline-block;margin-right:.35rem;color:#0a66c2;font-weight:600}
+.post-more{align-self:flex-start;background:none;border:0;padding:.1rem 0 .8rem;font:inherit;font-size:.85rem;color:var(--muted);cursor:pointer}
+.post-more:hover{color:var(--ocean)}
+.post-media{display:grid;gap:4px;border-radius:10px;overflow:hidden;margin-bottom:.8rem}
+.post-media.two{grid-template-columns:1fr 1fr}
+.post-media.three{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px}
+.post-media.three img:first-child{grid-row:1 / span 2;height:100%}
+.post-media img{width:100%;height:100%;object-fit:cover;display:block;background:#e8eef5}
+.post-media.two img{height:200px}
+.post-media.three img{height:200px}
+.post-foot{font-size:.85rem;font-weight:600;margin-top:auto}
+@media (max-width:620px){.highlights{grid-template-columns:1fr}}
 .news{list-style:none;padding:0;margin:0;display:grid;gap:.9rem;max-width:60rem}
 .news li{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;align-items:baseline}
 .news time{font-family:var(--font-mono);font-size:.78rem;color:var(--land);white-space:nowrap}
@@ -125,10 +173,11 @@ section .wrap{padding-block:3rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--ocean),var(--sky));color:#ffffff;padding:.65rem 1.1rem;border-radius:999px;font-weight:600;font-size:.9rem;border:0;box-shadow:0 0 24px var(--glow)}
 .btn:hover{filter:brightness(1.08);border-bottom-color:transparent}
 
-#contact{border-top:0;min-height:900px;background:transparent;overflow:hidden;isolation:isolate}
-#land{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
+#contact{border-top:0;min-height:900px;background:#02050d url("images/earth-night.jpg") center 30% / cover no-repeat!important;overflow:hidden;isolation:isolate}
+#contact::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,5,13,.9),rgba(2,5,13,0) 22%,rgba(2,5,13,0) 70%,rgba(2,5,13,.6));pointer-events:none}
+#aurora2{position:absolute;left:0;top:0;width:100%;height:52%;display:block;pointer-events:none;mix-blend-mode:screen}
 #contact .wrap{padding-block:4.5rem 14rem}
-#contact .card{background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:14px;padding:1.6rem 1.8rem;max-width:760px;box-shadow:0 10px 40px rgba(20,60,30,.25)}
+#contact .card{background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-radius:14px;padding:1.6rem 1.8rem;max-width:760px;box-shadow:0 10px 40px rgba(20,60,30,.25)}
 #contact .card+.card{margin-top:1.4rem}
 .form{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
 .form label{display:grid;gap:.3rem;font-size:.8rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--land)}
@@ -147,8 +196,8 @@ section .wrap{padding-block:3rem}
 .contact dd{margin:0;font-size:.95rem;overflow-wrap:anywhere}
 .copy{font:inherit;font-size:.74rem;font-family:var(--font-mono);background:none;border:1px solid var(--line);border-radius:4px;color:var(--muted);padding:.1rem .45rem;margin-left:.4rem;cursor:pointer}
 .copy:hover{color:var(--ocean);border-color:var(--ocean)}
-footer{background:#1f3a24;color:#cfe3c9;border-top:0}
-footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-mono)}
+body>footer{background:#02050d;color:#9fb3cc;border-top:0}
+body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-mono)}
 
 @media (max-width:620px){
   .themes,.roles,.pub{grid-template-columns:1fr}
@@ -164,7 +213,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 
-<div id="descent" aria-hidden="true"><div class="sky"></div><div class="earth"></div></div>
+<div id="descent" aria-hidden="true"><div class="sky"></div><div class="dusk"></div><div class="earth"><canvas id="aurora"></canvas></div></div>
 <nav>
   <div class="wrap">
     <a class="brand" href="#home">S. Saleesongsom</a>
@@ -228,10 +277,60 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
 <section>
   <div class="wrap">
     <h2>News</h2>
+    <h3 class="sub sub-lg">Highlights</h3>
+    <div class="highlights">
+      <article class="post">
+        <header class="post-head">
+          <img src="images/avatar.jpg" alt="" width="48" height="48">
+          <div><strong>Sarawud (Juy) Saleesongsom, PhD</strong><span>Postdoctoral Researcher · ESRC, Chiang Mai University</span></div>
+          <a class="post-li" href="https://www.linkedin.com/feed/update/urn:li:activity:7511701591683452928/" aria-label="View this post on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        </header>
+        <div class="post-body" id="post1">
+          <p>I recently had the opportunity to run a workshop on using Claude for data analysis and scientific visualisation with researchers at the Environmental Science Research Center (ESRC), <a href="https://www.linkedin.com/company/chiangmaiuniversity/">Chiang Mai University</a>.</p>
+          <p>With the recent release of Claude for Researchers, I’ve been exploring how AI tools can support researchers throughout the data-analysis workflow, from understanding and working with datasets to generating Python code and producing publication-ready scientific figures.</p>
+          <p>As part of our group’s work, I’ve been helping researchers use Claude to analyse our air pollution and PM datasets and turn the results into figures that are clearer, more reproducible, and closer to publication quality.</p>
+          <p>I’m particularly glad that I can combine my experience in coding, data analysis, and scientific figure preparation with these new AI tools. One of the things I enjoy most is sharing practical tips on how to improve figures and overall presentation.</p>
+          <p>This was Part 1, focusing on:<br>🔹 Introduction to Claude Cowork<br>🔹 Understanding the structure of Python code<br>🔹 Using Claude to work with scientific datasets<br>🔹 Generating and refining data visualisations<br>🔹 Tips for creating publication-ready figures</p>
+          <p>📊 If you’re interested in the presentation slides, feel free to drop me a message and I’d be happy to share them.</p>
+          <p class="post-tags"><a href="https://www.linkedin.com/search/results/all/?keywords=%23claude&amp;origin=HASH_TAG_FROM_FEED">#Claude</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23claudeforresearchers&amp;origin=HASH_TAG_FROM_FEED">#ClaudeForResearchers</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23datavisualization&amp;origin=HASH_TAG_FROM_FEED">#DataVisualization</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23python&amp;origin=HASH_TAG_FROM_FEED">#Python</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23scientificcomputing&amp;origin=HASH_TAG_FROM_FEED">#ScientificComputing</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23airpollution&amp;origin=HASH_TAG_FROM_FEED">#AirPollution</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23atmosphericscience&amp;origin=HASH_TAG_FROM_FEED">#AtmosphericScience</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23research&amp;origin=HASH_TAG_FROM_FEED">#Research</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23chiangmaiuniversity&amp;origin=HASH_TAG_FROM_FEED">#ChiangMaiUniversity</a></p>
+        </div>
+        <button class="post-more" type="button" data-target="post1" aria-expanded="false">…see more</button>
+        <div class="post-media two">
+          <img src="images/workshop-slide.jpg" alt="Title slide of the workshop: Data Visualisation and Charts with Claude, Part 1" loading="lazy">
+          <img src="images/workshop-room.jpg" alt="Researchers in the ESRC meeting room during the workshop" loading="lazy">
+        </div>
+        <footer class="post-foot"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7511701591683452928/">View post on LinkedIn →</a></footer>
+      </article>
+      <article class="post">
+        <header class="post-head">
+          <img src="images/avatar.jpg" alt="" width="48" height="48">
+          <div><strong>Sarawud (Juy) Saleesongsom, PhD</strong><span>Postdoctoral Researcher · ESRC, Chiang Mai University</span></div>
+          <a class="post-li" href="https://www.linkedin.com/feed/update/urn:li:activity:7508932373670019072/" aria-label="View this post on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        </header>
+        <div class="post-body" id="post2">
+          <p>It was so heartwarming to attend the DPST Job Fair 2026 and reconnect with so many familiar faces from different stages of my journey. ❤️</p>
+          <p>For those who may not be familiar with it, DPST (Development and Promotion of Science and Technology Talents Project) is a Thai scholarship programme supporting talented students in science and technology throughout their educational and research journeys.</p>
+          <p>I’m proud to be DPST Cohort 29. Last year, we celebrated 40 years of DPST, and it’s amazing to see the community continue to grow across generations of scholars.</p>
+          <p>A big thank you to all the senior scholars who shared their experiences, advice, and “inside information” on navigating academia and building a career in Thailand. It was incredibly valuable as we make the transition from our postgraduate studies into the next chapter of our careers.</p>
+          <p>And, of course, it was especially lovely to see my cohort friends again. Many of us have been on this journey together since high school, and it’s amazing to see where everyone is now, from DPST students back then to being a Dr. today. It feels like we’re entering another chapter of the journey together. ❤️</p>
+          <p>In the first photo, I had the opportunity to meet Prof. Dr. Yodchanan Wongsawat, a Thai academic who currently serves as Deputy Prime Minister and Minister of Higher Education, Science, Research and Innovation.</p>
+          <p>Grateful for the people, the conversations, and the journey that brought us here. 🇹🇭</p>
+          <p class="post-tags"><a href="https://www.linkedin.com/search/results/all/?keywords=%23dpst&amp;origin=HASH_TAG_FROM_FEED">#DPST</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23dpstjobfair2026&amp;origin=HASH_TAG_FROM_FEED">#DPSTJobFair2026</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23thaischolars&amp;origin=HASH_TAG_FROM_FEED">#ThaiScholars</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23academia&amp;origin=HASH_TAG_FROM_FEED">#Academia</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23research&amp;origin=HASH_TAG_FROM_FEED">#Research</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23careerdevelopment&amp;origin=HASH_TAG_FROM_FEED">#CareerDevelopment</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23thailand&amp;origin=HASH_TAG_FROM_FEED">#Thailand</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23phd&amp;origin=HASH_TAG_FROM_FEED">#PhD</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23postdoc&amp;origin=HASH_TAG_FROM_FEED">#Postdoc</a></p>
+        </div>
+        <button class="post-more" type="button" data-target="post2" aria-expanded="false">…see more</button>
+        <div class="post-media three">
+          <img src="images/dpst-meeting.jpg" alt="Meeting Prof. Dr. Yodchanan Wongsawat at the DPST Job Fair 2026" loading="lazy">
+          <img src="images/dpst-group.jpg" alt="Group photograph at the DPST Job Fair 2026" loading="lazy">
+          <img src="images/dpst-talk.jpg" alt="Special talk, Science Talent for Thailand’s Future, at the DPST Job Fair 2026" loading="lazy">
+        </div>
+        <footer class="post-foot"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7508932373670019072/">View post on LinkedIn →</a></footer>
+      </article>
+    </div>
+    <h3 class="sub sub-lg">Updates</h3>
     <ul class="news">
       <li><time>1 Oct 2026</time><span>Appointed Visiting Researcher in the Department of Earth Science and Engineering, Imperial College London, to continue ongoing research and begin new collaborative work on negative pH, atmospheric pollution and aerosol thermodynamic modelling.</span></li>
-      <li><time>20 Aug 2026</time><span>New paper in <em>Talanta</em>: <a href="https://doi.org/10.1016/j.talanta.2026.130486">optimising nonlinear calibration of glass pH electrodes over pH −4.5 to 15.5 with improved statistical treatment of acid and alkaline errors</a>.</span></li>
-      <li><time>2 Jul 2026</time><span>New paper in <em>ACS Omega</em>: <a href="https://doi.org/10.1021/acsomega.6c01903">temperature-dependent nonlinear calibration of glass pH electrodes for negative pH applications</a>.</span></li>
+      <li><time>20 Aug 2026</time><span>New paper in <em>Talanta</em>: <a href="https://doi.org/10.1016/j.talanta.2026.130486">Saleesongsom et al. (2026) Optimising nonlinear calibration of glass pH electrodes over pH −4.5 to 15.5 with improved statistical treatment of acid and alkaline errors</a>.</span></li>
+      <li><time>2 Jul 2026</time><span>New paper in <em>ACS Omega</em>: <a href="https://doi.org/10.1021/acsomega.6c01903">Saleesongsom et al. (2026) Temperature-dependent nonlinear calibration of glass pH electrodes for negative pH applications</a>.</span></li>
       <li><time>1 Jul 2026</time><span>Joined the Environmental Science Research Center, Chiang Mai University, as a Postdoctoral Researcher working on the aerosol chemistry of biomass-burning haze.</span></li>
       <li><time>1 Apr 2026</time><span>PhD awarded by Imperial College London.</span></li>
       <li><time>5 Mar 2026</time><span>Started a new collaboration with Assoc. Prof. Somporn Chantara at the Environmental Science Research Center, Chiang Mai University, on <a href="research/aerosol-acidity-haze.html">aerosol pH and liquid water content during biomass-burning haze</a>.</span></li>
@@ -290,25 +389,25 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
         <h3>Postdoctoral Researcher</h3>
         <span class="when">Jul 2026 – present</span>
         <span class="where">Environmental Science Research Center (ESRC), Chiang Mai University, Thailand</span>
-        <p>I study the atmospheric chemistry of transboundary biomass-burning haze in Northern Thailand, estimating aerosol pH and liquid water content with E-AIM, ISORROPIA and AIOMFAC.</p>
+        <p>Research on the atmospheric chemistry of transboundary biomass-burning haze in Northern Thailand, estimating aerosol pH and liquid water content with E-AIM, ISORROPIA and AIOMFAC.</p>
       </div>
       <div class="role">
         <h3>Visiting Researcher</h3>
         <span class="when">Oct 2026 – present</span>
         <span class="where">Department of Earth Science and Engineering, Imperial College London, UK</span>
-        <p>I continue to collaborate with the Environmental Geochemistry group on negative-pH chemistry, air pollution and thermodynamic modelling.</p>
+        <p>Ongoing and new collaborative research with the Environmental Geochemistry group on negative-pH chemistry, air pollution and aerosol thermodynamic modelling.</p>
       </div>
       <div class="role">
         <h3>Transition to Zero Pollution PhD student (Cohort 3)</h3>
         <span class="when">Sep 2021 – Oct 2025</span>
         <span class="where">NERC Science and Solutions for a Changing Planet DTP, Grantham Institute, Imperial College London, UK</span>
-        <p>I was one of 10 PhD students selected from across the College to join the Transition to Zero Pollution initiative.</p>
+        <p>One of 10 PhD students selected from across the College to join the Transition to Zero Pollution initiative.</p>
       </div>
       <div class="role">
         <h3>UROP Research Assistant</h3>
         <span class="when">2019 – 2020</span>
         <span class="where">Imperial College London, UK</span>
-        <p>I co-authored a revised pseudo-second-order model for adsorption kinetics (Langmuir, 2021) and carried out a meta-analysis of arsenic adsorption rate constants.</p>
+        <p>Co-author of a revised pseudo-second-order model for adsorption kinetics (Langmuir, 2021), with a meta-analysis of arsenic adsorption rate constants.</p>
       </div>
     </div>
     <h2 class="h2-spaced">Awards &amp; scholarships</h2>
@@ -335,7 +434,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
   </div>
 </section>
 
-<section id="publications">
+<section id="publications" class="night">
   <div class="wrap pubs">
     <h2>Publications</h2>
     <h3>Peer-reviewed</h3>
@@ -362,7 +461,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
   </div>
 </section>
 
-<section id="teaching">
+<section id="teaching" class="night">
   <div class="wrap">
     <h2>Teaching &amp; supervision</h2>
     <div class="roles">
@@ -394,7 +493,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
   </div>
 </section>
 
-<section id="outreach">
+<section id="outreach" class="night">
   <div class="wrap">
     <h2>Science communication</h2>
     <div class="roles">
@@ -421,7 +520,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
 </section>
 
 <section id="contact">
-  <canvas id="land" aria-hidden="true"></canvas>
+  <canvas id="aurora2" aria-hidden="true"></canvas>
   <div class="wrap">
   <div class="card">
     <h2>Contact</h2>
@@ -446,7 +545,7 @@ footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--font-
     </div>
   <div class="card">
     <h3 style="margin-bottom:.9rem">Send me a message</h3>
-    <form class="form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="form" id="contact-form" action="https://formspree.io/f/xaeqjeoz" method="POST">
       <label>Name<input type="text" name="name" id="f-name" required autocomplete="name"></label>
       <label>Email<input type="email" name="email" id="f-email" required autocomplete="email"></label>
       <label class="full">Subject<input type="text" name="_subject" id="f-subject" placeholder="e.g. Collaboration on aerosol pH"></label>
@@ -537,54 +636,12 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
   size();frame();window.addEventListener('resize',function(){size();if(reduce)frame();});
 })();
 (function(){
-  var earth=document.querySelector('#descent .earth');
+  var earth=document.querySelector('#descent .earth'),dusk=document.querySelector('#descent .dusk');
   function upd(){var max=document.documentElement.scrollHeight-window.innerHeight;var p=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
-    var e=p*p*(3-2*p);earth.style.opacity=e;
+    var night=Math.max(0,(p-0.38)/0.5);if(night>1)night=1;night=night*night*(3-2*night);earth.style.opacity=night;window.__night=night;
+    var du=Math.max(0,Math.min(1,p/0.5));du=du*du*(3-2*du);dusk.style.opacity=du*(1-night*0.6);
   }
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
-})();
-(function(){
-  var c=document.getElementById('land');if(!c)return;var ctx=c.getContext('2d');
-  var W,H;
-  // deterministic pseudo-random so the scene is identical on every load
-  function rng(seed){return function(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;};}
-  function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
-  function ridge(x,seed,amp,freq){return Math.sin(x*freq+seed)*amp+Math.sin(x*freq*2.7+seed*1.9)*amp*.4+Math.abs(Math.sin(x*freq*6.3+seed))*amp*.15;}
-  function cloud(cx,cy,r,R){var k=0;for(var i=0;i<7;i++){var a=i/7*6.283;var rr=r*(0.55+0.45*R());ctx.beginPath();ctx.arc(cx+Math.cos(a)*r*.75,cy+Math.sin(a)*r*.28,rr,0,6.283);ctx.fill();}
-    ctx.beginPath();ctx.arc(cx,cy-r*.15,r*.9,0,6.283);ctx.fill();}
-  function draw(){
-    var R=rng(20260409);
-    var sky=ctx.createLinearGradient(0,0,0,H*.5);sky.addColorStop(0,'#4a94e0');sky.addColorStop(.6,'#a3cdf2');sky.addColorStop(1,'#e3f1fb');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
-    for(var i=0;i<7;i++){var cx=R()*W,cy=H*(0.05+R()*0.16),r=W*(0.012+R()*0.02);ctx.fillStyle='rgba(255,255,255,.5)';cloud(cx,cy+r*.25,r*1.05,R);ctx.fillStyle='rgba(255,255,255,.95)';cloud(cx,cy,r,R);}
-    // far mountains
-    var mb=H*.42;ctx.beginPath();ctx.moveTo(0,H);ctx.lineTo(0,mb);
-    for(var x=0;x<=W;x+=4){ctx.lineTo(x,mb-Math.abs(ridge(x,2.1,H*.16,.0035)));}
-    ctx.lineTo(W,H);ctx.closePath();var mg=ctx.createLinearGradient(0,H*.22,0,mb+H*.05);mg.addColorStop(0,'#c9dcef');mg.addColorStop(1,'#7f9fc0');ctx.fillStyle=mg;ctx.fill();
-    // forested hills
-    var hills=[{b:.50,amp:.06,f:.005,seed:1.3,c1:'#6fa86a',c2:'#3f7a44'},{b:.57,amp:.05,f:.008,seed:4.8,c1:'#5f9e52',c2:'#356b36'}];
-    hills.forEach(function(L){ctx.beginPath();ctx.moveTo(0,H);for(var x=0;x<=W;x+=5){ctx.lineTo(x,H*(L.b+ridge(x,L.seed,L.amp,L.f)*.6));}ctx.lineTo(W,H);ctx.closePath();var g=ctx.createLinearGradient(0,H*(L.b-L.amp),0,H);g.addColorStop(0,L.c1);g.addColorStop(1,L.c2);ctx.fillStyle=g;ctx.fill();
-      for(var i=0;i<W/14;i++){var tx=R()*W,ty=H*(L.b+ridge(tx,L.seed,L.amp,L.f)*.6)+R()*H*.05+4,tr=2+R()*4;ctx.fillStyle='rgba(30,80,40,'+(0.15+R()*.25)+')';ctx.beginPath();ctx.arc(tx,ty,tr,0,6.283);ctx.fill();}});
-    var hz=ctx.createLinearGradient(0,H*.5,0,H*.66);hz.addColorStop(0,'rgba(230,242,250,0)');hz.addColorStop(1,'rgba(230,242,250,.55)');ctx.fillStyle=hz;ctx.fillRect(0,H*.45,W,H*.25);
-    // rice terraces: stepped paddies, water reflecting the sky
-    var top=H*.60,step=H*.034,n=Math.ceil((H-top)/step)+2;
-    function edge(x,k){return top+k*step+ridge(x+k*37,3.3+k*.4,step*1.6,.0035)+Math.sin(x*.009+k)*step*.5-k*step*.08*Math.cos(x*.0015);}
-    for(var k=0;k<=n;k++){
-      ctx.beginPath();ctx.moveTo(0,H+20);for(var x=0;x<=W;x+=5)ctx.lineTo(x,edge(x,k));ctx.lineTo(W,H+20);ctx.closePath();
-      var depth=k/n;
-      var wg=ctx.createLinearGradient(0,top+k*step,0,top+(k+1)*step);
-      var c1=[175+50*depth,215+30*depth,205+30*depth],c2=[120+40*depth,185+35*depth,95+30*depth],c3=[85+30*depth,150+30*depth,70+25*depth];
-      wg.addColorStop(0,'rgb('+c1.map(Math.round).join(',')+')');wg.addColorStop(.45,'rgb('+c2.map(Math.round).join(',')+')');wg.addColorStop(1,'rgb('+c3.map(Math.round).join(',')+')');ctx.fillStyle=wg;ctx.fill();
-      ctx.beginPath();for(var x=0;x<=W;x+=5){var y=edge(x,k);if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(50,80,35,.75)';ctx.lineWidth=2.2+depth*2;ctx.stroke();
-      ctx.beginPath();for(var x=0;x<=W;x+=5){var y=edge(x,k)+2.5;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,255,235,.6)';ctx.lineWidth=1.2;ctx.stroke();
-      ctx.strokeStyle='rgba(40,110,50,'+(0.18+0.22*depth)+')';ctx.lineWidth=1;
-      for(var r2=0.3;r2<1;r2+=0.35){ctx.beginPath();for(var x=0;x<=W;x+=5){var y=edge(x,k)+step*r2+Math.sin(x*.3+r2*9)*0.6;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();}
-    }
-    var gx=W*.62,gy=H*.86,gl=ctx.createRadialGradient(gx,gy,0,gx,gy,W*.22);gl.addColorStop(0,'rgba(255,252,220,.55)');gl.addColorStop(.5,'rgba(255,252,220,.18)');gl.addColorStop(1,'rgba(255,252,220,0)');ctx.fillStyle=gl;ctx.fillRect(0,top,W,H-top);
-    var hx=W*.74,hy=H*.70;ctx.fillStyle='#6b4a2b';ctx.fillRect(hx-9,hy-6,18,10);ctx.fillStyle='#8a6a3a';ctx.beginPath();ctx.moveTo(hx-14,hy-6);ctx.lineTo(hx,hy-16);ctx.lineTo(hx+14,hy-6);ctx.closePath();ctx.fill();
-    ctx.strokeStyle='#5a3d22';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(hx-7,hy+4);ctx.lineTo(hx-7,hy+9);ctx.moveTo(hx+7,hy+4);ctx.lineTo(hx+7,hy+9);ctx.stroke();
-    var vg=ctx.createLinearGradient(0,0,0,H);vg.addColorStop(0,'rgba(255,255,255,0)');vg.addColorStop(1,'rgba(20,50,30,.14)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
-  }
-  size();draw();window.addEventListener('resize',function(){size();draw();});
 })();
 (function(){
   var f=document.getElementById('contact-form');if(!f)return;var st=document.getElementById('form-status'),btn=document.getElementById('f-send');
@@ -597,6 +654,64 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
       else{st.textContent='Sorry, something went wrong. Please email me directly instead.';st.style.color='#b7791f';}
     }).catch(function(){st.textContent='Sorry, the message could not be sent. Please email me directly instead.';st.style.color='#b7791f';}).finally(function(){btn.disabled=false;});
   });
+})();
+(function(){
+  Array.prototype.forEach.call(document.querySelectorAll('.post-more'),function(btn){
+    var body=document.getElementById(btn.getAttribute('data-target'));
+    btn.addEventListener('click',function(){var open=body.classList.toggle('open');btn.textContent=open?'show less':'…see more';btn.setAttribute('aria-expanded',open);});
+  });
+})();
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var N=128,tex=new Float32Array(N*N);(function(){var seed=4242;function R(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
+    var oct=[[4,.5],[8,.25],[16,.125],[32,.0625]],gs=oct.map(function(o){var p=o[0],g=new Float32Array(p*p);for(var i=0;i<p*p;i++)g[i]=R();return g;});
+    function sm(t){return t*t*(3-2*t);}function samp(g,p,x,y){var xi=Math.floor(x),yi=Math.floor(y),fx=sm(x-xi),fy=sm(y-yi),x0=xi%p,x1=(xi+1)%p,y0=yi%p,y1=(yi+1)%p;var a=g[y0*p+x0],b=g[y0*p+x1],c2=g[y1*p+x0],d=g[y1*p+x1];var t1=a+(b-a)*fx,t2=c2+(d-c2)*fx;return t1+(t2-t1)*fy;}
+    var mx=0;for(var y=0;y<N;y++)for(var x=0;x<N;x++){var v=0;for(var k=0;k<oct.length;k++){var p=oct[k][0];v+=samp(gs[k],p,x/N*p,y/N*p)*oct[k][1];}tex[y*N+x]=v;if(v>mx)mx=v;}for(var i=0;i<N*N;i++)tex[i]/=mx;})();
+  function noise(u,v){var x=((u%N)+N)%N,y=((v%N)+N)%N,xi=x|0,yi=y|0,fx=x-xi,fy=y-yi,x1=(xi+1)%N,y1=(yi+1)%N;var a=tex[yi*N+xi],b=tex[yi*N+x1],c2=tex[y1*N+xi],d=tex[y1*N+x1];return (a+(b-a)*fx)*(1-fy)+(c2+(d-c2)*fx)*fy;}
+  var t=0;
+  // Renders aurora curtains into a canvas. opts.sky=true paints a night-sky base; otherwise the result is transparent.
+  // opts.base / opts.span position the curtains (fraction of height); opts.fade fades them out toward the bottom.
+  function makeAurora(c,opts){
+    var ctx=c.getContext('2d'),LW=opts.w||240,LH=opts.h||135,img,px;
+    c.width=LW;c.height=LH;img=ctx.createImageData(LW,LH);px=img.data;
+    function draw(){
+      for(var y=0;y<LH;y++){var v=y/LH;
+        for(var x=0;x<LW;x++){var u=x/LW,i=(y*LW+x)*4;
+          var r=0,g=0,b=0,alpha=0;
+          if(opts.sky){r=4+6*v;g=10+14*v;b=30+22*v;alpha=255;}
+          var cr=0,cg=0,cb=0,sum=0;
+          for(var k=0;k<3;k++){
+            var cy=opts.base+k*opts.span+0.22*opts.span/0.16*(noise(u*70+t*5+k*300,t*3+k*40)-0.5)*0.75+0.06*Math.sin(u*7+t*.35+k*2)+0.03*Math.sin(u*23-t*.6+k);
+            var d=cy-v;if(d<-0.05)continue;
+            var edge=d<0?1+d/0.05:1,fall=Math.exp(-Math.max(0,d)/(0.13+0.05*k));
+            var rn=noise(u*520+t*4+k*70,v*22+t*2),rays=0.25+1.3*rn*rn;
+            var bn=noise(u*55+t*2+k*120,k*33+t),big=0.15+1.7*bn*bn;
+            var I=edge*fall*rays*big*(k===0?1:k===1?0.75:0.5);if(I<=0)continue;
+            var h=Math.min(1,Math.max(0,d)/0.5);
+            var R2=h<0.5?70+(30-70)*(h/0.5):30+(110-30)*((h-0.5)/0.5);
+            var G2=h<0.5?255+(215-255)*(h/0.5):215+(80-215)*((h-0.5)/0.5);
+            var B2=h<0.5?120+(205-120)*(h/0.5):205+(225-205)*((h-0.5)/0.5);
+            cr+=R2*I;cg+=G2*I;cb+=B2*I;sum+=I;
+          }
+          if(opts.fade){var f=1-Math.min(1,Math.max(0,(v-opts.fade[0])/(opts.fade[1]-opts.fade[0])));cr*=f;cg*=f;cb*=f;sum*=f;}
+          if(opts.fadeIn){var fi=Math.min(1,v/opts.fadeIn);fi=fi*fi*(3-2*fi);cr*=fi;cg*=fi;cb*=fi;sum*=fi;}
+          if(opts.sky){r+=cr*1.05;g+=cg*1.05;b+=cb*1.05;}
+          else{var aI=Math.min(1,sum*1.05);if(aI>0){r=cr/sum;g=cg/sum;b=cb/sum;alpha=aI*255;}}
+          px[i]=r>255?255:r;px[i+1]=g>255?255:g;px[i+2]=b>255?255:b;px[i+3]=alpha;
+        }
+      }
+      ctx.putImageData(img,0,0);
+      if(opts.sky){ctx.fillStyle='rgba(255,255,255,.8)';for(var j=0;j<70;j++){var sx=(j*137.5)%LW,sy=(j*91.7)%(LH*.6);ctx.globalAlpha=0.3+0.6*(0.5+0.5*Math.sin(t*2+j));ctx.fillRect(sx,sy,1,1);}ctx.globalAlpha=1;}
+    }
+    return draw;
+  }
+  var bg=document.getElementById('aurora'),ov=document.getElementById('aurora2');
+  var drawBg=bg?makeAurora(bg,{sky:true,base:0.30,span:0.16,w:240,h:135}):null;
+  var drawOv=ov?makeAurora(ov,{sky:false,base:0.2,span:0.1,w:260,h:120,fade:[0.36,0.52],fadeIn:0.18}):null;
+  var contact=document.getElementById('contact'),ovVisible=false;
+  if(ov&&'IntersectionObserver' in window){new IntersectionObserver(function(e){ovVisible=e[0].isIntersecting;},{threshold:0}).observe(ov);}else{ovVisible=true;}
+  function loop(){var n=window.__night||0;if(!document.hidden){if(!reduce)t+=0.016;if(drawBg&&n>0.03)drawBg();if(drawOv&&ovVisible)drawOv();}requestAnimationFrame(loop);}
+  if(drawBg)drawBg();if(drawOv)drawOv();if(!reduce)loop();
 })();
 </script>
 </body>
