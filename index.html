@@ -798,7 +798,7 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
 <script data-goatcounter="https://sarawudth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
 fetch('https://sarawudth.goatcounter.com/counter/TOTAL.json').then(function(r){return r.ok?r.json():null}).then(function(d){
-  if(!d||!d.count)return;document.getElementById('views-n').textContent=d.count;document.getElementById('views').hidden=false;
+  if(!d||!d.count||d.count==='0')return;document.getElementById('views-n').textContent=d.count;document.getElementById('views').hidden=false;
 }).catch(function(){});
 </script>
 </body>
