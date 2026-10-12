@@ -642,7 +642,7 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
   </div>
 </section>
 
-<footer><div class="wrap">© 2026 Sarawud Saleesongsom · Last updated October 2026</div></footer>
+<footer><div class="wrap">© 2026 Sarawud Saleesongsom · Last updated October 2026<span id="views" hidden> · <i class="fa-regular fa-eye" aria-hidden="true"></i> <b id="views-n"></b> views</span></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" defer></script>
 <script>
@@ -794,6 +794,12 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
   function loop(){var n=window.__night||0;if(!document.hidden){if(!reduce)t+=0.016;if(drawBg&&n>0.03)drawBg();if(drawOv&&ovVisible)drawOv();}requestAnimationFrame(loop);}
   if(drawBg)drawBg();if(drawOv)drawOv();if(!reduce)loop();
 })();
+</script>
+<script data-goatcounter="https://sarawudth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+fetch('https://sarawudth.goatcounter.com/counter/TOTAL.json').then(function(r){return r.ok?r.json():null}).then(function(d){
+  if(!d||!d.count)return;document.getElementById('views-n').textContent=d.count;document.getElementById('views').hidden=false;
+}).catch(function(){});
 </script>
 </body>
 </html>
