@@ -1,5 +1,5 @@
 sarawudsaleesongsom.com
-Personal academic website of Sarawud (Juy) Saleesongsom — environmental geochemist and atmospheric chemist, Postdoctoral Researcher at the Environmental Science Research Center (ESRC), Chiang Mai University.
+Personal academic website of Sarawud (Juy) Saleesongsom, environmental geochemist and atmospheric chemist, Postdoctoral Researcher at the Environmental Science Research Center (ESRC), Chiang Mai University.
 
 Visit the site: https://sarawudsaleesongsom.com
 
