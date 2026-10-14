@@ -136,6 +136,10 @@ section .wrap{padding-block:3rem}
 .post-more:hover{color:var(--ocean)}
 .post-media{display:grid;gap:4px;border-radius:10px;overflow:hidden;margin-bottom:.8rem}
 .post-media.two{grid-template-columns:1fr 1fr}
+.post-media.one img{height:auto;max-height:none;object-fit:contain;background:#fff}
+.hl-more{display:block;margin:-.6rem auto 1.6rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.55rem 1.2rem;font:inherit;font-size:.9rem;font-weight:600;color:var(--ocean);cursor:pointer}
+.hl-more:hover{border-color:var(--ocean)}
+.post.extra[hidden]{display:none}
 .post-media.three{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px}
 .post-media.three img:first-child{grid-row:1 / span 2;height:100%}
 .post-media img{width:100%;height:100%;object-fit:cover;display:block;background:#e8eef5}
@@ -338,6 +342,28 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
         <header class="post-head">
           <img src="images/avatar.jpg" alt="" width="48" height="48">
           <div><strong>Sarawud (Juy) Saleesongsom, PhD</strong><span>Postdoctoral Researcher · ESRC, Chiang Mai University</span></div>
+          <a class="post-li" href="https://www.linkedin.com/feed/update/urn:li:activity:7516102383123238912/" aria-label="View this post on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        </header>
+        <div class="post-body" id="post0">
+          <p>The haze in Indonesia is back, and its impacts are being felt across Maritime Southeast Asia!</p>
+          <p>Reuters reported yesterday that haze from Indonesia’s most intense El Niño-fueled wildfire season in 11 years has caused a spike in respiratory illnesses and forced school closures in Malaysia, with air quality in Singapore also dropping sharply. The BBC reports today that over 1 million fire hotspots have been recorded this season, burning around 900,000 hectares, much of it from land clearing on peatlands.</p>
+          <p>None of this came out of nowhere. Copernicus (CAMS) flagged the risk back in August: fires had started in late July, concentrated in the peatlands of West and Central Kalimantan, with a strong El Niño and a developing positive Indian Ocean Dipole expected to make the season particularly difficult. As they noted, intense fires have occurred in every recent El Niño year: 1997, 2005/06, 2015, 2019, 2023.</p>
+          <p>So I pulled 23 years of CAMS reanalysis data for Central Kalimantan, Sumatra and Singapore to see how this season compares. Daily PM2.5 from 2003 to 2026, with El Niño/La Niña episodes shaded and the Indian Ocean Dipole below. The data says the same thing. Almost every big haze year sits inside an El Niño window. El Niño (often together with a positive IOD) suppresses rainfall over Indonesia, and the drained peatlands burn. This year’s data (in red) already shows daily concentrations above 600 µg/m³. And what concerns me most is that the season isn’t over yet.</p>
+          <p>This is not only an Indonesian problem. The smoke crosses borders within days, which is why this is called transboundary haze. And it is not only a maritime Southeast Asia problem either. In about 4 to 5 months, the same story will repeat in mainland Southeast Asia, when the burning season in Myanmar, Laos, and northern Thailand brings severe haze to the region every year from February to April.</p>
+          <p>Two haze seasons a year in the region, both predictable. We understand the climate patterns behind these events, and we have the tools to monitor fires and air pollution. I hope we can put more effort into preventing fires, managing peatlands and reducing agricultural burning, rather than responding only after the haze has spread.</p>
+          <p>Data: CAMS EAC4 reanalysis and near-real-time forecasts, NOAA Oceanic Niño Index (ONI) and Dipole Mode Index (DMI).</p>
+          <p class="post-tags"><a href="https://www.linkedin.com/search/results/all/?keywords=%23airpollution&amp;origin=HASH_TAG_FROM_FEED">#AirPollution</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23pm25&amp;origin=HASH_TAG_FROM_FEED">#PM25</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23transboundaryhaze&amp;origin=HASH_TAG_FROM_FEED">#TransboundaryHaze</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23indonesia&amp;origin=HASH_TAG_FROM_FEED">#Indonesia</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23southeastasia&amp;origin=HASH_TAG_FROM_FEED">#SoutheastAsia</a></p>
+        </div>
+        <button class="post-more" type="button" data-target="post0" aria-expanded="false">…see more</button>
+        <div class="post-media one">
+          <img src="images/haze-kalimantan.jpg" alt="Two decades of haze in Central Kalimantan, Indonesia (2003–2026): daily area-mean surface PM2.5 from CAMS EAC4 reanalysis and the 2026 near-real-time forecast, with El Niño and La Niña episodes shaded and the Indian Ocean Dipole index below; nearly every major haze peak falls in an El Niño year, and 2026 already exceeds 600 µg/m³" loading="lazy">
+        </div>
+        <footer class="post-foot"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7516102383123238912/">View post on LinkedIn →</a></footer>
+      </article>
+      <article class="post">
+        <header class="post-head">
+          <img src="images/avatar.jpg" alt="" width="48" height="48">
+          <div><strong>Sarawud (Juy) Saleesongsom, PhD</strong><span>Postdoctoral Researcher · ESRC, Chiang Mai University</span></div>
           <a class="post-li" href="https://www.linkedin.com/feed/update/urn:li:activity:7511701591683452928/" aria-label="View this post on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
         </header>
         <div class="post-body" id="post1">
@@ -356,7 +382,7 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
         </div>
         <footer class="post-foot"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7511701591683452928/">View post on LinkedIn →</a></footer>
       </article>
-      <article class="post">
+      <article class="post extra" hidden>
         <header class="post-head">
           <img src="images/avatar.jpg" alt="" width="48" height="48">
           <div><strong>Sarawud (Juy) Saleesongsom, PhD</strong><span>Postdoctoral Researcher · ESRC, Chiang Mai University</span></div>
@@ -381,6 +407,7 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
         <footer class="post-foot"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7508932373670019072/">View post on LinkedIn →</a></footer>
       </article>
     </div>
+    <button class="hl-more" type="button" aria-expanded="false">See more highlights ↓</button>
     <h3 class="sub sub-lg">Updates</h3>
     <ul class="news">
       <li><time>1 Oct 2026</time><span>Appointed Visiting Researcher in the Department of Earth Science and Engineering, Imperial College London, to continue ongoing research and begin new collaborative work on negative pH, atmospheric pollution and aerosol thermodynamic modelling.</span></li>
@@ -737,6 +764,7 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
   });
 })();
 (function(){
+  (function(){var b=document.querySelector('.hl-more');if(!b)return;b.addEventListener('click',function(){var ex=document.querySelectorAll('.post.extra'),open=b.getAttribute('aria-expanded')==='true';Array.prototype.forEach.call(ex,function(e){e.hidden=open});b.setAttribute('aria-expanded',open?'false':'true');b.textContent=open?'See more highlights ↓':'Show fewer highlights ↑';});})();
   Array.prototype.forEach.call(document.querySelectorAll('.post-more'),function(btn){
     var body=document.getElementById(btn.getAttribute('data-target'));
     btn.addEventListener('click',function(){var open=body.classList.toggle('open');btn.textContent=open?'show less':'…see more';btn.setAttribute('aria-expanded',open);});
