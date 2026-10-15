@@ -135,6 +135,15 @@ section .wrap{padding-block:3rem}
 .post-more{align-self:flex-start;background:none;border:0;padding:.1rem 0 .8rem;font:inherit;font-size:.85rem;color:var(--muted);cursor:pointer}
 .post-more:hover{color:var(--ocean)}
 .post-media{display:grid;gap:4px;border-radius:10px;overflow:hidden;margin-bottom:.8rem}
+.subhead{margin:2rem 0 .9rem;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ocean)}
+.role blockquote{grid-column:1 / -1;margin:.6rem 0 0;padding:.5rem .9rem;border-left:3px solid #bcd6f1;font-size:.88rem;font-style:italic;color:var(--muted)}
+.role .fb{margin:.7rem 0 0;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ocean)}
+.role .fb + blockquote{margin-top:.3rem}
+.roles .role{align-content:start}
+section.night .subhead{color:#9fd0ff}
+section.night .role .fb{color:#9fd0ff}
+section.night .role blockquote{border-left-color:rgba(127,196,255,.45);color:#c9d6e3}
+.lede{max-width:46rem;margin:0 0 1.4rem}
 .post-media.two{grid-template-columns:1fr 1fr}
 .post-media.one img{height:auto;max-height:none;object-fit:contain;background:#fff}
 .hl-more{display:block;margin:-.6rem auto 1.6rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.55rem 1.2rem;font:inherit;font-size:.9rem;font-weight:600;color:var(--ocean);cursor:pointer}
@@ -273,6 +282,7 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
       <li><a href="#publications">Publications</a></li>
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#outreach">Outreach</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -579,22 +589,51 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
     <h2>Teaching &amp; supervision</h2>
     <div class="roles">
       <div class="role">
-        <h3>Research project co-supervisor</h3>
-        <span class="when">2021 – 2026</span>
-        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>I co-supervised six students (three UROP, two MSci and one MSc) on Fe(II) oxidation and analytical Fe(II) measurement; two of them achieved First-Class marks and one a high 2:1. Most recently I guided an MSc project on post-rainfall PM<sub>2.5</sub> declines in Singapore, from developing the research idea through to feedback on the thesis.</p>
-      </div>
-      <div class="role">
-        <h3>Graduate teaching assistant</h3>
-        <span class="when">2021 – 2023</span>
-        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
-        <p>I supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led the Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
-      </div>
-      <div class="role">
         <h3>Laboratory manager</h3>
         <span class="when">Jul – Dec 2023</span>
         <span class="where"><a href="http://envgeochemimperial.uk/">Environmental Geochemistry Group</a>, Imperial College London</span>
         <p>I managed the laboratory's day-to-day operations and inventory, and trained new researchers in safety procedures, experimental methods and the analytical instruments (UV–Vis spectrometers and a Metrohm Titrando).</p>
+      </div>
+      <div class="role">
+        <h3>Graduate teaching assistant (GTA)</h3>
+        <span class="when">2021 – 2023</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London</span>
+        <p>I supported undergraduate modules in Geological Reactive Transport, Chemistry for Geoscientists and Mathematics for Geoscientists, and led the Fe(II) oxidation laboratory sessions for the Environmental Geochemistry and Climate module.</p>
+      </div>
+    </div>
+    <h3 class="subhead">Students I have supervised</h3>
+    <div class="roles students">
+      <div class="role">
+        <h3>Hao Liu (MSc project)</h3>
+        <span class="when">May – Aug 2026</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisors: Yves Plancherel and Fangxin Fang; advisor: Juy</span>
+        <p><em>Separating rainfall-associated PM<sub>2.5</sub> reductions from normal temporal change: a five-year matched-control study in tropical Singapore.</em> I proposed the research question, advised on the matched-control approach and wet-scavenging interpretation, and gave feedback on the thesis. Awarded a First-Class mark.</p>
+      </div>
+      <div class="role">
+        <h3>Esther Zhang (UROP project)</h3>
+        <span class="when">Jun – Oct 2024</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Juy</span>
+        <p>Measurement error analysis in Fe(II) concentration using the UV–Vis method. I taught her the Fe(II)–ferrozine assay, Fe(II) calibration, quantifying analytical error from repeated measurements versus error propagation, and comparing linear and non-linear least-squares fitting for rate-constant estimation using experimental and literature data.</p>
+      </div>
+      <div class="role">
+        <h3>Milly Yuechen Dong (UROP &amp; MSci projects)</h3>
+        <span class="when">Jul 2023 – Jan 2024</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Dominik Weiss; advisor: Juy (MSci) · Supervisor: Juy (UROP)</span>
+        <p>Fe(II) oxidation in rainwater and the effect of rainwater pollutants on oxidation rates. During the UROP I trained her in Fe(II) oxidation experiments, colorimetric Fe measurement and kinetic data analysis; in the MSci project I taught her PHREEQC geochemical modelling and aqueous speciation calculations, and helped refine the research direction. Awarded a high 2:1 mark.</p>
+        <p class="fb">Student feedback</p>
+        <blockquote>"During the UROP, he provided clear guidance and structured mentorship, which helped me quickly get prepared for the professional research. His patience and willingness to answer questions really encouraged me. I still remember the time when I got confused and overwhelmed, he said to me 'Don't worry, I was the same when I first started. We all go through this.' As I transitioned into the MSci project, he continued to be my vice supervisor, offered insightful feedback and helped refine my research direction. His deep understanding of the subject and hands-on approach not only improved my technical skills in chemical kinetics but also strengthened my critical thinking and confidence as a researcher."</blockquote>
+      </div>
+      <div class="role">
+        <h3>Lilian Yueyang Yu (UROP project)</h3>
+        <span class="when">Aug – Sep 2022</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Juy</span>
+        <p>Analytical Fe(II)/Fe(III) measurement by the ferrozine method. I trained her in preparing calibration standards, UV–Vis spectrophotometry, and testing reducing agents for total-Fe determination.</p>
+      </div>
+      <div class="role">
+        <h3>Abigail Wong Mae-Ern (MSci project)</h3>
+        <span class="when">Oct 2021 – Jan 2022</span>
+        <span class="where">Department of Earth Science and Engineering, Imperial College London<br>Supervisor: Dominik Weiss; advisor: Juy</span>
+        <p>Fe(II) oxidation kinetics as a function of pH and ionic strength. I guided the experimental design, UV–Vis Fe(II) measurements and kinetic data analysis; her results fed into our AASC 2022 abstract. Awarded a First-Class mark.</p>
       </div>
     </div>
   </div>
@@ -603,24 +642,38 @@ body>footer .wrap{padding-block:1.6rem 2.4rem;font-size:.8rem;font-family:var(--
 <section id="outreach" class="night">
   <div class="wrap">
     <h2>Science communication</h2>
+    <p class="lede">I enjoy turning research into something people can use: videos and posts that explain environmental science, training that helps colleagues work with their data, and teaching material for students.</p>
     <div class="roles">
       <div class="role">
         <h3>Environmental Geochemistry Teaching Corner</h3>
         <span class="when">Mar 2026 – present</span>
         <span class="where"><a href="https://www.youtube.com/@EnvGeoChemTeachingCorner">youtube.com/@EnvGeoChemTeachingCorner</a></span>
-        <p>Short videos explaining current research in environmental geochemistry, aimed at students and anyone curious about the subject.</p>
+        <p>On my YouTube channel I make short videos featuring current research in environmental geochemistry, explaining the science and why it matters to students and anyone curious about the subject.</p>
+      </div>
+      <div class="role">
+        <h3>Workshop: Data Visualisation and Charts with Claude</h3>
+        <span class="when">Oct 2026</span>
+        <span class="where">Environmental Science Research Center (ESRC), Chiang Mai University</span>
+        <p>I ran a hands-on workshop for ESRC researchers on using AI tools for data analysis and scientific figures. Part 1 introduced Claude Cowork, the structure of Python code, working with scientific datasets, generating and refining visualisations, and tips for publication-ready figures, using our group's air pollution and PM datasets.</p>
+      </div>
+      <div class="role">
+        <h3><a href="blog.html">Environmental Science Blog</a></h3>
+        <span class="when">2026 – present</span>
+        <span class="where"><a href="blog.html">sarawudsaleesongsom.com/blog</a> · also shared on <a href="https://www.linkedin.com/in/sarawud-saleesongsom/">LinkedIn</a></span>
+        <p>I write data-led posts for a general audience on air pollution and environmental chemistry. Recent posts analyse 23 years of CAMS reanalysis data alongside El Niño and Indian Ocean Dipole records to show why Southeast Asian haze years are predictable, and introduce open-source Python code for negative-pH calibration.</p>
+        <p class="more-link"><a href="blog.html">Read the blog →</a></p>
       </div>
       <div class="role">
         <h3>Science content developer</h3>
         <span class="when">Jan – Jun 2026</span>
-        <span class="where">Nexrise Partners Co., Ltd., Bangkok (remote)</span>
-        <p>I developed science curriculum materials for more than 180 modules in Earth science, physics and technology.</p>
+        <span class="where">Nexrise Partners Co., Ltd., Bangkok (remote, part-time)</span>
+        <p>I developed science curriculum materials for more than 180 modules covering Earth science, physics and technology.</p>
       </div>
       <div class="role">
         <h3>Climate science and AI evaluation</h3>
         <span class="when">May – Dec 2025</span>
-        <span class="where">Prolific / Scale AI (remote)</span>
-        <p>I evaluated and refined AI-generated climate science responses across eight projects, contributing annotated data to the CLINB climate benchmark study (<a href="https://doi.org/10.48550/arXiv.2511.11597">arXiv:2511.11597</a>).</p>
+        <span class="where">Prolific / Scale AI (remote, part-time)</span>
+        <p>Over 142 hours across eight projects, I evaluated and refined AI-generated answers to climate science questions, checking them for scientific accuracy and clarity. My annotations contributed to the CLINB climate benchmark study (<a href="https://doi.org/10.48550/arXiv.2511.11597">arXiv:2511.11597</a>).</p>
       </div>
     </div>
   </div>

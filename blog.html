@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Environmental Science Blog · Sarawud Saleesongsom</title>
+<meta name="description" content="Data-led posts on air pollution, transboundary haze and environmental chemistry by Sarawud Saleesongsom.">
+<link rel="canonical" href="https://sarawudsaleesongsom.com/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b5fb8'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#ffffff;--bg2:#f1f7fd;--surface:#ffffff;--fg:#0f2440;--muted:#4f6886;--line:#d3e2f2;--sky:#5aa9f0;--ocean:#0b5fb8;--land:#2f8f6b;
+--font-display:"Sora","Helvetica Neue",Arial,sans-serif;--font-body:"Manrope","Helvetica Neue",Arial,sans-serif;--font-mono:"JetBrains Mono",Menlo,Consolas,monospace;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.65}
+a{color:var(--ocean);text-decoration:none;border-bottom:1px solid transparent}a:hover{border-bottom-color:currentColor}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1rem}
+.wrap{max-width:900px;margin:0 auto;padding-inline:24px}
+nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:.65rem}
+nav .brand{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--fg);margin-right:auto}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.2rem .85rem;flex-wrap:wrap;font-size:.74rem}
+nav ul a{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:500;font-family:var(--font-mono)}nav ul a:hover{color:var(--ocean)}
+header{background:linear-gradient(180deg,#1a63c4 0%,#3d8fe3 55%,#cfe6fa 100%);color:#fff}
+header .wrap{padding-block:3rem 2.6rem}
+.crumb{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem}
+.crumb a{color:#e4f0fb}.crumb a:hover{color:#fff}
+h1{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:.6rem}
+.short{font-family:var(--font-mono);font-size:.8rem;color:#e4f0fb;margin-bottom:.9rem}
+.lead{font-size:1.12rem;color:#f2f8ff;max-width:44rem;margin:0}
+main .wrap{padding-block:2.4rem 3rem}
+section{margin-bottom:2.2rem}
+h2{font-size:1.35rem;margin-bottom:.7rem;color:var(--ocean)}
+h2::after{content:"";display:block;height:1px;margin-top:.5rem;background:linear-gradient(90deg,var(--ocean),transparent)}
+ul.aims{margin:0;padding-left:1.2rem}ul.aims li{margin-bottom:.5rem}
+.tools{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.7rem 1rem}
+.pub{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.pub li{padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:.93rem}
+.pub .doi{font-family:var(--font-mono);font-size:.76rem}
+.pub .status{display:inline-block;font-size:.7rem;font-family:var(--font-mono);color:var(--land);border:1px solid currentColor;border-radius:4px;padding:0 .4rem;margin-left:.3rem;vertical-align:1px}
+.people{color:var(--muted);font-size:.93rem}
+.more{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
+.more a{font-size:.85rem;padding:.45rem .85rem;border:1px solid var(--line);border-radius:999px;background:var(--bg2)}
+.more a:hover{border-color:var(--ocean)}
+.figs{display:grid;gap:1.2rem}
+.fig{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{font-size:.85rem;color:var(--muted);padding:.6rem .9rem;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--ocean),var(--sky));color:#fff;padding:.6rem 1.1rem;border-radius:999px;font-weight:600;font-size:.9rem;border-bottom:0}
+.btn:hover{filter:brightness(1.08)}
+.btn svg,.btn i{width:1.1em;height:1.1em}
+footer{background:#1f3a24;color:#cfe3c9}footer .wrap{padding-block:1.4rem 2rem;font-size:.8rem;font-family:var(--font-mono)}
+
+.posts{display:grid;gap:1.6rem}
+.bpost{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:1.3rem 1.4rem;box-shadow:0 2px 12px rgba(11,95,184,.05)}
+.bpost .meta{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--land);margin-bottom:.4rem}
+.bpost h2{font-size:1.3rem;margin-bottom:.9rem}
+.bpost h2::after{display:none}
+.bpost p{font-size:.97rem}
+.bpost .tags a{display:inline-block;margin-right:.4rem;color:#0a66c2;font-weight:600;font-size:.9rem}
+.bpost figure{margin:1rem 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.bpost figure img{display:block;width:100%;height:auto}
+.bpost .li{font-size:.88rem;font-weight:600}
+.toc{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem}
+.toc a{font-size:.85rem;padding:.4rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--bg2)}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="index.html">S. Saleesongsom</a><ul>
+<li><a href="index.html#home">Home</a></li><li><a href="index.html#research">Research</a></li><li><a href="index.html#positions">Positions</a></li><li><a href="index.html#publications">Publications</a></li><li><a href="index.html#teaching">Teaching</a></li><li><a href="index.html#outreach">Outreach</a></li><li><a href="blog.html">Blog</a></li><li><a href="index.html#contact">Contact</a></li>
+</ul></div></nav>
+<header><div class="wrap">
+<div class="crumb"><a href="index.html#outreach">← Science communication</a></div>
+<h1>Environmental Science Blog</h1>
+<div class="short">Air pollution · transboundary haze · environmental chemistry</div>
+<p class="lead">Short, data-led posts for a general audience about the science behind the air we breathe and the water around us. Each post was first shared on LinkedIn, where you are welcome to join the discussion.</p>
+</div></header>
+<main><div class="wrap">
+<div class="toc" aria-label="Posts"><a href="#p0">The haze in Indonesia is back</a><a href="#p1">Open-source code for negative-pH calibration</a></div>
+<div class="posts">
+<article class="bpost" id="p0">
+<div class="meta">14 October 2026 · Air pollution</div>
+<h2>The haze in Indonesia is back</h2>
+<p>The haze in Indonesia is back, and its impacts are being felt across Maritime Southeast Asia!</p><p>Reuters reported yesterday that haze from Indonesia’s most intense El Niño-fueled wildfire season in 11 years has caused a spike in respiratory illnesses and forced school closures in Malaysia, with air quality in Singapore also dropping sharply. The BBC reports today that over 1 million fire hotspots have been recorded this season, burning around 900,000 hectares, much of it from land clearing on peatlands.</p><p>None of this came out of nowhere. Copernicus (CAMS) flagged the risk back in August: fires had started in late July, concentrated in the peatlands of West and Central Kalimantan, with a strong El Niño and a developing positive Indian Ocean Dipole expected to make the season particularly difficult. As they noted, intense fires have occurred in every recent El Niño year: 1997, 2005/06, 2015, 2019, 2023.</p><p>So I pulled 23 years of CAMS reanalysis data for Central Kalimantan, Sumatra and Singapore to see how this season compares. Daily PM2.5 from 2003 to 2026, with El Niño/La Niña episodes shaded and the Indian Ocean Dipole below. The data says the same thing. Almost every big haze year sits inside an El Niño window. El Niño (often together with a positive IOD) suppresses rainfall over Indonesia, and the drained peatlands burn. This year’s data (in red) already shows daily concentrations above 600 µg/m³. And what concerns me most is that the season isn’t over yet.</p><p>This is not only an Indonesian problem. The smoke crosses borders within days, which is why this is called transboundary haze. And it is not only a maritime Southeast Asia problem either. In about 4 to 5 months, the same story will repeat in mainland Southeast Asia, when the burning season in Myanmar, Laos, and northern Thailand brings severe haze to the region every year from February to April.</p><p>Two haze seasons a year in the region, both predictable. We understand the climate patterns behind these events, and we have the tools to monitor fires and air pollution. I hope we can put more effort into preventing fires, managing peatlands and reducing agricultural burning, rather than responding only after the haze has spread.</p><p>Data: CAMS EAC4 reanalysis and near-real-time forecasts, NOAA Oceanic Niño Index (ONI) and Dipole Mode Index (DMI).</p>
+<figure><img src="images/haze-kalimantan.jpg" alt="Two decades of haze in Central Kalimantan, Indonesia (2003–2026): daily area-mean surface PM2.5 from CAMS EAC4 reanalysis and the 2026 near-real-time forecast, with El Niño and La Niña episodes shaded and the Indian Ocean Dipole index below" loading="lazy"></figure>
+<p class="tags"><a href="https://www.linkedin.com/search/results/all/?keywords=%23airpollution&amp;origin=HASH_TAG_FROM_FEED">#AirPollution</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23pm25&amp;origin=HASH_TAG_FROM_FEED">#PM25</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23transboundaryhaze&amp;origin=HASH_TAG_FROM_FEED">#TransboundaryHaze</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23indonesia&amp;origin=HASH_TAG_FROM_FEED">#Indonesia</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23southeastasia&amp;origin=HASH_TAG_FROM_FEED">#SoutheastAsia</a></p>
+<p class="li"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7516102383123238912/">Discuss this post on LinkedIn →</a></p>
+</article><article class="bpost" id="p1">
+<div class="meta">31 July 2026 · Negative pH</div>
+<h2>Open-source code for negative-pH calibration</h2>
+<p>Following our recent publication in ACS Omega, <em>Temperature-Dependent Nonlinear Calibration of Glass pH Electrodes for Negative pH Measurements</em>, I've created a GitHub repository with a Python implementation of our calibration method to make it easier for others to apply it in their own research.</p><p>The repository supports both standard pH calibration (pH 1–12) and negative pH calibration (down to pH −5) with temperature correction for combined glass pH electrodes.</p><p>It includes:<br>✅ Standard pH calibration (pH 1–12)<br>✅ Negative pH calibration down to pH −5<br>✅ Temperature correction across 5–60 °C<br>✅ Nonlinear calibration for combined glass pH electrodes<br>✅ A practical workflow for researchers working with highly acidic systems</p><p>I hope this repository will be useful for researchers studying acid mine drainage, industrial process waters, acid flow batteries, and other extremely acidic environments.</p><p>📄 Publication:<br><a href="https://pubs.acs.org/acsodf/article/11/27/40120/5172600/Temperature-Dependent-Nonlinear-Calibration-of">pubs.acs.org/doi/10.1021/acsomega.6c01903</a></p><p>💻 GitHub repository:<br><a href="https://github.com/SarawudTH/NegativePH">github.com/SarawudTH/NegativePH</a></p><p>The repository includes the Python code required to perform the negative pH calibration and temperature correction described in our paper. I hope it makes these methods more accessible and reproducible. Feedback, questions, and contributions are always welcome!</p>
+<figure><img src="images/negativeph-calibration-flowchart.jpg" alt="Flowchart of pH calibration for combined glass pH electrodes: standard calibration (pH 1 to 12) at one temperature or any temperature, and the new negative-pH calibration down to pH −5 at one temperature or at any temperature from 5 to 60 °C, each with example input tables and output calibration curves" loading="lazy"></figure>
+<p class="tags"><a href="https://www.linkedin.com/search/results/all/?keywords=%23opensource&amp;origin=HASH_TAG_FROM_FEED">#OpenSource</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23github&amp;origin=HASH_TAG_FROM_FEED">#GitHub</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23analyticalchemistry&amp;origin=HASH_TAG_FROM_FEED">#AnalyticalChemistry</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23environmentalchemistry&amp;origin=HASH_TAG_FROM_FEED">#EnvironmentalChemistry</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23negativeph&amp;origin=HASH_TAG_FROM_FEED">#NegativepH</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23ph&amp;origin=HASH_TAG_FROM_FEED">#pH</a> <a href="https://www.linkedin.com/search/results/all/?keywords=%23electrochemistry&amp;origin=HASH_TAG_FROM_FEED">#Electrochemistry</a></p>
+<p class="li"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7488907620033155072/">Discuss this post on LinkedIn →</a></p>
+</article>
+</div>
+</div></main>
+<footer><div class="wrap">© 2026 Sarawud Saleesongsom · <a href="index.html" style="color:#dce9f7">sarawudsaleesongsom.com</a></div></footer>
+<script data-goatcounter="https://sarawudth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
