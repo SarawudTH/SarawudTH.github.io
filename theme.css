@@ -1,0 +1,457 @@
+/* Clean academic theme — white pages, deep-blue accent, sharp edges, plain typography.
+   Loaded after each page's own <style>, so these rules take precedence. */
+:root{
+  /* Five-colour palette — every colour on the page comes from these */
+  --c-charcoal:#3c3744;  /* body text, footer */
+  --c-deep:#090c9b;      /* header block, headings */
+  --c-blue:#3066be;      /* links, buttons, accent bars */
+  --c-mist:#b4c5e4;      /* rules, borders, light panels */
+  --c-cream:#ffffff;     /* text on dark areas (white) */
+  --c-white:#ffffff;     /* page background */
+  --blue:var(--c-blue);--navy:var(--c-deep);--hero:var(--c-deep);
+  --ink:var(--c-charcoal);--grey:var(--c-charcoal);--tint:var(--c-white);--rule:var(--c-mist);
+  --bg:var(--c-white);--bg2:var(--c-white);--surface:var(--c-white);--fg:var(--ink);--muted:var(--grey);--line:var(--rule);
+  --sky:var(--blue);--ocean:var(--blue);--land:var(--navy);--glow:transparent;
+  --font-display:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+html,body{background:var(--c-white)!important}
+body{color:var(--ink);font-family:var(--font-body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+#descent,#aurora,#aurora2{display:none!important}
+
+/* links */
+a{color:var(--blue);border-bottom:0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent)}
+a:hover,a:focus-visible{text-decoration-color:currentColor}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+/* headings: solid, bold, sentence case */
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-.02em;color:var(--navy)}
+h2{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:var(--navy)!important;font-weight:700;font-size:2rem;display:block}
+h2::after,h1.ph::after{display:none!important}
+h1.ph{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:var(--navy)!important;font-weight:800}
+h3{font-weight:700}
+.sub,.subhead,.cv-grid h3,.contact dt,.form label,.news time,.crumb,.short,.tools,.aff-label{font-family:var(--font-body)!important;letter-spacing:0!important;text-transform:none!important}
+.sub,.subhead{color:var(--navy)!important;font-weight:700;font-size:1.05rem}
+.sub-lg{color:var(--navy)!important;font-weight:700}
+
+/* nav: white bar, plain links, blue underline on hover */
+nav{background:var(--c-white)!important;backdrop-filter:none!important;border-bottom:1px solid var(--rule)!important}
+nav .wrap{padding-block:1rem!important}
+nav .brand{font-weight:800;font-size:1.1rem;color:var(--navy)!important;text-decoration:none;letter-spacing:-.01em}
+nav ul{font-size:.92rem!important;gap:.3rem 1.3rem!important}
+nav ul a{font-family:var(--font-body)!important;text-transform:none!important;letter-spacing:0!important;color:var(--ink)!important;font-weight:500;text-decoration:none;padding-bottom:4px;border-bottom:2px solid transparent!important}
+nav ul a:hover,nav ul a[aria-current]{color:var(--blue)!important;border-bottom-color:var(--blue)!important}
+
+/* hero: solid blue block, white type */
+body>header{background:var(--hero)!important;color:var(--c-cream)!important}
+body>header::before{display:none!important}
+body>header h1,body>header .crumb a,body>header .lead,body>header .short{color:var(--c-cream)!important}
+h1{text-shadow:none!important;font-weight:800;letter-spacing:-.025em}
+h1 .nick{color:var(--c-cream)!important;font-weight:400;opacity:.85}
+h1 .degree{color:var(--c-cream)!important;opacity:.85}
+.tagline{color:var(--c-cream)!important;text-shadow:none!important;font-size:1.15rem}
+.affil{color:var(--c-cream)!important;text-shadow:none!important}
+.eyebrow{color:var(--c-cream)}
+.keywords li{background:transparent!important;color:var(--c-cream)!important;border-color:var(--c-mist)!important;border-radius:999px!important;font-family:var(--font-body)!important}
+.portrait{border-radius:14px!important;border:0!important;box-shadow:none!important;width:220px!important;height:260px!important}
+.links a{border-radius:50%!important;background:transparent!important;color:var(--c-cream)!important;border:1px solid var(--c-mist)!important;text-decoration:none;backdrop-filter:none!important}
+.links a:hover{background:var(--c-white)!important;color:var(--hero)!important;box-shadow:none!important}
+.spheres{display:none!important}
+@media (max-width:620px){.portrait{width:140px!important;height:165px!important}}
+
+/* sections: white, alternating light grey, no dark "night" panels */
+section,section.dusk,section.night,#outreach,#publications,#teaching{background:var(--c-white)!important;color:var(--ink)!important;border-top:0!important}
+main>section:nth-of-type(even),body>section:nth-of-type(even){background:var(--tint)!important}
+section.night h2{color:var(--navy)!important}
+section.night a,section.night .pubs h3,section.night .pub .me,section.night .conf .venue{color:var(--c-deep)!important}
+section.night .lead,section.night .role p,section.night .pub li{color:var(--ink)!important}
+section.night .role h3,section.night .conf .me{color:var(--navy)!important}
+section.night .role .where{color:var(--grey)!important}
+section.night .subhead,section.night .role .fb{color:var(--navy)!important}
+section.night .role blockquote{color:var(--grey)!important;border-left-color:var(--blue)!important}
+section.night .pub .status{color:var(--navy)!important}
+.lead{color:var(--ink)!important}
+
+/* affiliations strip */
+#affiliations{background:var(--c-white)!important;border-bottom:1px solid var(--rule)!important}
+.aff-label{font-size:.95rem!important;font-weight:700;color:var(--navy)!important}
+
+/* cards: square corners, no shadows, light rule */
+.post,.theme,.role,.pub li,.xcard,.rshow,.rmap,.lab-photos figure,.fig,#contact .card,.tools{border-radius:14px!important;box-shadow:none!important;overflow:hidden}
+.post,.theme,.role,.pub li{border:1px solid var(--rule)!important;background:var(--c-white)!important}
+.theme::before{background:var(--blue)!important;width:4px!important}
+.theme:hover,.xcard:hover{border-color:var(--blue)!important}
+.theme h3,.pubs h3,.pub .me,.conf .venue{color:var(--navy)!important}
+.xcard{background:var(--tint)!important;border:0!important;border-top:4px solid var(--blue)!important;text-decoration:none!important}
+.xcard:hover{background:var(--blue)!important;color:var(--c-cream)!important}
+.xcard:hover *{color:var(--c-cream)!important}
+.role .when,.pub .status{border-radius:999px!important;background:transparent!important;font-family:var(--font-body)!important;color:var(--navy)!important;border-color:var(--rule)!important}
+.post-media{border-radius:10px!important}
+.post-head img{border-radius:50%}
+.rmap .tnode .ic,.rmap .dot{border-radius:50%}
+
+/* buttons: flat blue rectangles */
+.btn,.hl-more,.more a{background:var(--blue)!important;color:var(--c-cream)!important;border-radius:10px!important;box-shadow:none!important;border:0!important;text-decoration:none!important;font-family:var(--font-body)}
+.btn:hover,.hl-more:hover,.more a:hover{background:var(--navy)!important;filter:none!important}
+.copy{border-radius:6px!important;font-family:var(--font-body)!important}
+.profiles a{border-radius:50%!important;text-decoration:none}
+.more-link a{font-weight:700}
+
+/* contact: plain white page, light-grey panels */
+#contact{min-height:0!important;background:var(--c-white)!important;isolation:auto!important}
+#contact::before{display:none!important}
+#contact .wrap{padding-block:3rem 4rem!important}
+#contact .card{background:var(--tint)!important;backdrop-filter:none!important;border:0!important}
+.form input,.form textarea{border-radius:8px!important;border-color:var(--c-mist)!important}
+.form label,.contact dt,#form-status{color:var(--navy)!important;font-weight:600}
+
+/* footer: navy */
+body>footer{background:var(--navy)!important;color:var(--c-cream)!important}
+body>footer .wrap{font-family:var(--font-body)!important}
+body>footer a{color:var(--c-cream)!important}
+.fsocial a{border-radius:50%!important;text-decoration:none}
+
+/* research sub-pages header breadcrumbs */
+.crumb a{text-decoration:none}
+
+/* palette details */
+body>section,main>section{border-top:1px solid var(--c-mist)!important}
+body>section:first-of-type{border-top:0!important}
+main>section:nth-of-type(even),body>section:nth-of-type(even){background:var(--c-white)!important}
+#contact .card{background:var(--c-mist)!important}
+.form input,.form textarea{background:var(--c-white)!important;color:var(--c-charcoal)!important}
+.xcard{background:var(--c-white)!important;border:1px solid var(--c-mist)!important;border-top:4px solid var(--c-blue)!important}
+.xcard:hover{background:var(--c-deep)!important;border-color:var(--c-deep)!important}
+.xcard strong,.xcard i,.xcard svg{color:var(--c-deep)!important}
+.xcard span{color:var(--c-charcoal)!important}
+.rshow .slides{background:var(--c-white)!important}
+.rbar{background:var(--c-charcoal)!important;color:var(--c-cream)!important}
+.rcap a{color:var(--c-cream)!important}
+.rbar button{background:var(--c-blue)!important;color:var(--c-cream)!important;border-left-color:var(--c-charcoal)!important}
+.rbar button:hover,.rbar button:focus-visible{background:var(--c-deep)!important}
+.post-li,.post-tags a{color:var(--c-blue)!important}
+.post-body::after{background:linear-gradient(rgba(255,255,255,0),var(--c-white))!important}
+.news time{color:var(--c-blue)!important}
+.role blockquote{border-left-color:var(--c-blue)!important}
+.post-media img{background:var(--c-mist)!important}
+::selection{background:var(--c-mist);color:var(--c-charcoal)}
+body>footer{background:var(--c-charcoal)!important;color:var(--c-cream)!important}
+.fsocial a{border-color:var(--c-cream)!important;color:var(--c-cream)!important}
+.profiles a{background:var(--c-white)!important;border-color:var(--c-mist)!important;color:var(--c-deep)!important}
+
+/* homepage hero: animated cloud flight (palette-tinted), dark text on a soft white wash */
+body>header#home{background:var(--c-mist)!important;color:var(--c-charcoal)!important}
+body>header#home::before{display:block!important;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.72),rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 78%)!important}
+#sky{display:block!important}
+header#home h1{color:var(--c-deep)!important}
+header#home h1 .nick,header#home h1 .degree{color:var(--c-blue)!important;opacity:1}
+header#home .tagline,header#home .affil{color:var(--c-charcoal)!important}
+header#home .links a{color:var(--c-deep)!important;border-color:var(--c-deep)!important;background:rgba(255,255,255,.6)!important}
+header#home .links a:hover{background:var(--c-deep)!important;color:var(--c-white)!important}
+@media (max-width:620px){body>header#home::before{background:rgba(255,255,255,.55)!important}}
+.post-media video{display:block;width:100%;height:auto;background:var(--c-charcoal)}
+
+/* ===== Layout from "website design" PPT (Oct 2026) ===== */
+:root{--c-tint:rgba(180,197,228,.32)}   /* light wash of #b4c5e4 for bands */
+
+/* header bar: solid deep blue, large name, uppercase menu */
+nav{background:var(--c-deep)!important;border-bottom:0!important}
+nav .wrap{padding-block:1.1rem!important;align-items:center}
+nav .brand{color:var(--c-white)!important;font-size:clamp(1.4rem,3.2vw,2.3rem)!important;font-weight:800!important;letter-spacing:-.02em}
+nav ul a{color:var(--c-white)!important;text-transform:uppercase!important;letter-spacing:.04em!important;font-size:.88rem;border-bottom:2px solid transparent!important}
+nav ul a:hover,nav ul a[aria-current]{color:var(--c-white)!important;border-bottom-color:var(--c-mist)!important}
+
+/* homepage hero over the clouds */
+header#home{background:var(--c-mist)!important}
+header#home::before{background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.35))!important}
+.hero2{padding-block:3.6rem 3rem}
+.hero-title{font-family:var(--font-display);font-weight:800;color:var(--c-charcoal);font-size:clamp(2rem,5.2vw,3.6rem);line-height:1.08;letter-spacing:-.025em;margin:0 0 .8rem;max-width:22ch}
+.hero-tag{font-style:italic;color:var(--c-charcoal);font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.45;max-width:58rem;margin:0 0 2.6rem}
+.pcard{display:grid;grid-template-columns:220px 1fr;background:var(--c-white);border:2px solid var(--c-deep);box-shadow:0 10px 34px rgba(9,12,155,.18)}
+.pc-photo{background:var(--c-deep);padding:12px 0 12px 12px}
+.pc-photo img{display:block;width:100%;height:100%;min-height:210px;object-fit:cover;object-position:50% 25%}
+.pc-main{display:grid;grid-template-rows:auto 1fr;min-width:0}
+.pc-top{background:var(--c-deep);color:var(--c-white);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:1rem 1.2rem 1.4rem 1.4rem;flex-wrap:wrap}
+header#home .pc-id h1{color:var(--c-white)!important;font-size:clamp(1.3rem,2.6vw,2rem);margin:0;font-weight:800}
+.pc-role{color:var(--c-white);margin:.2rem 0 0;font-size:1.1rem}
+header#home .pc-top .links{margin:0;background:var(--c-mist);padding:.4rem .5rem;gap:.4rem}
+header#home .pc-top .links a{width:36px;height:36px;border-radius:50%!important;background:var(--c-white)!important;color:var(--c-deep)!important;border:0!important}
+header#home .pc-top .links a:hover{background:var(--c-deep)!important;color:var(--c-white)!important}
+.pc-logos{display:flex;align-items:center;padding:1rem 1.4rem}
+.pc-logos .logos{justify-content:flex-start;gap:1rem 2.2rem}
+@media (max-width:760px){
+  .pcard{grid-template-columns:1fr}
+  .pc-photo{padding:12px 12px 0}
+  .pc-photo img{max-width:220px;min-height:0;aspect-ratio:1/1.1}
+  .pc-logos .logos{justify-content:center}
+}
+
+/* section heading styles from the PPT */
+h2.h-ink{color:var(--c-charcoal)!important}
+h2.h-rule{color:var(--c-deep)!important;display:inline-block!important}
+h2.h-rule::after{display:block!important;content:"";height:4px;width:75%;margin-top:.45rem;background:var(--c-deep)!important}
+section.band,body>section.band:nth-of-type(n){background:var(--c-tint)!important}
+#updates,#research{background:var(--c-white)!important}
+
+/* More about me cards */
+.explore{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.xcard{background:var(--c-white)!important;border:1px solid var(--c-mist)!important;border-top:1px solid var(--c-mist)!important;border-radius:14px!important;padding:1.3rem 1.4rem 1.5rem!important;gap:.6rem!important}
+.xcard i,.xcard svg{font-size:1.9rem!important;width:1.9rem!important;height:1.9rem!important;margin-bottom:1rem}
+.xcard strong{font-size:1.2rem!important;line-height:1.25}
+.xcard:hover{background:var(--c-white)!important;border-color:var(--c-deep)!important;transform:translateY(-2px)}
+.xcard:hover strong,.xcard:hover i,.xcard:hover svg{color:var(--c-deep)!important}
+.xcard:hover span{color:var(--c-charcoal)!important}
+
+/* Update timeline: chevrons from mid blue to deep blue, labels alternate above/below */
+.timeline{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:auto auto auto}
+.timeline li{display:contents}
+.timeline .tl-step{grid-row:2;position:relative;margin-left:-14px;height:50px;display:grid;place-items:center;color:var(--c-white);font-weight:700;background:color-mix(in srgb,var(--c-deep) var(--k),var(--c-blue));clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%,22px 50%)}
+.timeline li:first-child .tl-step{margin-left:0;clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%)}
+.timeline .tl-info{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.15rem;padding:0 .2rem;font-size:.92rem;line-height:1.3}
+.timeline .tl-info strong{color:var(--c-charcoal);font-size:1.02rem}
+.timeline .tl-info span{color:var(--c-charcoal)}
+.timeline .tl-info i,.timeline .tl-info svg{color:var(--c-deep);font-size:1.3rem;width:1.3rem;height:1.3rem}
+.timeline li.up .tl-info{grid-row:1;flex-direction:column-reverse;justify-content:flex-start;padding-bottom:.6rem}
+.timeline li.up .tl-info strong{order:2}.timeline li.up .tl-info span{order:1}.timeline li.up .tl-info i,.timeline li.up .tl-info svg{order:0}
+.timeline li.down .tl-info{grid-row:3;padding-top:.6rem}
+.timeline li:nth-child(1) .tl-info,.timeline li:nth-child(1) .tl-step{grid-column:1}
+.timeline li:nth-child(2) .tl-info,.timeline li:nth-child(2) .tl-step{grid-column:2}
+.timeline li:nth-child(3) .tl-info,.timeline li:nth-child(3) .tl-step{grid-column:3}
+.timeline li:nth-child(4) .tl-info,.timeline li:nth-child(4) .tl-step{grid-column:4}
+.timeline li:nth-child(5) .tl-info,.timeline li:nth-child(5) .tl-step{grid-column:5}
+.timeline li:nth-child(6) .tl-info,.timeline li:nth-child(6) .tl-step{grid-column:6}
+.timeline li:nth-child(7) .tl-info,.timeline li:nth-child(7) .tl-step{grid-column:7}
+@media (max-width:860px){
+  .timeline{display:flex;flex-direction:column;gap:.7rem}
+  .timeline li{display:grid;grid-template-columns:7.5rem 1fr;align-items:center;gap:.9rem}
+  .timeline .tl-step,.timeline li:first-child .tl-step{grid-row:1;grid-column:1!important;margin:0;height:44px;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%)}
+  .timeline li .tl-info,.timeline li.up .tl-info,.timeline li.down .tl-info{grid-row:1;grid-column:2!important;flex-direction:row;flex-wrap:wrap;align-items:baseline;text-align:left;gap:.1rem .5rem;padding:0}
+  .timeline li.up .tl-info i,.timeline li.up .tl-info svg{order:0}.timeline li.up .tl-info strong{order:1}.timeline li.up .tl-info span{order:2}
+  .timeline .tl-info span{flex-basis:100%;padding-left:1.8rem}
+}
+
+/* News cards */
+#news .ncards{background:var(--c-white);padding:1.2rem;display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.ncard{display:flex;flex-direction:column;gap:.55rem;color:var(--c-charcoal)!important;text-decoration:none!important}
+.ncard-media{aspect-ratio:4/3;overflow:hidden;background:var(--c-mist)}
+.ncard-media img,.ncard-media video{width:100%;height:100%;object-fit:cover;display:block}
+.ncard strong{font-size:1.15rem;line-height:1.25;color:var(--c-charcoal);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.ncard span{font-size:.95rem}
+.ncard:hover strong{color:var(--c-blue)}
+
+/* Research frames: deep-blue frame, light text panel left, visual right */
+.rframe{background:var(--c-deep);padding:3rem 1.2rem;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:1.2rem;margin:1.2rem 0 2rem}
+.rpanel{background:#e7ecf6;padding:1.4rem 1.5rem;color:var(--c-charcoal)}
+.rpanel h3{color:var(--c-charcoal)!important;font-size:1.5rem;margin-bottom:.8rem}
+.rvis{min-width:0;align-self:center}
+.rvis .rmap,.rvis .rshow{margin:0!important}
+@media (max-width:860px){.rframe{grid-template-columns:1fr;padding:1.2rem}}
+
+/* Selected publications on a band, white cards */
+#publications .pub li{background:var(--c-white)!important;border-color:var(--c-white)!important}
+#publications.band,#more.band,#news.band{background:var(--c-tint)!important}
+#research .rframe:last-child{margin-bottom:0}
+body>header:not(#home){border-top:1px solid var(--c-blue)}
+
+/* ===== Round 2 of PPT feedback ===== */
+/* Text uses three colours only: white, deep blue, dark grey */
+a{color:var(--c-deep)!important;text-decoration-color:color-mix(in srgb,var(--c-deep) 40%,transparent)}
+h1,h2,h3,h2.h-ink,h2.h-rule,.rpanel h3,.pubs h3,.theme h3,.xcard strong,.ncard strong,.sub,.subhead,.sub-lg{color:var(--c-deep)!important}
+body,p,li,span,.lead,.tagline,.affil,time,.news time,.timeline .tl-info strong,.timeline .tl-info span{color:inherit}
+body{color:var(--c-charcoal)!important}
+.news time,.pub .me,.conf .venue,.post-li,.post-tags a,.role .when,.pub .status{color:var(--c-deep)!important}
+
+/* Hero heading: white with a blue shadow so it stands out from the clouds */
+.hero-title{color:var(--c-white)!important;text-shadow:0 2px 0 var(--c-deep),0 4px 22px rgba(9,12,155,.55),0 0 2px rgba(9,12,155,.6)}
+.hero-tag{color:var(--c-white)!important;font-weight:500;text-shadow:0 1px 0 var(--c-deep),0 2px 14px rgba(9,12,155,.65)}
+
+/* Profile card: translucent white behind photo and logos, blue band for name + icons */
+.pcard{background:rgba(255,255,255,.62)!important;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:14px;overflow:hidden;grid-template-columns:240px 1fr}
+.pc-photo{background:transparent!important;padding:14px!important}
+.pc-photo img{border-radius:10px}
+.pc-top{border-bottom-left-radius:0}
+header#home .pc-top .links{background:transparent!important;padding:0!important}
+.pc-logos{background:transparent!important}
+@media (max-width:760px){.pcard{grid-template-columns:1fr}.pc-photo{padding:14px 14px 0!important}}
+
+/* One box style everywhere: white, light-blue border, rounded corners */
+.xcard,.ncard,#publications .pub li,.rpanel,.rshow,.pcard{border-radius:14px!important}
+.ncard,#publications .pub li{background:var(--c-white)!important;border:1px solid var(--c-mist)!important}
+#news .ncards{background:transparent!important;padding:0!important}
+.ncard{padding:1rem 1rem 1.3rem!important;transition:border-color .2s,transform .2s}
+.ncard:hover{border-color:var(--c-deep)!important;transform:translateY(-2px)}
+.ncard-media{border-radius:8px}
+.ncard strong{text-decoration:none!important}
+.ncard span{color:var(--c-charcoal)!important}
+.rframe{border-radius:14px}
+.rshow{overflow:hidden}
+
+/* Research slideshow: first slide is the research map */
+.slide-map .frame{padding:10px!important}
+.slide-map .rmap{height:100%;width:auto;max-width:100%;aspect-ratio:1400/933;margin:0!important;border:0!important;border-radius:8px!important;box-shadow:none!important}
+.slide-map .rmap .stage,.slide-map .rmap .stage img{width:100%;height:100%}
+.slide-map .rmap img{max-height:none!important;border-radius:0!important;object-fit:cover}
+.slide-map .rmap .tnode .ic{width:46px;height:46px;font-size:1.1rem;border-width:3px}
+.slide-map .rmap .tnode .tn{top:26px;font-size:.72rem;padding:.18rem .5rem;border-width:1px;border-radius:7px}
+.slide-map .rmap .pnode{font-size:.6rem;padding:.15rem .5rem .15rem .2rem;max-width:11rem}
+.slide-map .rmap .pnode b{width:1rem;height:1rem;font-size:.58rem}
+@media (max-width:620px){.slide-map .rmap .tnode .ic{width:26px;height:26px;font-size:.7rem}.slide-map .rmap .tnode .tn{top:14px;font-size:.5rem}}
+
+/* Footer: same blue as the header, icons styled like the profile-card icons */
+body>footer{background:var(--c-deep)!important;color:var(--c-white)!important}
+.fsocial a{border-radius:50%!important;background:var(--c-white)!important;color:var(--c-deep)!important;border:0!important}
+.fsocial a:hover{background:var(--c-mist)!important}
+.slide-map .rmap .tnode .tn{max-width:8.5rem;white-space:normal;text-align:center}
+.slide-map .rmap .pnode{max-width:9.5rem}
+
+/* ===== Round 3: diagram first, rounded light-blue boxes on every page ===== */
+.rframe{grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr)}
+.rframe .rvis{order:-1}
+@media (max-width:860px){.rframe{grid-template-columns:1fr}}
+.slide-map .rmap .tnode .ic{width:58px;height:58px;font-size:1.4rem}
+.slide-map .rmap .tnode .tn{top:32px;font-size:.85rem;max-width:11rem}
+
+/* box colour: light blue on white sections, white on light-blue bands */
+:root{--c-box:#edf1f9}
+.post,.theme,.role,.pub li,.xcard,.ncard,.fig,.lab-photos figure,.tools,.bpost,.toc,#contact .card{background:var(--c-box)!important;border:1px solid var(--c-mist)!important;border-radius:14px!important}
+.band .xcard,.band .ncard,#publications.band .pub li{background:var(--c-white)!important}
+.post-body::after{background:linear-gradient(rgba(237,241,249,0),var(--c-box))!important}
+.post-media.one img,.fig img{background:var(--c-white)!important}
+.bpost{padding:1.4rem 1.6rem!important}
+.theme::before{display:none!important}
+.slide-map .frame{padding:12px 70px 30px!important}
+.slide-map .rmap,.slide-map .rmap .stage{overflow:visible!important}
+
+/* Profile card: no blue band — whole card is translucent white */
+.pcard{border:1px solid rgba(255,255,255,.8)!important;box-shadow:0 10px 34px rgba(9,12,155,.15)!important}
+.pc-top{background:transparent!important;padding-bottom:.6rem!important}
+header#home .pc-id h1{color:var(--c-deep)!important}
+.pc-role{color:var(--c-charcoal)!important}
+header#home .pc-top .links a{background:var(--c-deep)!important;color:var(--c-white)!important}
+header#home .pc-top .links a:hover{background:var(--c-blue)!important}
+.pc-logos{padding-top:.4rem!important}
+
+/* ===== Round 4: research back to two frames; centred profile card on phones ===== */
+.rmap-themes{margin:0!important;border:0!important;border-radius:12px!important;overflow:visible!important}
+.rmap-themes .stage{border-radius:12px;overflow:hidden}
+.rframe-map .rvis{background:var(--c-white);border-radius:14px;padding:14px 14px 10px}
+.rmap-cap{margin:.6rem 0 0;font-size:.9rem;color:var(--c-charcoal)}
+@media (max-width:620px){.rmap-themes .tnode .tn{display:block!important}}
+@media (max-width:760px){
+  .pcard{text-align:center}
+  .pc-photo{display:flex;justify-content:center}
+  .pc-photo img{margin:0 auto}
+  .pc-top{flex-direction:column;align-items:center;justify-content:center;padding:1rem 1rem .6rem!important}
+  .pc-id{text-align:center}
+  header#home .pc-top .links{justify-content:center}
+  .pc-logos{justify-content:center}
+  .pc-logos .logos{justify-content:center!important}
+}
+.rmap-themes .stage{overflow:visible!important}
+.rmap-themes .stage img,.rmap-themes .stage::after{border-radius:12px}
+.rmap-cap{margin-top:1.7rem!important}
+@media (max-width:620px){.rmap-cap{margin-top:1.2rem!important}}
+
+/* ===== Round 5 ===== */
+/* Research block 1: original layout — text, then the full-width theme map */
+.rintro{margin:0 0 2.4rem}
+.rintro h3{font-size:1.5rem;margin-bottom:.7rem}
+.rintro>p{max-width:62rem}
+.rintro .rmap-themes{margin:1.2rem 0 1rem!important;border-radius:14px!important}
+.rintro .rmap-themes .stage img,.rintro .rmap-themes .stage::after{border-radius:14px}
+/* Research block 2: blue frame; slideshow without caption text */
+.rshow .rcap{display:none!important}
+.rshow .rbar{background:var(--c-white)!important;justify-content:flex-end;gap:.4rem;padding:.5rem .6rem;min-height:0!important}
+.rshow .rcount{color:var(--c-charcoal)!important;margin-right:auto;padding-left:.4rem}
+.rshow .rbar button{width:40px!important;height:40px;border-radius:50%!important;border:0!important;background:var(--c-deep)!important}
+.rshow .rbar button:hover{background:var(--c-blue)!important}
+.rshow .rbar svg{width:18px;height:18px}
+/* publication titles link to the article */
+a.pub-title{font-weight:500}
+/* Research page: original theme-card look, recoloured */
+.themes .theme{background:var(--c-white)!important;border:1px solid var(--c-mist)!important;position:relative}
+.themes .theme::before{display:block!important;content:"";position:absolute;left:0;top:0;bottom:0;width:4px!important;background:linear-gradient(180deg,var(--c-mist),var(--c-blue),var(--c-deep))!important}
+.themes .theme:hover{border-color:var(--c-deep)!important}
+/* News: 4 cards on large screens, only the 2 latest on phones */
+@media (max-width:620px){#news .ncards .ncard:nth-child(n+3){display:none!important}}
+
+/* ===== Round 6 ===== */
+/* Slideshow: original design (caption bar + buttons), palette colours, full width */
+#research .rshow{margin:0 0 1rem!important;border:1px solid var(--c-mist)!important;border-radius:14px!important;overflow:hidden;background:var(--c-white)!important}
+#research .rshow .rcap{display:flex!important}
+#research .rshow .rbar{background:var(--c-charcoal)!important;justify-content:flex-start;gap:0;padding:0!important;min-height:58px!important}
+#research .rshow .rcount{color:var(--c-mist)!important;margin-right:0;padding:0 .9rem}
+#research .rshow .rbar button{width:58px!important;height:auto;border-radius:0!important;background:var(--c-blue)!important;border-left:1px solid rgba(255,255,255,.18)!important}
+#research .rshow .rbar button:hover{background:var(--c-deep)!important}
+#research .rshow .rbar svg{width:22px;height:22px}
+#research .rcap,#research .rcap a{color:var(--c-white)!important}
+@media (max-width:620px){#research .rshow .rbar button{width:42px!important}#research .rshow .rbar{min-height:50px!important}}
+
+/* Profile: photo stands on its own; translucent box holds only name, icons and logos */
+.pcard{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;gap:1.4rem;align-items:stretch}
+.pc-photo{padding:0!important}
+.pc-photo img{border-radius:14px!important;box-shadow:0 10px 30px rgba(9,12,155,.22);height:100%}
+.pc-main{background:rgba(255,255,255,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.8);border-radius:14px;box-shadow:0 10px 34px rgba(9,12,155,.15);padding:.6rem .4rem;align-content:center}
+@media (max-width:760px){
+  .pcard{gap:1rem}
+  .pc-photo img{height:auto;width:220px;max-width:70%}
+}
+
+/* ===== Round 7 ===== */
+/* No underlines on any link */
+a,a:hover,a:focus-visible,a *,.ncard strong,.rcap a,.crumb a,.more-link a,a.pub-title{text-decoration:none!important;border-bottom:0!important}
+a:hover{opacity:.85}
+nav ul a{border-bottom:2px solid transparent!important}
+nav ul a:hover,nav ul a[aria-current]{border-bottom:2px solid var(--c-mist)!important;opacity:1}
+
+/* Profile: no box. Photo left; name, position and icons right; affiliation logos underneath */
+.pcard{grid-template-columns:220px 1fr!important;grid-template-rows:auto auto;gap:1.2rem 1.8rem!important;align-items:center!important}
+.pc-main{display:contents!important}
+.pc-photo{grid-column:1;grid-row:1}
+.pc-photo img{height:auto!important;aspect-ratio:1/1.1}
+.pc-top{grid-column:2;grid-row:1;background:transparent!important;padding:0!important;flex-direction:column;align-items:flex-start!important;gap:.8rem}
+header#home .pc-id h1{text-shadow:0 0 18px rgba(255,255,255,.9),0 0 3px rgba(255,255,255,.9)}
+.pc-role{font-size:1.2rem;text-shadow:0 0 14px rgba(255,255,255,.9)}
+.pc-logos{grid-column:1 / -1;grid-row:2;padding:0!important}
+.pc-logos .logos{justify-content:flex-start!important}
+@media (max-width:760px){
+  .pcard{grid-template-columns:1fr!important}
+  .pc-photo,.pc-top,.pc-logos{grid-column:1!important}
+  .pc-top{grid-row:2;align-items:center!important}
+  .pc-logos{grid-row:3}
+  .pc-logos .logos{justify-content:center!important}
+}
+
+/* Research: slideshow first, then Research highlights + map */
+#research .rshow{margin-bottom:2.4rem!important}
+
+/* ===== Round 8 ===== */
+/* Profile: small round photo with name, position and icons beside it */
+.pcard{grid-template-columns:auto 1fr!important;grid-template-rows:auto!important;gap:1.6rem!important;align-items:center!important}
+.pc-photo img{width:150px!important;height:150px!important;aspect-ratio:1/1!important;border-radius:50%!important;object-fit:cover;object-position:50% 25%;border:4px solid var(--c-white);box-shadow:0 8px 26px rgba(9,12,155,.25)!important}
+.pc-top{grid-row:1!important;align-items:flex-start!important;gap:.6rem!important}
+@media (max-width:760px){
+  .pcard{grid-template-columns:auto 1fr!important;gap:1rem!important;text-align:left}
+  .pc-photo{grid-column:1!important;display:block}
+  .pc-top{grid-column:2!important;grid-row:1!important;align-items:flex-start!important}
+  .pc-id{text-align:left}
+  .pc-photo img{width:96px!important;height:96px!important;margin:0!important;max-width:none}
+  header#home .pc-id h1{font-size:1.15rem}
+  .pc-role{font-size:1rem}
+  header#home .pc-top .links{justify-content:flex-start;gap:.3rem}
+  header#home .pc-top .links a{width:32px;height:32px}
+}
+/* Affiliation logos: their own white section, as on the old site */
+#affiliations{background:var(--c-white)!important;border-bottom:1px solid var(--c-mist)!important}
+#affiliations .wrap{padding-block:1.4rem 1.6rem!important}
+#affiliations .aff-label{text-align:center;margin:0 0 .9rem;font-weight:700;color:var(--c-deep)!important}
+#affiliations .logos{justify-content:center!important}
+.pc-photo img{min-height:0!important;max-height:none!important}
+.hero2{padding-bottom:2.4rem!important}
+.hero-tag{margin-bottom:2rem!important}
+@media (max-width:760px){header#home .pc-top .links{gap:.25rem}header#home .pc-top .links a{width:30px!important;height:30px!important}}
+@media (max-width:760px){header#home .pc-top .links{gap:.2rem!important;flex-wrap:nowrap}header#home .pc-top .links a{width:28px!important;height:28px!important}header#home .pc-top .links a svg{font-size:.95rem}}
+/* Bigger round profile photo */
+.pc-photo img{width:210px!important;height:210px!important}
+@media (max-width:760px){.pc-photo img{width:120px!important;height:120px!important}}

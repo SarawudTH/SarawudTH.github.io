@@ -10,8 +10,8 @@
 <meta property="og:description" content="Teaching, laboratory management and student supervision by Sarawud Saleesongsom.">
 <meta property="og:image" content="https://sarawudsaleesongsom.com/images/og-card.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b5fb8'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230000cd'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ESS%3C/text%3E%3C/svg%3E">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 /* Layout: light blue-and-white look; hero is a procedural flight over a cloud deck (canvas, mode-7 perspective + fBm noise) — animated atmosphere/ocean/land hero, glass panels, cyan glow for links, lichen-green for land-side labels. */
 :root{
@@ -315,7 +315,6 @@ main.page{min-height:70vh}
 </style>
 </head>
 <body class="force-night">
-<div id="descent" aria-hidden="true"><div class="sky"></div><div class="dusk"></div><div class="earth"><canvas id="aurora"></canvas></div></div>
 <nav>
   <div class="wrap">
     <a class="brand" href="index.html">S. Saleesongsom</a>
@@ -392,75 +391,6 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
 });
 
 (function(){
-  var c=document.getElementById('sky');if(!c)return;var ctx=c.getContext('2d');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // --- tileable fBm value-noise texture (cloud density map)
-  var N=256, tex=new Float32Array(N*N);
-  function lattice(p){var g=new Float32Array(p*p);for(var i=0;i<p*p;i++)g[i]=Math.random();return g;}
-  function smooth(t){return t*t*(3-2*t);}
-  function sample(g,p,x,y){var xi=Math.floor(x),yi=Math.floor(y),fx=smooth(x-xi),fy=smooth(y-yi);
-    var x0=xi%p,x1=(xi+1)%p,y0=yi%p,y1=(yi+1)%p;
-    var a=g[y0*p+x0],b=g[y0*p+x1],cc=g[y1*p+x0],d=g[y1*p+x1];
-    return (a+(b-a)*fx)+((cc+(d-cc)*fx)-(a+(b-a)*fx))*fy;}
-  (function(){var oct=[[4,.5],[8,.25],[16,.125],[32,.0625],[64,.03125]],gs=oct.map(function(o){return lattice(o[0]);});
-    var mx=0;for(var y=0;y<N;y++)for(var x=0;x<N;x++){var v=0;for(var k=0;k<oct.length;k++){var p=oct[k][0];v+=sample(gs[k],p,x/N*p,y/N*p)*oct[k][1];}tex[y*N+x]=v;if(v>mx)mx=v;}
-    for(var i=0;i<N*N;i++)tex[i]/=mx;})();
-  function noise(u,v){ // bilinear, wrapping, u,v in texture units
-    var x=((u%N)+N)%N,y=((v%N)+N)%N,xi=x|0,yi=y|0,fx=x-xi,fy=y-yi,x1=(xi+1)%N,y1=(yi+1)%N;
-    var a=tex[yi*N+xi],b=tex[yi*N+x1],cc=tex[y1*N+xi],d=tex[y1*N+x1];
-    return (a+(b-a)*fx)*(1-fy)+(cc+(d-cc)*fx)*fy;}
-  // --- low-res offscreen buffer, perspective "cloud sea" (mode-7 style)
-  var LW=480,LH=270,off=document.createElement('canvas'),octx=off.getContext('2d'),img,px;
-  var skyTop=[46,124,220],skyHor=[196,224,246],sun=[255,250,235];
-  var t=0,W,H;
-  function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;LW=W<700?260:480;LH=Math.max(120,Math.min(700,Math.round(LW*H/W)));off.width=LW;off.height=LH;img=octx.createImageData(LW,LH);px=img.data;}
-  function frame(){
-    var hy=LH*0.46; // horizon row
-    var camZ=t*28; // forward motion
-    for(var y=0;y<LH;y++){
-      for(var x=0;x<LW;x++){
-        var i=(y*LW+x)*4,r,g,b;
-        if(y<hy){ // sky with distant cumulus
-          var f=y/hy,f2=f*f;
-          r=skyTop[0]+(skyHor[0]-skyTop[0])*f2;g=skyTop[1]+(skyHor[1]-skyTop[1])*f2;b=skyTop[2]+(skyHor[2]-skyTop[2])*f2;
-          var cu=noise(x*0.7+t*2.0,y*1.4+40);var cd=Math.max(0,(cu-0.58)/0.42)*(0.15+0.85*f);cd=cd*cd*2.2;if(cd>1)cd=1;
-          r+=(255-r)*cd;g+=(255-g)*cd;b+=(255-b)*cd;
-        }else{ // cloud deck below the camera
-          var z=(LH/9)/(y-hy+1.0);          // depth: large near horizon
-          var u=(x-LW/2)*z*0.5, v=z*35+camZ;
-          var n=noise(u,v)*0.65+noise(u*2.3+17,v*2.3)*0.25+noise(u*5.1+40,v*5.1+9)*0.10;
-          var dens=Math.max(0,Math.min(1,(n-0.40)/0.22));dens=dens*dens*(3-2*dens);
-          var fog=Math.pow(Math.min(1,z/40),1.5)*0.9; // distance haze
-          // shading: top-lit, slight blue in shadow
-          var lit=0.74+0.26*Math.max(0,Math.min(1,0.5+(noise(u,v-4)-noise(u,v+4))*2.2));
-          var cr=255*lit,cg=252*lit,cb=250*lit;
-          var sr=118,sg=168,sb=228;       // deep gaps = sky-blue shadow
-          r=sr+(cr-sr)*dens;g=sg+(cg-sg)*dens;b=sb+(cb-sb)*dens;
-          r+=(skyHor[0]-r)*fog;g+=(skyHor[1]-g)*fog;b+=(skyHor[2]-b)*fog;
-        }
-        px[i]=r;px[i+1]=g;px[i+2]=b;px[i+3]=255;
-      }
-    }
-    octx.putImageData(img,0,0);
-    ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-    ctx.drawImage(off,0,0,W,H);
-    // sun glow
-    var gx=W*0.78,gy=H*0.12,rg=ctx.createRadialGradient(gx,gy,0,gx,gy,W*0.35);
-    rg.addColorStop(0,'rgba(255,250,230,.75)');rg.addColorStop(.25,'rgba(255,245,220,.25)');rg.addColorStop(1,'rgba(255,245,220,0)');
-    ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
-    t+=0.016;if(!reduce)requestAnimationFrame(frame);
-  }
-  size();frame();window.addEventListener('resize',function(){size();if(reduce)frame();});
-})();
-(function(){
-  var earth=document.querySelector('#descent .earth'),dusk=document.querySelector('#descent .dusk');
-  function upd(){var max=document.documentElement.scrollHeight-window.innerHeight;var p=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
-    var night=Math.max(0,(p-0.38)/0.5);if(night>1)night=1;night=night*night*(3-2*night);earth.style.opacity=night;window.__night=night;
-    var du=Math.max(0,Math.min(1,p/0.5));du=du*du*(3-2*du);dusk.style.opacity=du*(1-night*0.6);
-  }
-  window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
-})();
-(function(){
   var f=document.getElementById('contact-form');if(!f)return;var st=document.getElementById('form-status'),btn=document.getElementById('f-send');
   f.addEventListener('submit',function(e){
     e.preventDefault();
@@ -495,61 +425,10 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
     btn.addEventListener('click',function(){var open=body.classList.toggle('open');btn.textContent=open?'show less':'…see more';btn.setAttribute('aria-expanded',open);});
   });
 })();
-(function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var N=128,tex=new Float32Array(N*N);(function(){var seed=4242;function R(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
-    var oct=[[4,.5],[8,.25],[16,.125],[32,.0625]],gs=oct.map(function(o){var p=o[0],g=new Float32Array(p*p);for(var i=0;i<p*p;i++)g[i]=R();return g;});
-    function sm(t){return t*t*(3-2*t);}function samp(g,p,x,y){var xi=Math.floor(x),yi=Math.floor(y),fx=sm(x-xi),fy=sm(y-yi),x0=xi%p,x1=(xi+1)%p,y0=yi%p,y1=(yi+1)%p;var a=g[y0*p+x0],b=g[y0*p+x1],c2=g[y1*p+x0],d=g[y1*p+x1];var t1=a+(b-a)*fx,t2=c2+(d-c2)*fx;return t1+(t2-t1)*fy;}
-    var mx=0;for(var y=0;y<N;y++)for(var x=0;x<N;x++){var v=0;for(var k=0;k<oct.length;k++){var p=oct[k][0];v+=samp(gs[k],p,x/N*p,y/N*p)*oct[k][1];}tex[y*N+x]=v;if(v>mx)mx=v;}for(var i=0;i<N*N;i++)tex[i]/=mx;})();
-  function noise(u,v){var x=((u%N)+N)%N,y=((v%N)+N)%N,xi=x|0,yi=y|0,fx=x-xi,fy=y-yi,x1=(xi+1)%N,y1=(yi+1)%N;var a=tex[yi*N+xi],b=tex[yi*N+x1],c2=tex[y1*N+xi],d=tex[y1*N+x1];return (a+(b-a)*fx)*(1-fy)+(c2+(d-c2)*fx)*fy;}
-  var t=0;
-  // Renders aurora curtains into a canvas. opts.sky=true paints a night-sky base; otherwise the result is transparent.
-  // opts.base / opts.span position the curtains (fraction of height); opts.fade fades them out toward the bottom.
-  function makeAurora(c,opts){
-    var ctx=c.getContext('2d'),LW=opts.w||240,LH=opts.h||135,img,px;
-    c.width=LW;c.height=LH;img=ctx.createImageData(LW,LH);px=img.data;
-    function draw(){
-      for(var y=0;y<LH;y++){var v=y/LH;
-        for(var x=0;x<LW;x++){var u=x/LW,i=(y*LW+x)*4;
-          var r=0,g=0,b=0,alpha=0;
-          if(opts.sky){r=4+6*v;g=10+14*v;b=30+22*v;alpha=255;}
-          var cr=0,cg=0,cb=0,sum=0;
-          for(var k=0;k<3;k++){
-            var cy=opts.base+k*opts.span+0.22*opts.span/0.16*(noise(u*70+t*5+k*300,t*3+k*40)-0.5)*0.75+0.06*Math.sin(u*7+t*.35+k*2)+0.03*Math.sin(u*23-t*.6+k);
-            var d=cy-v;if(d<-0.05)continue;
-            var edge=d<0?1+d/0.05:1,fall=Math.exp(-Math.max(0,d)/(0.13+0.05*k));
-            var rn=noise(u*520+t*4+k*70,v*22+t*2),rays=0.25+1.3*rn*rn;
-            var bn=noise(u*55+t*2+k*120,k*33+t),big=0.15+1.7*bn*bn;
-            var I=edge*fall*rays*big*(k===0?1:k===1?0.75:0.5);if(I<=0)continue;
-            var h=Math.min(1,Math.max(0,d)/0.5);
-            var R2=h<0.5?70+(30-70)*(h/0.5):30+(110-30)*((h-0.5)/0.5);
-            var G2=h<0.5?255+(215-255)*(h/0.5):215+(80-215)*((h-0.5)/0.5);
-            var B2=h<0.5?120+(205-120)*(h/0.5):205+(225-205)*((h-0.5)/0.5);
-            cr+=R2*I;cg+=G2*I;cb+=B2*I;sum+=I;
-          }
-          if(opts.fade){var f=1-Math.min(1,Math.max(0,(v-opts.fade[0])/(opts.fade[1]-opts.fade[0])));cr*=f;cg*=f;cb*=f;sum*=f;}
-          if(opts.fadeIn){var fi=Math.min(1,v/opts.fadeIn);fi=fi*fi*(3-2*fi);cr*=fi;cg*=fi;cb*=fi;sum*=fi;}
-          if(opts.sky){r+=cr*1.05;g+=cg*1.05;b+=cb*1.05;}
-          else{var aI=Math.min(1,sum*1.05);if(aI>0){r=cr/sum;g=cg/sum;b=cb/sum;alpha=aI*255;}}
-          px[i]=r>255?255:r;px[i+1]=g>255?255:g;px[i+2]=b>255?255:b;px[i+3]=alpha;
-        }
-      }
-      ctx.putImageData(img,0,0);
-      if(opts.sky){ctx.fillStyle='rgba(255,255,255,.8)';for(var j=0;j<70;j++){var sx=(j*137.5)%LW,sy=(j*91.7)%(LH*.6);ctx.globalAlpha=0.3+0.6*(0.5+0.5*Math.sin(t*2+j));ctx.fillRect(sx,sy,1,1);}ctx.globalAlpha=1;}
-    }
-    return draw;
-  }
-  var bg=document.getElementById('aurora'),ov=document.getElementById('aurora2');
-  var drawBg=bg?makeAurora(bg,{sky:true,base:0.30,span:0.16,w:240,h:135}):null;
-  var drawOv=ov?makeAurora(ov,{sky:false,base:0.2,span:0.1,w:260,h:120,fade:[0.36,0.52],fadeIn:0.18}):null;
-  var contact=document.getElementById('contact'),ovVisible=false;
-  if(ov&&'IntersectionObserver' in window){new IntersectionObserver(function(e){ovVisible=e[0].isIntersecting;},{threshold:0}).observe(ov);}else{ovVisible=true;}
-  function loop(){var n=window.__night||0;if(!document.hidden){if(!reduce)t+=0.016;if(drawBg&&n>0.03)drawBg();if(drawOv&&ovVisible)drawOv();}requestAnimationFrame(loop);}
-  if(drawBg)drawBg();if(drawOv)drawOv();if(!reduce)loop();
-})();
 </script>
 
 <script>(function(){if(!document.body.classList.contains('force-night'))return;var s=function(){window.__night=1};s();window.addEventListener('scroll',s,{passive:true});})();</script>
 <script data-goatcounter="https://sarawudth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="theme.css">
 </body>
 </html>
