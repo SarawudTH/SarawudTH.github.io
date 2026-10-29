@@ -326,16 +326,22 @@ main.page{min-height:70vh}
   <div class="wrap">
     <h1 class="ph">Curriculum vitae</h1>
     <h2 id="background">My background</h2>
-    <p class="lead">I am an environmental geochemist working at the interface of aqueous chemistry and atmospheric science. My research explores how acidic atmospheric aerosols are, how much water they contain, and how these properties influence chemical reactions within aerosol particles. I am particularly interested in iron redox chemistry, especially the oxidation of iron(II), which influences iron solubility and bioavailability and, ultimately, the supply of this essential micronutrient to the oceans.</p>
-    <p>Since July 2026, I have been a postdoctoral researcher at the Environmental Science Research Center (ESRC), Chiang Mai University, Thailand. My current research investigates the chemical processes associated with transboundary biomass-burning haze in Northern Thailand. I use thermodynamic models, including E-AIM, ISORROPIA and AIOMFAC, to estimate size-resolved aerosol pH and aerosol liquid water content (ALWC). My aim is to better understand aerosol acidity and water content during haze episodes and improve the representation of these properties in atmospheric aerosol models.</p>
-    <p>I completed my PhD in Environmental Geochemistry at Imperial College London in 2026, investigating how pH, temperature and chemical speciation jointly control Fe(II) oxidation kinetics in oxygenated aqueous solutions. As part of this work, I developed a temperature-dependent, nonlinear calibration method for glass pH electrodes that extends reliable pH measurements into the negative-pH range. I then applied this method to investigate Fe(II) oxidation under extremely acidic conditions.</p>
-    <p>My interest in environmental science began during my second year as an undergraduate at Imperial College London, when I took an Environmental Geochemistry laboratory course with Dominik. Learning how trace elements such as arsenic and iron influence environmental chemistry sparked my curiosity about the chemical processes that shape our environment. Since then, I have wanted to understand how chemistry can help us investigate and address pollution across rivers, oceans, soils and the atmosphere.</p>
-    <p>Today, my research brings together analytical chemistry, aqueous-phase chemistry, thermodynamic modelling and chemical kinetics to understand the chemical processes underlying atmospheric pollution.</p>
-    <p>I welcome any discussion with potential collaborators, students and anyone interested in my research. Please feel free to <a href="contact.html">get in touch</a>.</p>
-    <div class="lab-photos">
-      <figure><img src="images/lab-electrode.jpg" alt="Calibrating a pH electrode in the Environmental Geochemistry Group at Imperial College London" loading="lazy"><figcaption>Calibrating a glass pH electrode for negative-pH work</figcaption></figure>
-      <figure><img src="images/graduation-dumpling.jpg" alt="Sarawud in a graduation gown outside the Royal School of Mines, Imperial College London, holding his dog Dumpling" loading="lazy"><figcaption>Graduation day 2021: taking photos in front of the Royal School of Mines with my beloved dog Dumpling</figcaption></figure>
+    <div class="bgcard">
+      <div class="bg-photo"><figure><img src="images/lab-electrode.jpg" alt="Calibrating a pH electrode in the Environmental Geochemistry Group at Imperial College London" loading="lazy"><figcaption>Calibrating a glass pH electrode for negative-pH work</figcaption></figure><figure><img src="images/graduation-dumpling.jpg" alt="Sarawud in a graduation gown outside the Royal School of Mines, Imperial College London, holding his dog Dumpling" loading="lazy"><figcaption>Graduation day 2021: taking photos in front of the Royal School of Mines with my beloved dog Dumpling</figcaption></figure></div>
+      <div class="bg-body">
+        <p class="lead">I am an environmental geochemist working at the interface of aqueous chemistry and atmospheric science. My research explores how acidic atmospheric aerosols are, how much water they contain, and how these properties influence chemical reactions within aerosol particles. I am particularly interested in iron redox chemistry, especially the oxidation of iron(II), which influences iron solubility and bioavailability and, ultimately, the supply of this essential micronutrient to the oceans.</p>
+        <ul class="facts"><li><b>Now</b>Postdoc, ESRC, Chiang Mai University</li><li><b>Also</b>Visiting Researcher, Imperial College London</li><li><b>PhD</b>Environmental Geochemistry, Imperial, 2026</li><li><b>Focus</b>Aerosol pH, liquid water &amp; Fe(II) chemistry</li></ul>
+        <button type="button" class="bg-toggle" aria-expanded="false" aria-controls="bg-rest"><span class="open-t">Read more about me</span><span class="close-t">Show less</span></button>
+      </div>
+      <div class="bg-rest" id="bg-rest" hidden>
+        <p>Since July 2026, I have been a postdoctoral researcher at the Environmental Science Research Center (ESRC), Chiang Mai University, Thailand. My current research investigates the chemical processes associated with transboundary biomass-burning haze in Northern Thailand. I use thermodynamic models, including E-AIM, ISORROPIA and AIOMFAC, to estimate size-resolved aerosol pH and aerosol liquid water content (ALWC). My aim is to better understand aerosol acidity and water content during haze episodes and improve the representation of these properties in atmospheric aerosol models.</p>
+  <p>I completed my PhD in Environmental Geochemistry at Imperial College London in 2026, investigating how pH, temperature and chemical speciation jointly control Fe(II) oxidation kinetics in oxygenated aqueous solutions. As part of this work, I developed a temperature-dependent, nonlinear calibration method for glass pH electrodes that extends reliable pH measurements into the negative-pH range. I then applied this method to investigate Fe(II) oxidation under extremely acidic conditions.</p>
+  <p>My interest in environmental science began during my second year as an undergraduate at Imperial College London, when I took an Environmental Geochemistry laboratory course with Dominik. Learning how trace elements such as arsenic and iron influence environmental chemistry sparked my curiosity about the chemical processes that shape our environment. Since then, I have wanted to understand how chemistry can help us investigate and address pollution across rivers, oceans, soils and the atmosphere.</p>
+  <p>Today, my research brings together analytical chemistry, aqueous-phase chemistry, thermodynamic modelling and chemical kinetics to understand the chemical processes underlying atmospheric pollution.</p>
+  <p>I welcome any discussion with potential collaborators, students and anyone interested in my research. Please feel free to <a href="contact.html">get in touch</a>.</p>
+      </div>
     </div>
+
     <h2>Education</h2>
     <div class="roles">
       <div class="role">
@@ -460,5 +466,6 @@ Array.prototype.forEach.call(document.querySelectorAll('button.copy'),function(b
 <script>(function(){if(!document.body.classList.contains('force-night'))return;var s=function(){window.__night=1};s();window.addEventListener('scroll',s,{passive:true});})();</script>
 <script data-goatcounter="https://sarawudth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="theme.css">
+<script>(function(){var b=document.querySelector('.bg-toggle'),r=document.getElementById('bg-rest');if(!b||!r)return;b.addEventListener('click',function(){var o=r.hidden;r.hidden=!o;b.setAttribute('aria-expanded',o);});})();</script>
 </body>
 </html>

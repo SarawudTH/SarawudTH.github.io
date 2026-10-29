@@ -570,3 +570,49 @@ header#home .pc-id h1{text-shadow:0 0 18px rgba(255,255,255,.9),0 0 3px rgba(255
   .rhl-h{padding:1rem .6rem .7rem}
 }
 .rhl{padding-bottom:20px}
+/* No doubled divider lines between sections (background colour change is enough) */
+body>section,main>section{border-top:0!important}
+#affiliations{border-bottom:0!important}
+
+/* CV: "My background" card with photo, short intro and expandable "Read more about me" */
+.bgcard{display:grid;grid-template-columns:300px 1fr;gap:1.8rem;background:var(--c-box,#edf1f9);border:1px solid var(--c-mist);border-radius:14px;padding:1.4rem;margin:0 0 2.4rem;align-items:start}
+.bg-photo figure,.bg-extra figure{margin:0;border-radius:12px;overflow:hidden;background:var(--c-white);border:0!important}
+.bg-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.bg-photo figcaption,.bg-extra figcaption{font-size:.8rem;color:var(--c-charcoal);padding:.5rem .7rem}
+.bg-body .lead{font-size:1.1rem;margin-bottom:1rem}
+.bg-more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;background:var(--c-deep);color:var(--c-white);font-weight:600;font-size:.92rem;padding:.55rem 1.1rem;border-radius:999px}
+.bg-more summary::-webkit-details-marker{display:none}
+.bg-more summary::after{content:"▾";font-size:.8rem}
+.bg-more[open] summary::after{content:"▴"}
+.bg-more summary:hover{background:var(--c-blue)}
+.bg-more .close-t,.bg-more[open] .open-t{display:none}
+.bg-more[open] .close-t{display:inline}
+.bg-more[open] summary{margin-bottom:1.1rem}
+.bg-rest p{margin:0 0 1rem}
+.bg-extra{max-width:340px;margin-top:.4rem}
+.bg-extra img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+@media (max-width:760px){.bgcard{grid-template-columns:1fr}.bg-photo{max-width:320px}}
+/* CV background: two photos side by side */
+.bgcard{grid-template-columns:440px 1fr!important}
+.bg-photo{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.bg-photo img{aspect-ratio:3/4!important}
+@media (max-width:900px){.bgcard{grid-template-columns:1fr!important}.bg-photo{max-width:none!important}}
+/* CV background: expanded text spans the full width of the box */
+.bg-rest{grid-column:1 / -1;border-top:1px solid var(--c-mist);padding-top:1.2rem;font-size:1.02rem}
+.bg-rest[hidden]{display:none}
+.bg-toggle{display:inline-flex;align-items:center;gap:.4rem;background:var(--c-deep);color:var(--c-white);font:inherit;font-weight:600;font-size:.92rem;padding:.55rem 1.1rem;border:0;border-radius:999px;cursor:pointer}
+.bg-toggle:hover{background:var(--c-blue)}
+.bg-toggle::after{content:"▾";font-size:.8rem}
+.bg-toggle[aria-expanded="true"]::after{content:"▴"}
+.bg-toggle .close-t,.bg-toggle[aria-expanded="true"] .open-t{display:none}
+.bg-toggle[aria-expanded="true"] .close-t{display:inline}
+/* CV background v2: quote bar intro, quick facts, larger side-by-side photos */
+.bgcard{grid-template-columns:480px 1fr!important;align-items:center!important;gap:2rem!important;padding:1.6rem!important}
+.bg-photo{gap:.8rem!important}
+.bg-photo img{aspect-ratio:3/4!important}
+.bg-body .lead{border-left:4px solid var(--c-deep);padding-left:1rem;font-size:1.12rem;margin-bottom:1.2rem}
+.facts{list-style:none;padding:0;margin:0 0 1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.facts li{background:var(--c-white);border:1px solid var(--c-mist);border-radius:10px;padding:.55rem .8rem;font-size:.9rem;color:var(--c-charcoal);line-height:1.35}
+.facts b{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c-blue)}
+@media (max-width:1100px){.bgcard{grid-template-columns:1fr!important}.bg-photo{max-width:560px}}
+@media (max-width:480px){.facts{grid-template-columns:1fr}}
